@@ -1,0 +1,39 @@
+#!/usr/bin/env node
+
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// TODO: Switch from promisify to fs promises when not experimental in node
+const { promisify } = require('util');
+const glob = require('glob');
+const { readFile } = require('fs');
+const { join } = require('path');
+
+const readFilePromise = promisify(readFile);
+const globPromise = promisify(glob);
+
+(async () => {
+    const filePaths = await globPromise('**/*.{js,ts}', {
+        ignore: ['node_modules/**', 'coverage/**', 'dist/**'],
+    });
+
+    const missingHeaders = (await Promise.all(
+        filePaths.map(p => readFilePromise(join(process.cwd(), p), 'utf8')),
+    ))
+        .map((code, i) => {
+            if (
+                !code.includes('Copyright © Magento, Inc. All rights reserved.')
+            ) {
+                return filePaths[i];
+            }
+        })
+        .filter(Boolean);
+
+    if (!missingHeaders.length) return;
+
+    console.error('The following files are missing the Magento copyright:');
+    console.error(missingHeaders.join('\n'));
+    process.exit(1);
+})();

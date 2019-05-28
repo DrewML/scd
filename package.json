@@ -1,0 +1,42 @@
+{
+  "name": "@magento/scd",
+  "version": "0.0.1",
+  "description": "Fast, drop-in replacement for Magento Static Content Deployment",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write $(head -1 prettier-globs)",
+    "format:check": "prettier --list-different $(head -1 prettier-globs)",
+    "license": "scripts/license-check",
+    "test": "npm run format:check && npm run license && jest -i",
+    "test:unit": "jest unit --watch",
+    "watch": "tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/magento/scd.git"
+  },
+  "keywords": [
+    "magento",
+    "m2",
+    "static",
+    "content"
+  ],
+  "author": "Adobe Inc",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/magento/scd/issues"
+  },
+  "homepage": "https://github.com/magento/scd#readme",
+  "devDependencies": {
+    "@types/node": "^12.0.0",
+    "glob": "^7.1.4",
+    "jest": "^24.8.0",
+    "prettier": "^1.17.0",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.4.5"
+  },
+  "dependencies": {
+    "source-map-support": "^0.5.12"
+  }
+}
