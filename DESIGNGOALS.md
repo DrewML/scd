@@ -5,3 +5,6 @@
 -   Granular error handling over general error handling
 -   Thoroughly loggable/traceable
 -   Writing assets to disk must be an atomic operation
+-   As many modules should be stateless as possible. Keep state confined to well-defined areas (caches are the big exception)
+-   Keep root path handling separate from relative path handling
+    -   Persistent cache should work even when store is moved to another dir on disk or copied to another fs

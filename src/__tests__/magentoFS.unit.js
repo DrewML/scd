@@ -11,7 +11,8 @@ const {
     getEnabledModules,
     getModulesOnDisk,
     getThemes,
-    getThemeParent,
+    getThemeHierarchy,
+    parseThemePath,
 } = require('../magentoFS');
 
 const getFixturePath = name => join(__dirname, '__fixtures__', name);
@@ -67,15 +68,39 @@ test('getThemes finds all themes', async () => {
     });
 });
 
-test('getThemeParent finds parent', async () => {
-    const result = await getThemeParent(getFixturePath('stockThemes'), {
+test('getThemeHierarchy returns correct hierarchy for default themes', async () => {
+    const [parent, child] = await getThemeHierarchy(
+        getFixturePath('stockThemes'),
+        {
+            area: 'frontend',
+            vendor: 'Magento',
+            name: 'luma',
+        },
+    );
+    expect(parent).toEqual({
+        area: 'frontend',
+        vendor: 'Magento',
+        name: 'blank',
+    });
+    expect(child).toEqual({
         area: 'frontend',
         vendor: 'Magento',
         name: 'luma',
     });
-    expect(result).toEqual({
-        name: 'blank',
-        vendor: 'Magento',
-        area: 'frontend',
+});
+
+test('parseThemePath', () => {
+    expect(
+        parseThemePath(
+            '/app/design/frontend/Magento/luma/Magento_GiftWrapping/web/css/source/_module.less',
+        ),
+    ).toEqual({
+        theme: {
+            name: 'luma',
+            vendor: 'Magento',
+            area: 'frontend',
+        },
+        module: 'Magento_GiftWrapping',
+        path: 'web/css/source/_module.less',
     });
 });

@@ -4,10 +4,14 @@
  */
 
 import { promises as fs } from 'fs';
-import { isAbsolute, join } from 'path';
+import { isAbsolute, join, sep } from 'path';
 import { wrapP } from './wrapP';
 import { Theme } from './types';
 import { flatten } from './flatten';
+
+const THEME_ROOT = 'app/design';
+const CODE_ROOT = 'app/code';
+const VENDOR_ROOT = 'app/vendor';
 
 /**
  * @summary Parses config.php to find a list of enabled modules
@@ -44,8 +48,8 @@ export async function getEnabledModules(root: string) {
 export async function getModulesOnDisk(root: string) {
     assertAbsolute(root);
     const [firstPartyVendors, thirdPartyVendors] = await Promise.all([
-        safeDirRead(join(root, 'app/code')),
-        safeDirRead(join(root, 'app/vendor')),
+        safeDirRead(join(root, CODE_ROOT)),
+        safeDirRead(join(root, VENDOR_ROOT)),
     ]);
 
     const modulesForVendors = (vendors: string[], dir: string) =>
@@ -57,8 +61,8 @@ export async function getModulesOnDisk(root: string) {
         );
 
     const [firstPartyModules, thirdPartyModules] = await Promise.all([
-        modulesForVendors(firstPartyVendors, 'app/code'),
-        modulesForVendors(thirdPartyVendors, 'app/vendor'),
+        modulesForVendors(firstPartyVendors, CODE_ROOT),
+        modulesForVendors(thirdPartyVendors, VENDOR_ROOT),
     ]);
 
     return flatten([...firstPartyModules, ...thirdPartyModules]);
@@ -71,8 +75,8 @@ export async function getModulesOnDisk(root: string) {
 export async function getThemes(root: string): Promise<Theme[]> {
     assertAbsolute(root);
     const areas = {
-        frontend: join(root, 'app/design/frontend'),
-        adminhtml: join(root, 'app/design/adminhtml'),
+        frontend: join(root, THEME_ROOT, 'frontend'),
+        adminhtml: join(root, THEME_ROOT, 'adminhtml'),
     };
 
     const frontendVendors = await fs.readdir(areas.frontend);
@@ -94,28 +98,26 @@ export async function getThemes(root: string): Promise<Theme[]> {
     return flatten([...frontendThemes, ...adminThemes]);
 }
 
-/**
- * @summary Determine which (if any) theme a given theme inherits from
- */
-export async function getThemeParent(root: string, theme: Theme) {
-    assertAbsolute(root);
-    const themeXMLPath = join(
-        root,
-        'app/design',
-        theme.area,
-        theme.vendor,
-        theme.name,
-        'theme.xml',
-    );
-    const source = await fs.readFile(themeXMLPath, 'utf8');
-    // Note: Skipping a full blown XML parser (for now) to maintain
-    // speed and not take on an extra dep
-    const [, parent = ''] = source.match(/<parent>(.+)<\/parent>/) || [];
+export function themeToPath(root: string, theme: Theme) {
+    return join(root, THEME_ROOT, theme.area, theme.vendor, theme.name);
+}
 
-    if (parent) {
-        const [vendor, name] = parent.split('/');
-        return { name, vendor, area: theme.area };
+/**
+ * @summary Recursively resolve the inheritance hierarchy for a theme
+ */
+export async function getThemeHierarchy(
+    root: string,
+    theme: Theme,
+    deps?: Theme[],
+): Promise<Theme[]> {
+    const dependencies = deps || [theme];
+    const parent = await getThemeParent(root, theme);
+    if (!parent) {
+        return dependencies;
     }
+
+    dependencies.unshift(parent);
+    return getThemeHierarchy(root, parent, dependencies);
 }
 
 function assertAbsolute(path: string) {
@@ -123,6 +125,56 @@ function assertAbsolute(path: string) {
     throw new Error(
         `Expected an absolute path for the store root, but instead saw: "${path}"`,
     );
+}
+
+/**
+ * @summary Determine which (if any) theme a given theme inherits from
+ */
+async function getThemeParent(root: string, theme: Theme) {
+    assertAbsolute(root);
+    const themeXMLPath = join(themeToPath(root, theme), 'theme.xml');
+    const [err, source] = await wrapP(fs.readFile(themeXMLPath, 'utf8'));
+    if (err) {
+        throw new Error(
+            'Could not find "theme.xml" for ' +
+                `"${theme.vendor}/${theme.name}" in "${themeXMLPath}"`,
+        );
+    }
+    // Note: Skipping a full blown XML parser (for now) to maintain
+    // speed and not take on an extra dep
+    const [, parent = ''] = source!.match(/<parent>(.+)<\/parent>/) || [];
+
+    if (parent) {
+        const [vendor, name] = parent.split('/');
+        return { name, vendor, area: theme.area };
+    }
+}
+
+type ThemeFile = {
+    theme: Theme;
+    module?: string;
+    path: string;
+};
+export function parseThemePath(path: string): ThemeFile {
+    const [, relPath] = path.split(THEME_ROOT);
+    const [, ...pieces] = relPath.split(sep);
+
+    const theme = {
+        area: pieces.shift() as 'frontend' | 'adminhtml',
+        vendor: pieces.shift() as string,
+        name: pieces.shift() as string,
+    };
+
+    const isModuleContext = /[a-z]+_[a-z]+/i.test(pieces[0]);
+    if (isModuleContext) {
+        return {
+            theme,
+            module: pieces[0],
+            path: pieces.slice(1).join(sep),
+        };
+    }
+
+    return { theme, path: pieces.join(sep) };
 }
 
 /**
