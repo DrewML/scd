@@ -3,8 +3,8 @@
  * See COPYING.txt for license details.
  */
 
-import { promises as fs } from 'fs';
-import { isAbsolute, join, sep } from 'path';
+import { promises as fs, constants } from 'fs';
+import { isAbsolute, join, relative, sep } from 'path';
 import { wrapP } from './wrapP';
 import { Theme } from './types';
 import { flatten } from './flatten';
@@ -26,7 +26,7 @@ export async function getEnabledModules(root: string) {
         throw new Error(`Failed reading Magento config.php at ${path}`);
     }
 
-    const enabledModules = new Set<string>();
+    const enabledModules: string[] = [];
     for (const line of raw!.split('\n')) {
         // Note: Attempting to get away with a RegExp here instead
         // of a full-blown parser. config.php is code-gen'd, so
@@ -35,7 +35,7 @@ export async function getEnabledModules(root: string) {
         if (!matches) continue;
 
         const [, moduleName, enabled] = matches;
-        if (Number(enabled)) enabledModules.add(moduleName);
+        if (Number(enabled)) enabledModules.push(moduleName);
     }
 
     return enabledModules;
@@ -79,8 +79,10 @@ export async function getThemes(root: string): Promise<Theme[]> {
         adminhtml: join(root, THEME_ROOT, 'adminhtml'),
     };
 
-    const frontendVendors = await fs.readdir(areas.frontend);
-    const adminVendors = await fs.readdir(areas.adminhtml);
+    const [frontendVendors, adminVendors] = await Promise.all([
+        fs.readdir(areas.frontend),
+        fs.readdir(areas.adminhtml),
+    ]);
 
     const themesForVendors = (vendors: string[], area: keyof typeof areas) =>
         Promise.all(
@@ -150,12 +152,24 @@ async function getThemeParent(root: string, theme: Theme) {
     }
 }
 
-type ThemeFile = {
+export type ThemeAsset = {
+    type: 'ThemeAsset';
     theme: Theme;
-    module?: string;
+    moduleContext?: string;
     path: string;
 };
-export function parseThemePath(path: string): ThemeFile {
+export type ModuleAsset = {
+    type: 'ModuleAsset';
+    moduleContext: string;
+    path: string;
+};
+
+export type StaticAsset = ThemeAsset | ModuleAsset;
+
+/**
+ * @summary Provide contextful information about a file path within a theme
+ */
+export function parseThemePath(path: string): ThemeAsset {
     const [, relPath] = path.split(THEME_ROOT);
     const [, ...pieces] = relPath.split(sep);
 
@@ -168,22 +182,80 @@ export function parseThemePath(path: string): ThemeFile {
     const isModuleContext = /[a-z]+_[a-z]+/i.test(pieces[0]);
     if (isModuleContext) {
         return {
+            type: 'ThemeAsset',
             theme,
-            module: pieces[0],
+            moduleContext: pieces[0],
             path: pieces.slice(1).join(sep),
         };
     }
 
-    return { theme, path: pieces.join(sep) };
+    return { type: 'ThemeAsset', theme, path: pieces.join(sep) };
+}
+
+export function parseModulePath(
+    path: string,
+    moduleContext: string,
+): ModuleAsset {
+    const [vendor, name] = moduleContext.split('_');
+    const [, relPath] = path.split(`${vendor}${sep}${name}`);
+
+    return {
+        type: 'ModuleAsset',
+        moduleContext,
+        path: relPath,
+    };
+}
+
+export function moduleAssetToThemePath(moduleAsset: ModuleAsset) {
+    const hacky = moduleAsset.path.replace('/view/frontend/web/', '');
+    return join(moduleAsset.moduleContext, hacky);
+}
+
+/**
+ * @summary Given a ThemeFile, will return the path
+ * (including module context, when applicable) excluding
+ * any theme info from the path
+ */
+export function themeFileToThemeless(themeFile: ThemeAsset) {
+    return typeof themeFile.moduleContext === 'string'
+        ? join(themeFile.moduleContext, themeFile.path)
+        : themeFile.path;
+}
+
+async function getPathForModule(root: string, name: string) {
+    const [vendor, mod] = name.split('_');
+    const vendorDirPath = join(root, VENDOR_ROOT, vendor, mod);
+    const codeDirPath = join(root, CODE_ROOT, vendor, mod);
+
+    const [err] = await wrapP(fs.access(vendorDirPath));
+    // Warning: We're assuming that, if the module does not
+    // exist in one location, it has to exist in the other.
+    // Might end up being a bug farm
+    const absPath = err ? codeDirPath : vendorDirPath;
+    return relative(root, absPath);
+}
+
+async function getModuleViewDir(
+    root: string,
+    name: string,
+    area: 'frontend' | 'adminhtml',
+) {
+    assertAbsolute(root);
+    const modulePath = await getPathForModule(root, name);
+    return join(modulePath, 'view', area);
+}
+
+export async function getModuleWebDir(
+    root: string,
+    name: string,
+    area: 'frontend' | 'adminhtml',
+) {
+    return join(await getModuleViewDir(root, name, area), 'web');
 }
 
 /**
  * @summary Wrapper around fs.readdir that _always_ returns an array
  */
 async function safeDirRead(path: string) {
-    try {
-        return await fs.readdir(path);
-    } catch {
-        return [];
-    }
+    return fs.readdir(path).catch(() => [] as string[]);
 }
