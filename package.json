@@ -38,6 +38,7 @@
     "typescript": "^3.4.5"
   },
   "dependencies": {
+    "fast-xml-parser": "^3.12.16",
     "fromentries": "^1.1.0",
     "micromatch": "^4.0.2",
     "source-map-support": "^0.5.12"

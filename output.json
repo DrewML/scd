@@ -1,0 +1,3815 @@
+{
+  "Magento_Email/logo_email.png": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Email",
+    "path": "/view/frontend/web/logo_email.png"
+  },
+  "Magento_Search/js/form-mini.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Search",
+    "path": "/view/frontend/web/js/form-mini.js"
+  },
+  "Magento_Bundle/js/float.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Bundle",
+    "path": "/view/frontend/web/js/float.js"
+  },
+  "Magento_Bundle/js/product-summary.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Bundle",
+    "path": "/view/frontend/web/js/product-summary.js"
+  },
+  "Magento_Bundle/js/slide.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Bundle",
+    "path": "/view/frontend/web/js/slide.js"
+  },
+  "Magento_Downloadable/js/downloadable.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Downloadable",
+    "path": "/view/frontend/web/js/downloadable.js"
+  },
+  "Magento_CatalogSearch/js/search-terms-log.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_CatalogSearch",
+    "path": "/view/frontend/web/js/search-terms-log.js"
+  },
+  "Magento_Cookie/js/notices.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Cookie",
+    "path": "/view/frontend/web/js/notices.js"
+  },
+  "Magento_Cookie/js/require-cookie.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Cookie",
+    "path": "/view/frontend/web/js/require-cookie.js"
+  },
+  "Magento_GroupedProduct/js/product-ids-resolver.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_GroupedProduct",
+    "path": "/view/frontend/web/js/product-ids-resolver.js"
+  },
+  "Magento_GoogleAnalytics/js/google-analytics.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_GoogleAnalytics",
+    "path": "/view/frontend/web/js/google-analytics.js"
+  },
+  "Magento_PageCache/js/page-cache.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_PageCache",
+    "path": "/view/frontend/web/js/page-cache.js"
+  },
+  "Magento_Multishipping/js/multi-shipping.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Multishipping",
+    "path": "/view/frontend/web/js/multi-shipping.js"
+  },
+  "Magento_Multishipping/js/overview.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Multishipping",
+    "path": "/view/frontend/web/js/overview.js"
+  },
+  "Magento_Multishipping/js/payment.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Multishipping",
+    "path": "/view/frontend/web/js/payment.js"
+  },
+  "Magento_Reports/js/recently-viewed.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Reports",
+    "path": "/view/frontend/web/js/recently-viewed.js"
+  },
+  "Magento_SendFriend/js/back-event.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_SendFriend",
+    "path": "/view/frontend/web/js/back-event.js"
+  },
+  "Magento_SendFriend/requirejs-config.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_SendFriend",
+    "path": "/view/frontend/web/requirejs-config.js"
+  },
+  "Magento_Swatches/js/catalog-add-to-cart.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Swatches",
+    "path": "/view/frontend/web/js/catalog-add-to-cart.js"
+  },
+  "Magento_Swatches/js/configurable-customer-data.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Swatches",
+    "path": "/view/frontend/web/js/configurable-customer-data.js"
+  },
+  "Magento_Swatches/js/swatch-renderer.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Swatches",
+    "path": "/view/frontend/web/js/swatch-renderer.js"
+  },
+  "Magento_Translation/js/add-class.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Translation",
+    "path": "/view/frontend/web/js/add-class.js"
+  },
+  "Magento_Translation/translate_edit_icon.png": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Translation",
+    "path": "/view/frontend/web/translate_edit_icon.png"
+  },
+  "Magento_Translation/translate_edit_icon_hover.png": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Translation",
+    "path": "/view/frontend/web/translate_edit_icon_hover.png"
+  },
+  "Magento_Sales/js/gift-message.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Sales",
+    "path": "/view/frontend/web/js/gift-message.js"
+  },
+  "Magento_Sales/js/orders-returns.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Sales",
+    "path": "/view/frontend/web/js/orders-returns.js"
+  },
+  "Magento_Sales/js/view/last-ordered-items.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Sales",
+    "path": "/view/frontend/web/js/view/last-ordered-items.js"
+  },
+  "Magento_Contact/css/source/_module.less": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Contact",
+    "path": "/view/frontend/web/css/source/_module.less"
+  },
+  "Magento_ProductVideo/img/gallery-sprite.png": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_ProductVideo",
+    "path": "/view/frontend/web/img/gallery-sprite.png"
+  },
+  "Magento_ProductVideo/js/fotorama-add-video-events.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_ProductVideo",
+    "path": "/view/frontend/web/js/fotorama-add-video-events.js"
+  },
+  "Magento_ProductVideo/js/load-player.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_ProductVideo",
+    "path": "/view/frontend/web/js/load-player.js"
+  },
+  "Magento_Review/js/error-placement.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Review",
+    "path": "/view/frontend/web/js/error-placement.js"
+  },
+  "Magento_Review/js/process-reviews.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Review",
+    "path": "/view/frontend/web/js/process-reviews.js"
+  },
+  "Magento_Review/js/validate-review.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Review",
+    "path": "/view/frontend/web/js/validate-review.js"
+  },
+  "Magento_Review/js/view/review.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Review",
+    "path": "/view/frontend/web/js/view/review.js"
+  },
+  "Magento_ConfigurableProduct/js/catalog-add-to-cart.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_ConfigurableProduct",
+    "path": "/view/frontend/web/js/catalog-add-to-cart.js"
+  },
+  "Magento_ConfigurableProduct/js/configurable-customer-data.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_ConfigurableProduct",
+    "path": "/view/frontend/web/js/configurable-customer-data.js"
+  },
+  "Magento_ConfigurableProduct/js/configurable.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_ConfigurableProduct",
+    "path": "/view/frontend/web/js/configurable.js"
+  },
+  "Magento_ConfigurableProduct/js/options-updater.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_ConfigurableProduct",
+    "path": "/view/frontend/web/js/options-updater.js"
+  },
+  "Magento_ConfigurableProduct/template/product/minimal_price.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_ConfigurableProduct",
+    "path": "/view/frontend/web/template/product/minimal_price.html"
+  },
+  "Magento_Dhl/js/model/shipping-rates-validation-rules.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Dhl",
+    "path": "/view/frontend/web/js/model/shipping-rates-validation-rules.js"
+  },
+  "Magento_Dhl/js/model/shipping-rates-validator.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Dhl",
+    "path": "/view/frontend/web/js/model/shipping-rates-validator.js"
+  },
+  "Magento_Dhl/js/view/shipping-rates-validation.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Dhl",
+    "path": "/view/frontend/web/js/view/shipping-rates-validation.js"
+  },
+  "Magento_Fedex/js/model/shipping-rates-validation-rules.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Fedex",
+    "path": "/view/frontend/web/js/model/shipping-rates-validation-rules.js"
+  },
+  "Magento_Fedex/js/model/shipping-rates-validator.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Fedex",
+    "path": "/view/frontend/web/js/model/shipping-rates-validator.js"
+  },
+  "Magento_Fedex/js/view/shipping-rates-validation.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Fedex",
+    "path": "/view/frontend/web/js/view/shipping-rates-validation.js"
+  },
+  "Magento_InstantPurchase/js/view/instant-purchase.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_InstantPurchase",
+    "path": "/view/frontend/web/js/view/instant-purchase.js"
+  },
+  "Magento_InstantPurchase/template/confirmation.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_InstantPurchase",
+    "path": "/view/frontend/web/template/confirmation.html"
+  },
+  "Magento_InstantPurchase/template/instant-purchase.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_InstantPurchase",
+    "path": "/view/frontend/web/template/instant-purchase.html"
+  },
+  "Magento_Persistent/js/view/additional-welcome.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Persistent",
+    "path": "/view/frontend/web/js/view/additional-welcome.js"
+  },
+  "Magento_Persistent/js/view/customer-data-mixin.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Persistent",
+    "path": "/view/frontend/web/js/view/customer-data-mixin.js"
+  },
+  "Magento_Persistent/js/view/remember-me.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Persistent",
+    "path": "/view/frontend/web/js/view/remember-me.js"
+  },
+  "Magento_Persistent/template/remember-me.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Persistent",
+    "path": "/view/frontend/web/template/remember-me.html"
+  },
+  "Magento_Ups/js/model/shipping-rates-validation-rules.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Ups",
+    "path": "/view/frontend/web/js/model/shipping-rates-validation-rules.js"
+  },
+  "Magento_Ups/js/model/shipping-rates-validator.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Ups",
+    "path": "/view/frontend/web/js/model/shipping-rates-validator.js"
+  },
+  "Magento_Ups/js/view/shipping-rates-validation.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Ups",
+    "path": "/view/frontend/web/js/view/shipping-rates-validation.js"
+  },
+  "Magento_Usps/js/model/shipping-rates-validation-rules.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Usps",
+    "path": "/view/frontend/web/js/model/shipping-rates-validation-rules.js"
+  },
+  "Magento_Usps/js/model/shipping-rates-validator.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Usps",
+    "path": "/view/frontend/web/js/model/shipping-rates-validator.js"
+  },
+  "Magento_Usps/js/view/shipping-rates-validation.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Usps",
+    "path": "/view/frontend/web/js/view/shipping-rates-validation.js"
+  },
+  "Magento_GiftMessage/js/action/gift-options.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_GiftMessage",
+    "path": "/view/frontend/web/js/action/gift-options.js"
+  },
+  "Magento_GiftMessage/js/extra-options.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_GiftMessage",
+    "path": "/view/frontend/web/js/extra-options.js"
+  },
+  "Magento_GiftMessage/js/gift-options.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_GiftMessage",
+    "path": "/view/frontend/web/js/gift-options.js"
+  },
+  "Magento_GiftMessage/js/model/gift-message.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_GiftMessage",
+    "path": "/view/frontend/web/js/model/gift-message.js"
+  },
+  "Magento_GiftMessage/js/model/gift-options.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_GiftMessage",
+    "path": "/view/frontend/web/js/model/gift-options.js"
+  },
+  "Magento_GiftMessage/js/model/url-builder.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_GiftMessage",
+    "path": "/view/frontend/web/js/model/url-builder.js"
+  },
+  "Magento_GiftMessage/js/view/gift-message.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_GiftMessage",
+    "path": "/view/frontend/web/js/view/gift-message.js"
+  },
+  "Magento_GiftMessage/template/gift-message-form.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_GiftMessage",
+    "path": "/view/frontend/web/template/gift-message-form.html"
+  },
+  "Magento_GiftMessage/template/gift-message-item-level.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_GiftMessage",
+    "path": "/view/frontend/web/template/gift-message-item-level.html"
+  },
+  "Magento_GiftMessage/template/gift-message.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_GiftMessage",
+    "path": "/view/frontend/web/template/gift-message.html"
+  },
+  "Magento_CheckoutAgreements/js/model/agreement-validator.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_CheckoutAgreements",
+    "path": "/view/frontend/web/js/model/agreement-validator.js"
+  },
+  "Magento_CheckoutAgreements/js/model/agreements-assigner.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_CheckoutAgreements",
+    "path": "/view/frontend/web/js/model/agreements-assigner.js"
+  },
+  "Magento_CheckoutAgreements/js/model/agreements-modal.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_CheckoutAgreements",
+    "path": "/view/frontend/web/js/model/agreements-modal.js"
+  },
+  "Magento_CheckoutAgreements/js/model/place-order-mixin.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_CheckoutAgreements",
+    "path": "/view/frontend/web/js/model/place-order-mixin.js"
+  },
+  "Magento_CheckoutAgreements/js/model/set-payment-information-mixin.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_CheckoutAgreements",
+    "path": "/view/frontend/web/js/model/set-payment-information-mixin.js"
+  },
+  "Magento_CheckoutAgreements/js/view/agreement-validation.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_CheckoutAgreements",
+    "path": "/view/frontend/web/js/view/agreement-validation.js"
+  },
+  "Magento_CheckoutAgreements/js/view/checkout-agreements.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_CheckoutAgreements",
+    "path": "/view/frontend/web/js/view/checkout-agreements.js"
+  },
+  "Magento_CheckoutAgreements/template/checkout/checkout-agreements.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_CheckoutAgreements",
+    "path": "/view/frontend/web/template/checkout/checkout-agreements.html"
+  },
+  "Magento_Wishlist/js/add-to-wishlist.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Wishlist",
+    "path": "/view/frontend/web/js/add-to-wishlist.js"
+  },
+  "Magento_Wishlist/js/product/addtowishlist-button.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Wishlist",
+    "path": "/view/frontend/web/js/product/addtowishlist-button.js"
+  },
+  "Magento_Wishlist/js/search.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Wishlist",
+    "path": "/view/frontend/web/js/search.js"
+  },
+  "Magento_Wishlist/js/view/wishlist.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Wishlist",
+    "path": "/view/frontend/web/js/view/wishlist.js"
+  },
+  "Magento_Wishlist/js/wishlist.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Wishlist",
+    "path": "/view/frontend/web/js/wishlist.js"
+  },
+  "Magento_Wishlist/template/product/addtowishlist-button.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Wishlist",
+    "path": "/view/frontend/web/template/product/addtowishlist-button.html"
+  },
+  "Magento_Swagger/swagger-ui/LICENSE.txt": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Swagger",
+    "path": "/view/frontend/web/swagger-ui/LICENSE.txt"
+  },
+  "Magento_Swagger/swagger-ui/css/style.css": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Swagger",
+    "path": "/view/frontend/web/swagger-ui/css/style.css"
+  },
+  "Magento_Swagger/swagger-ui/css/swagger-ui.css": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Swagger",
+    "path": "/view/frontend/web/swagger-ui/css/swagger-ui.css"
+  },
+  "Magento_Swagger/swagger-ui/images/logo_small.png": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Swagger",
+    "path": "/view/frontend/web/swagger-ui/images/logo_small.png"
+  },
+  "Magento_Swagger/swagger-ui/js/lang/en.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Swagger",
+    "path": "/view/frontend/web/swagger-ui/js/lang/en.js"
+  },
+  "Magento_Swagger/swagger-ui/js/lang/es.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Swagger",
+    "path": "/view/frontend/web/swagger-ui/js/lang/es.js"
+  },
+  "Magento_Swagger/swagger-ui/js/lang/pt.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Swagger",
+    "path": "/view/frontend/web/swagger-ui/js/lang/pt.js"
+  },
+  "Magento_Swagger/swagger-ui/js/lang/ru.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Swagger",
+    "path": "/view/frontend/web/swagger-ui/js/lang/ru.js"
+  },
+  "Magento_Swagger/swagger-ui/js/lang/translator.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Swagger",
+    "path": "/view/frontend/web/swagger-ui/js/lang/translator.js"
+  },
+  "Magento_Swagger/swagger-ui/js/magento-swagger.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Swagger",
+    "path": "/view/frontend/web/swagger-ui/js/magento-swagger.js"
+  },
+  "Magento_Swagger/swagger-ui/js/swagger-ui-bundle.min.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Swagger",
+    "path": "/view/frontend/web/swagger-ui/js/swagger-ui-bundle.min.js"
+  },
+  "Magento_Swagger/swagger-ui/js/swagger-ui-standalone-preset.min.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Swagger",
+    "path": "/view/frontend/web/swagger-ui/js/swagger-ui-standalone-preset.min.js"
+  },
+  "Magento_Payment/js/cc-type.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Payment",
+    "path": "/view/frontend/web/js/cc-type.js"
+  },
+  "Magento_Payment/js/transparent.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Payment",
+    "path": "/view/frontend/web/js/transparent.js"
+  },
+  "Magento_Payment/js/view/payment/cc-form.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Payment",
+    "path": "/view/frontend/web/js/view/payment/cc-form.js"
+  },
+  "Magento_Payment/js/view/payment/iframe.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Payment",
+    "path": "/view/frontend/web/js/view/payment/iframe.js"
+  },
+  "Magento_Payment/js/view/payment/method-renderer/free-method.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Payment",
+    "path": "/view/frontend/web/js/view/payment/method-renderer/free-method.js"
+  },
+  "Magento_Payment/js/view/payment/payments.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Payment",
+    "path": "/view/frontend/web/js/view/payment/payments.js"
+  },
+  "Magento_Payment/template/payment/cc-form.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Payment",
+    "path": "/view/frontend/web/template/payment/cc-form.html"
+  },
+  "Magento_Payment/template/payment/free.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Payment",
+    "path": "/view/frontend/web/template/payment/free.html"
+  },
+  "Magento_Payment/template/payment/iframe.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Payment",
+    "path": "/view/frontend/web/template/payment/iframe.html"
+  },
+  "Magento_Authorizenet/js/view/payment/authorizenet.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Authorizenet",
+    "path": "/view/frontend/web/js/view/payment/authorizenet.js"
+  },
+  "Magento_Authorizenet/js/view/payment/method-renderer/authorizenet-directpost.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Authorizenet",
+    "path": "/view/frontend/web/js/view/payment/method-renderer/authorizenet-directpost.js"
+  },
+  "Magento_Authorizenet/template/payment/authorizenet-directpost.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Authorizenet",
+    "path": "/view/frontend/web/template/payment/authorizenet-directpost.html"
+  },
+  "Magento_OfflinePayments/js/view/payment/method-renderer/banktransfer-method.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_OfflinePayments",
+    "path": "/view/frontend/web/js/view/payment/method-renderer/banktransfer-method.js"
+  },
+  "Magento_OfflinePayments/js/view/payment/method-renderer/cashondelivery-method.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_OfflinePayments",
+    "path": "/view/frontend/web/js/view/payment/method-renderer/cashondelivery-method.js"
+  },
+  "Magento_OfflinePayments/js/view/payment/method-renderer/checkmo-method.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_OfflinePayments",
+    "path": "/view/frontend/web/js/view/payment/method-renderer/checkmo-method.js"
+  },
+  "Magento_OfflinePayments/js/view/payment/method-renderer/purchaseorder-method.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_OfflinePayments",
+    "path": "/view/frontend/web/js/view/payment/method-renderer/purchaseorder-method.js"
+  },
+  "Magento_OfflinePayments/js/view/payment/offline-payments.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_OfflinePayments",
+    "path": "/view/frontend/web/js/view/payment/offline-payments.js"
+  },
+  "Magento_OfflinePayments/template/payment/banktransfer.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_OfflinePayments",
+    "path": "/view/frontend/web/template/payment/banktransfer.html"
+  },
+  "Magento_OfflinePayments/template/payment/cashondelivery.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_OfflinePayments",
+    "path": "/view/frontend/web/template/payment/cashondelivery.html"
+  },
+  "Magento_OfflinePayments/template/payment/checkmo.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_OfflinePayments",
+    "path": "/view/frontend/web/template/payment/checkmo.html"
+  },
+  "Magento_OfflinePayments/template/payment/purchaseorder-form.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_OfflinePayments",
+    "path": "/view/frontend/web/template/payment/purchaseorder-form.html"
+  },
+  "Magento_OfflineShipping/js/model/shipping-rates-validation-rules/flatrate.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_OfflineShipping",
+    "path": "/view/frontend/web/js/model/shipping-rates-validation-rules/flatrate.js"
+  },
+  "Magento_OfflineShipping/js/model/shipping-rates-validation-rules/freeshipping.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_OfflineShipping",
+    "path": "/view/frontend/web/js/model/shipping-rates-validation-rules/freeshipping.js"
+  },
+  "Magento_OfflineShipping/js/model/shipping-rates-validation-rules/tablerate.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_OfflineShipping",
+    "path": "/view/frontend/web/js/model/shipping-rates-validation-rules/tablerate.js"
+  },
+  "Magento_OfflineShipping/js/model/shipping-rates-validator/flatrate.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_OfflineShipping",
+    "path": "/view/frontend/web/js/model/shipping-rates-validator/flatrate.js"
+  },
+  "Magento_OfflineShipping/js/model/shipping-rates-validator/freeshipping.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_OfflineShipping",
+    "path": "/view/frontend/web/js/model/shipping-rates-validator/freeshipping.js"
+  },
+  "Magento_OfflineShipping/js/model/shipping-rates-validator/tablerate.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_OfflineShipping",
+    "path": "/view/frontend/web/js/model/shipping-rates-validator/tablerate.js"
+  },
+  "Magento_OfflineShipping/js/view/shipping-rates-validation/flatrate.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_OfflineShipping",
+    "path": "/view/frontend/web/js/view/shipping-rates-validation/flatrate.js"
+  },
+  "Magento_OfflineShipping/js/view/shipping-rates-validation/freeshipping.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_OfflineShipping",
+    "path": "/view/frontend/web/js/view/shipping-rates-validation/freeshipping.js"
+  },
+  "Magento_OfflineShipping/js/view/shipping-rates-validation/tablerate.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_OfflineShipping",
+    "path": "/view/frontend/web/js/view/shipping-rates-validation/tablerate.js"
+  },
+  "Magento_AuthorizenetAcceptjs/js/view/payment/authorizenet.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_AuthorizenetAcceptjs",
+    "path": "/view/frontend/web/js/view/payment/authorizenet.js"
+  },
+  "Magento_AuthorizenetAcceptjs/js/view/payment/method-renderer/authorizenet-accept.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_AuthorizenetAcceptjs",
+    "path": "/view/frontend/web/js/view/payment/method-renderer/authorizenet-accept.js"
+  },
+  "Magento_AuthorizenetAcceptjs/template/payment/authorizenet-acceptjs.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_AuthorizenetAcceptjs",
+    "path": "/view/frontend/web/template/payment/authorizenet-acceptjs.html"
+  },
+  "Magento_PaypalCaptcha/js/view/checkout/paymentCaptcha.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_PaypalCaptcha",
+    "path": "/view/frontend/web/js/view/checkout/paymentCaptcha.js"
+  },
+  "Magento_PaypalCaptcha/js/view/payment/list-mixin.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_PaypalCaptcha",
+    "path": "/view/frontend/web/js/view/payment/list-mixin.js"
+  },
+  "Magento_PaypalCaptcha/template/payment/payflowpro-form.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_PaypalCaptcha",
+    "path": "/view/frontend/web/template/payment/payflowpro-form.html"
+  },
+  "Magento_Theme/calendar.png": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Theme",
+    "path": "/view/frontend/web/calendar.png"
+  },
+  "Magento_Theme/css/tabs.css": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Theme",
+    "path": "/view/frontend/web/css/tabs.css"
+  },
+  "Magento_Theme/css/validate.css": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Theme",
+    "path": "/view/frontend/web/css/validate.css"
+  },
+  "Magento_Theme/fam_book_open.png": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Theme",
+    "path": "/view/frontend/web/fam_book_open.png"
+  },
+  "Magento_Theme/favicon.ico": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Theme",
+    "path": "/view/frontend/web/favicon.ico"
+  },
+  "Magento_Theme/images/validation_advice_bg.gif": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Theme",
+    "path": "/view/frontend/web/images/validation_advice_bg.gif"
+  },
+  "Magento_Theme/js/model/breadcrumb-list.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Theme",
+    "path": "/view/frontend/web/js/model/breadcrumb-list.js"
+  },
+  "Magento_Theme/js/row-builder.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Theme",
+    "path": "/view/frontend/web/js/row-builder.js"
+  },
+  "Magento_Theme/js/truncate.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Theme",
+    "path": "/view/frontend/web/js/truncate.js"
+  },
+  "Magento_Theme/js/view/add-home-breadcrumb.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Theme",
+    "path": "/view/frontend/web/js/view/add-home-breadcrumb.js"
+  },
+  "Magento_Theme/js/view/breadcrumbs.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Theme",
+    "path": "/view/frontend/web/js/view/breadcrumbs.js"
+  },
+  "Magento_Theme/js/view/messages.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Theme",
+    "path": "/view/frontend/web/js/view/messages.js"
+  },
+  "Magento_Theme/menu.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Theme",
+    "path": "/view/frontend/web/menu.js"
+  },
+  "Magento_Theme/prototype/magento.css": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Theme",
+    "path": "/view/frontend/web/prototype/magento.css"
+  },
+  "Magento_Theme/templates/breadcrumbs.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Theme",
+    "path": "/view/frontend/web/templates/breadcrumbs.html"
+  },
+  "Magento_Customer/js/action/check-email-availability.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Customer",
+    "path": "/view/frontend/web/js/action/check-email-availability.js"
+  },
+  "Magento_Customer/js/action/login.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Customer",
+    "path": "/view/frontend/web/js/action/login.js"
+  },
+  "Magento_Customer/js/address.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Customer",
+    "path": "/view/frontend/web/js/address.js"
+  },
+  "Magento_Customer/js/addressValidation.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Customer",
+    "path": "/view/frontend/web/js/addressValidation.js"
+  },
+  "Magento_Customer/js/change-email-password.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Customer",
+    "path": "/view/frontend/web/js/change-email-password.js"
+  },
+  "Magento_Customer/js/checkout-balance.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Customer",
+    "path": "/view/frontend/web/js/checkout-balance.js"
+  },
+  "Magento_Customer/js/customer-data.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Customer",
+    "path": "/view/frontend/web/js/customer-data.js"
+  },
+  "Magento_Customer/js/invalidation-processor.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Customer",
+    "path": "/view/frontend/web/js/invalidation-processor.js"
+  },
+  "Magento_Customer/js/invalidation-rules/website-rule.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Customer",
+    "path": "/view/frontend/web/js/invalidation-rules/website-rule.js"
+  },
+  "Magento_Customer/js/logout-redirect.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Customer",
+    "path": "/view/frontend/web/js/logout-redirect.js"
+  },
+  "Magento_Customer/js/model/address-list.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Customer",
+    "path": "/view/frontend/web/js/model/address-list.js"
+  },
+  "Magento_Customer/js/model/authentication-popup.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Customer",
+    "path": "/view/frontend/web/js/model/authentication-popup.js"
+  },
+  "Magento_Customer/js/model/customer/address.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Customer",
+    "path": "/view/frontend/web/js/model/customer/address.js"
+  },
+  "Magento_Customer/js/model/customer-addresses.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Customer",
+    "path": "/view/frontend/web/js/model/customer-addresses.js"
+  },
+  "Magento_Customer/js/model/customer.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Customer",
+    "path": "/view/frontend/web/js/model/customer.js"
+  },
+  "Magento_Customer/js/password-strength-indicator.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Customer",
+    "path": "/view/frontend/web/js/password-strength-indicator.js"
+  },
+  "Magento_Customer/js/section-config.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Customer",
+    "path": "/view/frontend/web/js/section-config.js"
+  },
+  "Magento_Customer/js/view/authentication-popup.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Customer",
+    "path": "/view/frontend/web/js/view/authentication-popup.js"
+  },
+  "Magento_Customer/js/view/customer.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Customer",
+    "path": "/view/frontend/web/js/view/customer.js"
+  },
+  "Magento_Customer/js/zxcvbn.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Customer",
+    "path": "/view/frontend/web/js/zxcvbn.js"
+  },
+  "Magento_Customer/template/authentication-popup.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Customer",
+    "path": "/view/frontend/web/template/authentication-popup.html"
+  },
+  "Magento_Captcha/js/action/refresh.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Captcha",
+    "path": "/view/frontend/web/js/action/refresh.js"
+  },
+  "Magento_Captcha/js/captcha.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Captcha",
+    "path": "/view/frontend/web/js/captcha.js"
+  },
+  "Magento_Captcha/js/model/captcha.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Captcha",
+    "path": "/view/frontend/web/js/model/captcha.js"
+  },
+  "Magento_Captcha/js/model/captchaList.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Captcha",
+    "path": "/view/frontend/web/js/model/captchaList.js"
+  },
+  "Magento_Captcha/js/view/checkout/defaultCaptcha.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Captcha",
+    "path": "/view/frontend/web/js/view/checkout/defaultCaptcha.js"
+  },
+  "Magento_Captcha/js/view/checkout/loginCaptcha.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Captcha",
+    "path": "/view/frontend/web/js/view/checkout/loginCaptcha.js"
+  },
+  "Magento_Captcha/template/checkout/captcha.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Captcha",
+    "path": "/view/frontend/web/template/checkout/captcha.html"
+  },
+  "Magento_Vault/js/customer_account/deleteWidget.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Vault",
+    "path": "/view/frontend/web/js/customer_account/deleteWidget.js"
+  },
+  "Magento_Vault/js/view/payment/method-renderer/vault.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Vault",
+    "path": "/view/frontend/web/js/view/payment/method-renderer/vault.js"
+  },
+  "Magento_Vault/js/view/payment/vault-enabler.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Vault",
+    "path": "/view/frontend/web/js/view/payment/vault-enabler.js"
+  },
+  "Magento_Vault/js/view/payment/vault.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Vault",
+    "path": "/view/frontend/web/js/view/payment/vault.js"
+  },
+  "Magento_Vault/template/payment/form.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Vault",
+    "path": "/view/frontend/web/template/payment/form.html"
+  },
+  "Magento_Shipping/js/model/config.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Shipping",
+    "path": "/view/frontend/web/js/model/config.js"
+  },
+  "Magento_Shipping/js/view/checkout/shipping/shipping-policy.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Shipping",
+    "path": "/view/frontend/web/js/view/checkout/shipping/shipping-policy.js"
+  },
+  "Magento_Shipping/template/checkout/shipping/shipping-policy.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Shipping",
+    "path": "/view/frontend/web/template/checkout/shipping/shipping-policy.html"
+  },
+  "Magento_Ui/js/model/messageList.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Ui",
+    "path": "/view/frontend/web/js/model/messageList.js"
+  },
+  "Magento_Ui/js/model/messages.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Ui",
+    "path": "/view/frontend/web/js/model/messages.js"
+  },
+  "Magento_Ui/js/view/messages.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Ui",
+    "path": "/view/frontend/web/js/view/messages.js"
+  },
+  "Magento_Ui/template/messages.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Ui",
+    "path": "/view/frontend/web/template/messages.html"
+  },
+  "Magento_Ui/templates/form/element/checkbox.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Ui",
+    "path": "/view/frontend/web/templates/form/element/checkbox.html"
+  },
+  "Magento_Ui/templates/form/element/date.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Ui",
+    "path": "/view/frontend/web/templates/form/element/date.html"
+  },
+  "Magento_Ui/templates/form/element/email.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Ui",
+    "path": "/view/frontend/web/templates/form/element/email.html"
+  },
+  "Magento_Ui/templates/form/element/helper/tooltip.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Ui",
+    "path": "/view/frontend/web/templates/form/element/helper/tooltip.html"
+  },
+  "Magento_Ui/templates/form/element/input.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Ui",
+    "path": "/view/frontend/web/templates/form/element/input.html"
+  },
+  "Magento_Ui/templates/form/element/password.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Ui",
+    "path": "/view/frontend/web/templates/form/element/password.html"
+  },
+  "Magento_Ui/templates/form/element/select.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Ui",
+    "path": "/view/frontend/web/templates/form/element/select.html"
+  },
+  "Magento_Ui/templates/form/element/uploader/uploader.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Ui",
+    "path": "/view/frontend/web/templates/form/element/uploader/uploader.html"
+  },
+  "Magento_Ui/templates/form/field.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Ui",
+    "path": "/view/frontend/web/templates/form/field.html"
+  },
+  "Magento_Ui/templates/group/group.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Ui",
+    "path": "/view/frontend/web/templates/group/group.html"
+  },
+  "Magento_Braintree/js/paypal/button.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Braintree",
+    "path": "/view/frontend/web/js/paypal/button.js"
+  },
+  "Magento_Braintree/js/paypal/form-builder.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Braintree",
+    "path": "/view/frontend/web/js/paypal/form-builder.js"
+  },
+  "Magento_Braintree/js/view/payment/3d-secure.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Braintree",
+    "path": "/view/frontend/web/js/view/payment/3d-secure.js"
+  },
+  "Magento_Braintree/js/view/payment/adapter.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Braintree",
+    "path": "/view/frontend/web/js/view/payment/adapter.js"
+  },
+  "Magento_Braintree/js/view/payment/braintree.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Braintree",
+    "path": "/view/frontend/web/js/view/payment/braintree.js"
+  },
+  "Magento_Braintree/js/view/payment/method-renderer/cc-form.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Braintree",
+    "path": "/view/frontend/web/js/view/payment/method-renderer/cc-form.js"
+  },
+  "Magento_Braintree/js/view/payment/method-renderer/hosted-fields.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Braintree",
+    "path": "/view/frontend/web/js/view/payment/method-renderer/hosted-fields.js"
+  },
+  "Magento_Braintree/js/view/payment/method-renderer/multishipping/hosted-fields.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Braintree",
+    "path": "/view/frontend/web/js/view/payment/method-renderer/multishipping/hosted-fields.js"
+  },
+  "Magento_Braintree/js/view/payment/method-renderer/multishipping/paypal.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Braintree",
+    "path": "/view/frontend/web/js/view/payment/method-renderer/multishipping/paypal.js"
+  },
+  "Magento_Braintree/js/view/payment/method-renderer/paypal-vault.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Braintree",
+    "path": "/view/frontend/web/js/view/payment/method-renderer/paypal-vault.js"
+  },
+  "Magento_Braintree/js/view/payment/method-renderer/paypal.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Braintree",
+    "path": "/view/frontend/web/js/view/payment/method-renderer/paypal.js"
+  },
+  "Magento_Braintree/js/view/payment/method-renderer/vault.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Braintree",
+    "path": "/view/frontend/web/js/view/payment/method-renderer/vault.js"
+  },
+  "Magento_Braintree/js/view/payment/validator-handler.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Braintree",
+    "path": "/view/frontend/web/js/view/payment/validator-handler.js"
+  },
+  "Magento_Braintree/template/payment/form.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Braintree",
+    "path": "/view/frontend/web/template/payment/form.html"
+  },
+  "Magento_Braintree/template/payment/multishipping/form.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Braintree",
+    "path": "/view/frontend/web/template/payment/multishipping/form.html"
+  },
+  "Magento_Braintree/template/payment/multishipping/paypal.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Braintree",
+    "path": "/view/frontend/web/template/payment/multishipping/paypal.html"
+  },
+  "Magento_Braintree/template/payment/paypal/vault.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Braintree",
+    "path": "/view/frontend/web/template/payment/paypal/vault.html"
+  },
+  "Magento_Braintree/template/payment/paypal.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Braintree",
+    "path": "/view/frontend/web/template/payment/paypal.html"
+  },
+  "Magento_Catalog/images/product_widget_compared.gif": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/images/product_widget_compared.gif"
+  },
+  "Magento_Catalog/images/product_widget_viewed.gif": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/images/product_widget_viewed.gif"
+  },
+  "Magento_Catalog/js/catalog-add-to-cart.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/js/catalog-add-to-cart.js"
+  },
+  "Magento_Catalog/js/gallery.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/js/gallery.js"
+  },
+  "Magento_Catalog/js/list.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/js/list.js"
+  },
+  "Magento_Catalog/js/product/breadcrumbs.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/js/product/breadcrumbs.js"
+  },
+  "Magento_Catalog/js/product/list/toolbar.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/js/product/list/toolbar.js"
+  },
+  "Magento_Catalog/js/product/provider-compared.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/js/product/provider-compared.js"
+  },
+  "Magento_Catalog/js/product/provider.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/js/product/provider.js"
+  },
+  "Magento_Catalog/js/product/query-builder.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/js/product/query-builder.js"
+  },
+  "Magento_Catalog/js/product/remaining-characters.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/js/product/remaining-characters.js"
+  },
+  "Magento_Catalog/js/product/storage/data-storage.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/js/product/storage/data-storage.js"
+  },
+  "Magento_Catalog/js/product/storage/ids-storage-compare.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/js/product/storage/ids-storage-compare.js"
+  },
+  "Magento_Catalog/js/product/storage/ids-storage.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/js/product/storage/ids-storage.js"
+  },
+  "Magento_Catalog/js/product/storage/storage-service.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/js/product/storage/storage-service.js"
+  },
+  "Magento_Catalog/js/product/uenc-processor.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/js/product/uenc-processor.js"
+  },
+  "Magento_Catalog/js/product/view/product-ids-resolver.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/js/product/view/product-ids-resolver.js"
+  },
+  "Magento_Catalog/js/product/view/product-ids.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/js/product/view/product-ids.js"
+  },
+  "Magento_Catalog/js/product/view/provider.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/js/product/view/provider.js"
+  },
+  "Magento_Catalog/js/related-products.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/js/related-products.js"
+  },
+  "Magento_Catalog/js/storage-manager.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/js/storage-manager.js"
+  },
+  "Magento_Catalog/js/upsell-products.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/js/upsell-products.js"
+  },
+  "Magento_Catalog/js/validate-product.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/js/validate-product.js"
+  },
+  "Magento_Catalog/js/view/compare-products.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/js/view/compare-products.js"
+  },
+  "Magento_Catalog/js/view/image.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/js/view/image.js"
+  },
+  "Magento_Catalog/js/zoom.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/js/zoom.js"
+  },
+  "Magento_Catalog/product/view/validation.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/product/view/validation.js"
+  },
+  "Magento_Catalog/template/product/addtocart-button.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/template/product/addtocart-button.html"
+  },
+  "Magento_Catalog/template/product/addtocompare-button.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/template/product/addtocompare-button.html"
+  },
+  "Magento_Catalog/template/product/image.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/template/product/image.html"
+  },
+  "Magento_Catalog/template/product/image_with_borders.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Catalog",
+    "path": "/view/frontend/web/template/product/image_with_borders.html"
+  },
+  "Magento_Weee/js/tax-toggle.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Weee",
+    "path": "/view/frontend/web/js/tax-toggle.js"
+  },
+  "Magento_Weee/js/view/cart/totals/weee.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Weee",
+    "path": "/view/frontend/web/js/view/cart/totals/weee.js"
+  },
+  "Magento_Weee/js/view/checkout/summary/item/price/row_excl_tax.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Weee",
+    "path": "/view/frontend/web/js/view/checkout/summary/item/price/row_excl_tax.js"
+  },
+  "Magento_Weee/js/view/checkout/summary/item/price/row_incl_tax.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Weee",
+    "path": "/view/frontend/web/js/view/checkout/summary/item/price/row_incl_tax.js"
+  },
+  "Magento_Weee/js/view/checkout/summary/item/price/weee.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Weee",
+    "path": "/view/frontend/web/js/view/checkout/summary/item/price/weee.js"
+  },
+  "Magento_Weee/js/view/checkout/summary/weee.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Weee",
+    "path": "/view/frontend/web/js/view/checkout/summary/weee.js"
+  },
+  "Magento_Weee/template/checkout/summary/item/price/row_excl_tax.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Weee",
+    "path": "/view/frontend/web/template/checkout/summary/item/price/row_excl_tax.html"
+  },
+  "Magento_Weee/template/checkout/summary/item/price/row_incl_tax.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Weee",
+    "path": "/view/frontend/web/template/checkout/summary/item/price/row_incl_tax.html"
+  },
+  "Magento_Weee/template/checkout/summary/weee.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Weee",
+    "path": "/view/frontend/web/template/checkout/summary/weee.html"
+  },
+  "Magento_SalesRule/js/action/cancel-coupon.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_SalesRule",
+    "path": "/view/frontend/web/js/action/cancel-coupon.js"
+  },
+  "Magento_SalesRule/js/action/set-coupon-code.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_SalesRule",
+    "path": "/view/frontend/web/js/action/set-coupon-code.js"
+  },
+  "Magento_SalesRule/js/model/payment/discount-messages.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_SalesRule",
+    "path": "/view/frontend/web/js/model/payment/discount-messages.js"
+  },
+  "Magento_SalesRule/js/view/cart/totals/discount.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_SalesRule",
+    "path": "/view/frontend/web/js/view/cart/totals/discount.js"
+  },
+  "Magento_SalesRule/js/view/payment/discount-messages.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_SalesRule",
+    "path": "/view/frontend/web/js/view/payment/discount-messages.js"
+  },
+  "Magento_SalesRule/js/view/payment/discount.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_SalesRule",
+    "path": "/view/frontend/web/js/view/payment/discount.js"
+  },
+  "Magento_SalesRule/js/view/summary/discount.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_SalesRule",
+    "path": "/view/frontend/web/js/view/summary/discount.js"
+  },
+  "Magento_SalesRule/template/cart/totals/discount.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_SalesRule",
+    "path": "/view/frontend/web/template/cart/totals/discount.html"
+  },
+  "Magento_SalesRule/template/payment/discount.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_SalesRule",
+    "path": "/view/frontend/web/template/payment/discount.html"
+  },
+  "Magento_SalesRule/template/summary/discount.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_SalesRule",
+    "path": "/view/frontend/web/template/summary/discount.html"
+  },
+  "Magento_Paypal/js/action/set-payment-method.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/js/action/set-payment-method.js"
+  },
+  "Magento_Paypal/js/in-context/billing-agreement.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/js/in-context/billing-agreement.js"
+  },
+  "Magento_Paypal/js/in-context/button.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/js/in-context/button.js"
+  },
+  "Magento_Paypal/js/in-context/express-checkout-smart-buttons.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/js/in-context/express-checkout-smart-buttons.js"
+  },
+  "Magento_Paypal/js/in-context/express-checkout-wrapper.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/js/in-context/express-checkout-wrapper.js"
+  },
+  "Magento_Paypal/js/in-context/express-checkout.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/js/in-context/express-checkout.js"
+  },
+  "Magento_Paypal/js/in-context/product-express-checkout.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/js/in-context/product-express-checkout.js"
+  },
+  "Magento_Paypal/js/model/iframe-redirect.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/js/model/iframe-redirect.js"
+  },
+  "Magento_Paypal/js/model/iframe.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/js/model/iframe.js"
+  },
+  "Magento_Paypal/js/order-review.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/js/order-review.js"
+  },
+  "Magento_Paypal/js/paypal-checkout.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/js/paypal-checkout.js"
+  },
+  "Magento_Paypal/js/view/payment/method-renderer/iframe-methods.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/js/view/payment/method-renderer/iframe-methods.js"
+  },
+  "Magento_Paypal/js/view/payment/method-renderer/in-context/checkout-express.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/js/view/payment/method-renderer/in-context/checkout-express.js"
+  },
+  "Magento_Paypal/js/view/payment/method-renderer/payflow-express-bml.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/js/view/payment/method-renderer/payflow-express-bml.js"
+  },
+  "Magento_Paypal/js/view/payment/method-renderer/payflow-express.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/js/view/payment/method-renderer/payflow-express.js"
+  },
+  "Magento_Paypal/js/view/payment/method-renderer/payflowpro/vault.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/js/view/payment/method-renderer/payflowpro/vault.js"
+  },
+  "Magento_Paypal/js/view/payment/method-renderer/payflowpro-method.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/js/view/payment/method-renderer/payflowpro-method.js"
+  },
+  "Magento_Paypal/js/view/payment/method-renderer/paypal-billing-agreement.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/js/view/payment/method-renderer/paypal-billing-agreement.js"
+  },
+  "Magento_Paypal/js/view/payment/method-renderer/paypal-express-abstract.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/js/view/payment/method-renderer/paypal-express-abstract.js"
+  },
+  "Magento_Paypal/js/view/payment/method-renderer/paypal-express.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/js/view/payment/method-renderer/paypal-express.js"
+  },
+  "Magento_Paypal/js/view/payment/paypal-payments.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/js/view/payment/paypal-payments.js"
+  },
+  "Magento_Paypal/js/view/review/actions/iframe.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/js/view/review/actions/iframe.js"
+  },
+  "Magento_Paypal/template/payment/express/billing-agreement.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/template/payment/express/billing-agreement.html"
+  },
+  "Magento_Paypal/template/payment/iframe-methods.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/template/payment/iframe-methods.html"
+  },
+  "Magento_Paypal/template/payment/payflow-express-bml.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/template/payment/payflow-express-bml.html"
+  },
+  "Magento_Paypal/template/payment/payflow-express.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/template/payment/payflow-express.html"
+  },
+  "Magento_Paypal/template/payment/payflowpro-form.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/template/payment/payflowpro-form.html"
+  },
+  "Magento_Paypal/template/payment/paypal-express-in-context.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/template/payment/paypal-express-in-context.html"
+  },
+  "Magento_Paypal/template/payment/paypal-express.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/template/payment/paypal-express.html"
+  },
+  "Magento_Paypal/template/payment/paypal_billing_agreement-form.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/template/payment/paypal_billing_agreement-form.html"
+  },
+  "Magento_Paypal/template/payment/paypal_direct-form.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Paypal",
+    "path": "/view/frontend/web/template/payment/paypal_direct-form.html"
+  },
+  "Magento_Msrp/js/product/list/columns/msrp-price.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Msrp",
+    "path": "/view/frontend/web/js/product/list/columns/msrp-price.js"
+  },
+  "Magento_Msrp/js/view/checkout/minicart/subtotal/totals.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Msrp",
+    "path": "/view/frontend/web/js/view/checkout/minicart/subtotal/totals.js"
+  },
+  "Magento_Msrp/template/checkout/minicart/subtotal/totals.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Msrp",
+    "path": "/view/frontend/web/template/checkout/minicart/subtotal/totals.html"
+  },
+  "Magento_Msrp/template/product/item/popup.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Msrp",
+    "path": "/view/frontend/web/template/product/item/popup.html"
+  },
+  "Magento_Msrp/template/product/price/price_box.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Msrp",
+    "path": "/view/frontend/web/template/product/price/price_box.html"
+  },
+  "Magento_Tax/js/view/checkout/cart/totals/grand-total.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Tax",
+    "path": "/view/frontend/web/js/view/checkout/cart/totals/grand-total.js"
+  },
+  "Magento_Tax/js/view/checkout/cart/totals/shipping.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Tax",
+    "path": "/view/frontend/web/js/view/checkout/cart/totals/shipping.js"
+  },
+  "Magento_Tax/js/view/checkout/cart/totals/tax.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Tax",
+    "path": "/view/frontend/web/js/view/checkout/cart/totals/tax.js"
+  },
+  "Magento_Tax/js/view/checkout/minicart/subtotal/totals.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Tax",
+    "path": "/view/frontend/web/js/view/checkout/minicart/subtotal/totals.js"
+  },
+  "Magento_Tax/js/view/checkout/shipping_method/price.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Tax",
+    "path": "/view/frontend/web/js/view/checkout/shipping_method/price.js"
+  },
+  "Magento_Tax/js/view/checkout/summary/grand-total.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Tax",
+    "path": "/view/frontend/web/js/view/checkout/summary/grand-total.js"
+  },
+  "Magento_Tax/js/view/checkout/summary/item/details/subtotal.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Tax",
+    "path": "/view/frontend/web/js/view/checkout/summary/item/details/subtotal.js"
+  },
+  "Magento_Tax/js/view/checkout/summary/shipping.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Tax",
+    "path": "/view/frontend/web/js/view/checkout/summary/shipping.js"
+  },
+  "Magento_Tax/js/view/checkout/summary/subtotal.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Tax",
+    "path": "/view/frontend/web/js/view/checkout/summary/subtotal.js"
+  },
+  "Magento_Tax/js/view/checkout/summary/tax.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Tax",
+    "path": "/view/frontend/web/js/view/checkout/summary/tax.js"
+  },
+  "Magento_Tax/template/checkout/cart/totals/grand-total.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Tax",
+    "path": "/view/frontend/web/template/checkout/cart/totals/grand-total.html"
+  },
+  "Magento_Tax/template/checkout/cart/totals/shipping.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Tax",
+    "path": "/view/frontend/web/template/checkout/cart/totals/shipping.html"
+  },
+  "Magento_Tax/template/checkout/cart/totals/tax.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Tax",
+    "path": "/view/frontend/web/template/checkout/cart/totals/tax.html"
+  },
+  "Magento_Tax/template/checkout/minicart/subtotal/totals.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Tax",
+    "path": "/view/frontend/web/template/checkout/minicart/subtotal/totals.html"
+  },
+  "Magento_Tax/template/checkout/shipping_method/price.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Tax",
+    "path": "/view/frontend/web/template/checkout/shipping_method/price.html"
+  },
+  "Magento_Tax/template/checkout/summary/grand-total.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Tax",
+    "path": "/view/frontend/web/template/checkout/summary/grand-total.html"
+  },
+  "Magento_Tax/template/checkout/summary/item/details/subtotal.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Tax",
+    "path": "/view/frontend/web/template/checkout/summary/item/details/subtotal.html"
+  },
+  "Magento_Tax/template/checkout/summary/shipping.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Tax",
+    "path": "/view/frontend/web/template/checkout/summary/shipping.html"
+  },
+  "Magento_Tax/template/checkout/summary/subtotal.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Tax",
+    "path": "/view/frontend/web/template/checkout/summary/subtotal.html"
+  },
+  "Magento_Tax/template/checkout/summary/tax.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Tax",
+    "path": "/view/frontend/web/template/checkout/summary/tax.html"
+  },
+  "Magento_Checkout/cvv.png": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/cvv.png"
+  },
+  "Magento_Checkout/js/action/create-billing-address.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/action/create-billing-address.js"
+  },
+  "Magento_Checkout/js/action/create-shipping-address.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/action/create-shipping-address.js"
+  },
+  "Magento_Checkout/js/action/get-payment-information.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/action/get-payment-information.js"
+  },
+  "Magento_Checkout/js/action/get-totals.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/action/get-totals.js"
+  },
+  "Magento_Checkout/js/action/place-order.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/action/place-order.js"
+  },
+  "Magento_Checkout/js/action/redirect-on-success.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/action/redirect-on-success.js"
+  },
+  "Magento_Checkout/js/action/select-billing-address.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/action/select-billing-address.js"
+  },
+  "Magento_Checkout/js/action/select-payment-method.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/action/select-payment-method.js"
+  },
+  "Magento_Checkout/js/action/select-shipping-address.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/action/select-shipping-address.js"
+  },
+  "Magento_Checkout/js/action/select-shipping-method.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/action/select-shipping-method.js"
+  },
+  "Magento_Checkout/js/action/set-billing-address.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/action/set-billing-address.js"
+  },
+  "Magento_Checkout/js/action/set-payment-information.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/action/set-payment-information.js"
+  },
+  "Magento_Checkout/js/action/set-shipping-information.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/action/set-shipping-information.js"
+  },
+  "Magento_Checkout/js/action/update-shopping-cart.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/action/update-shopping-cart.js"
+  },
+  "Magento_Checkout/js/checkout-data.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/checkout-data.js"
+  },
+  "Magento_Checkout/js/checkout-loader.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/checkout-loader.js"
+  },
+  "Magento_Checkout/js/discount-codes.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/discount-codes.js"
+  },
+  "Magento_Checkout/js/empty-cart.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/empty-cart.js"
+  },
+  "Magento_Checkout/js/model/address-converter.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/address-converter.js"
+  },
+  "Magento_Checkout/js/model/authentication-messages.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/authentication-messages.js"
+  },
+  "Magento_Checkout/js/model/cart/cache.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/cart/cache.js"
+  },
+  "Magento_Checkout/js/model/cart/estimate-service.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/cart/estimate-service.js"
+  },
+  "Magento_Checkout/js/model/cart/totals-processor/default.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/cart/totals-processor/default.js"
+  },
+  "Magento_Checkout/js/model/checkout-data-resolver.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/checkout-data-resolver.js"
+  },
+  "Magento_Checkout/js/model/customer-email-validator.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/customer-email-validator.js"
+  },
+  "Magento_Checkout/js/model/default-validation-rules.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/default-validation-rules.js"
+  },
+  "Magento_Checkout/js/model/default-validator.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/default-validator.js"
+  },
+  "Magento_Checkout/js/model/error-processor.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/error-processor.js"
+  },
+  "Magento_Checkout/js/model/full-screen-loader.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/full-screen-loader.js"
+  },
+  "Magento_Checkout/js/model/new-customer-address.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/new-customer-address.js"
+  },
+  "Magento_Checkout/js/model/payment/additional-validators.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/payment/additional-validators.js"
+  },
+  "Magento_Checkout/js/model/payment/method-converter.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/payment/method-converter.js"
+  },
+  "Magento_Checkout/js/model/payment/method-group.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/payment/method-group.js"
+  },
+  "Magento_Checkout/js/model/payment/method-list.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/payment/method-list.js"
+  },
+  "Magento_Checkout/js/model/payment/renderer-list.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/payment/renderer-list.js"
+  },
+  "Magento_Checkout/js/model/payment-service.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/payment-service.js"
+  },
+  "Magento_Checkout/js/model/place-order.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/place-order.js"
+  },
+  "Magento_Checkout/js/model/postcode-validator.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/postcode-validator.js"
+  },
+  "Magento_Checkout/js/model/quote.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/quote.js"
+  },
+  "Magento_Checkout/js/model/resource-url-manager.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/resource-url-manager.js"
+  },
+  "Magento_Checkout/js/model/shipping-address/form-popup-state.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/shipping-address/form-popup-state.js"
+  },
+  "Magento_Checkout/js/model/shipping-rate-processor/customer-address.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/shipping-rate-processor/customer-address.js"
+  },
+  "Magento_Checkout/js/model/shipping-rate-processor/new-address.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/shipping-rate-processor/new-address.js"
+  },
+  "Magento_Checkout/js/model/shipping-rate-registry.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/shipping-rate-registry.js"
+  },
+  "Magento_Checkout/js/model/shipping-rate-service.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/shipping-rate-service.js"
+  },
+  "Magento_Checkout/js/model/shipping-rates-validation-rules.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/shipping-rates-validation-rules.js"
+  },
+  "Magento_Checkout/js/model/shipping-rates-validator.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/shipping-rates-validator.js"
+  },
+  "Magento_Checkout/js/model/shipping-save-processor/default.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/shipping-save-processor/default.js"
+  },
+  "Magento_Checkout/js/model/shipping-save-processor/payload-extender.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/shipping-save-processor/payload-extender.js"
+  },
+  "Magento_Checkout/js/model/shipping-save-processor.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/shipping-save-processor.js"
+  },
+  "Magento_Checkout/js/model/shipping-service.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/shipping-service.js"
+  },
+  "Magento_Checkout/js/model/sidebar.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/sidebar.js"
+  },
+  "Magento_Checkout/js/model/step-navigator.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/step-navigator.js"
+  },
+  "Magento_Checkout/js/model/totals.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/totals.js"
+  },
+  "Magento_Checkout/js/model/url-builder.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/model/url-builder.js"
+  },
+  "Magento_Checkout/js/proceed-to-checkout.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/proceed-to-checkout.js"
+  },
+  "Magento_Checkout/js/region-updater.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/region-updater.js"
+  },
+  "Magento_Checkout/js/shopping-cart.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/shopping-cart.js"
+  },
+  "Magento_Checkout/js/sidebar.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/sidebar.js"
+  },
+  "Magento_Checkout/js/view/authentication-messages.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/authentication-messages.js"
+  },
+  "Magento_Checkout/js/view/authentication.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/authentication.js"
+  },
+  "Magento_Checkout/js/view/beforePlaceOrder.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/beforePlaceOrder.js"
+  },
+  "Magento_Checkout/js/view/billing-address/list.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/billing-address/list.js"
+  },
+  "Magento_Checkout/js/view/billing-address.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/billing-address.js"
+  },
+  "Magento_Checkout/js/view/cart/shipping-estimation.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/cart/shipping-estimation.js"
+  },
+  "Magento_Checkout/js/view/cart/shipping-rates.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/cart/shipping-rates.js"
+  },
+  "Magento_Checkout/js/view/cart/totals/shipping.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/cart/totals/shipping.js"
+  },
+  "Magento_Checkout/js/view/cart/totals.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/cart/totals.js"
+  },
+  "Magento_Checkout/js/view/checkout/minicart/subtotal/totals.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/checkout/minicart/subtotal/totals.js"
+  },
+  "Magento_Checkout/js/view/configure/product-customer-data.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/configure/product-customer-data.js"
+  },
+  "Magento_Checkout/js/view/estimation.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/estimation.js"
+  },
+  "Magento_Checkout/js/view/form/element/email.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/form/element/email.js"
+  },
+  "Magento_Checkout/js/view/minicart.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/minicart.js"
+  },
+  "Magento_Checkout/js/view/payment/default.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/payment/default.js"
+  },
+  "Magento_Checkout/js/view/payment/email-validator.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/payment/email-validator.js"
+  },
+  "Magento_Checkout/js/view/payment/list.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/payment/list.js"
+  },
+  "Magento_Checkout/js/view/payment.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/payment.js"
+  },
+  "Magento_Checkout/js/view/progress-bar.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/progress-bar.js"
+  },
+  "Magento_Checkout/js/view/registration.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/registration.js"
+  },
+  "Magento_Checkout/js/view/review/actions/default.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/review/actions/default.js"
+  },
+  "Magento_Checkout/js/view/review/actions.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/review/actions.js"
+  },
+  "Magento_Checkout/js/view/shipping-address/address-renderer/default.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/shipping-address/address-renderer/default.js"
+  },
+  "Magento_Checkout/js/view/shipping-address/list.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/shipping-address/list.js"
+  },
+  "Magento_Checkout/js/view/shipping-information/address-renderer/default.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/shipping-information/address-renderer/default.js"
+  },
+  "Magento_Checkout/js/view/shipping-information/list.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/shipping-information/list.js"
+  },
+  "Magento_Checkout/js/view/shipping-information.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/shipping-information.js"
+  },
+  "Magento_Checkout/js/view/shipping.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/shipping.js"
+  },
+  "Magento_Checkout/js/view/sidebar.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/sidebar.js"
+  },
+  "Magento_Checkout/js/view/summary/abstract-total.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/summary/abstract-total.js"
+  },
+  "Magento_Checkout/js/view/summary/cart-items.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/summary/cart-items.js"
+  },
+  "Magento_Checkout/js/view/summary/grand-total.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/summary/grand-total.js"
+  },
+  "Magento_Checkout/js/view/summary/item/details/message.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/summary/item/details/message.js"
+  },
+  "Magento_Checkout/js/view/summary/item/details/subtotal.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/summary/item/details/subtotal.js"
+  },
+  "Magento_Checkout/js/view/summary/item/details/thumbnail.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/summary/item/details/thumbnail.js"
+  },
+  "Magento_Checkout/js/view/summary/item/details.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/summary/item/details.js"
+  },
+  "Magento_Checkout/js/view/summary/shipping.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/summary/shipping.js"
+  },
+  "Magento_Checkout/js/view/summary/subtotal.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/summary/subtotal.js"
+  },
+  "Magento_Checkout/js/view/summary/totals.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/summary/totals.js"
+  },
+  "Magento_Checkout/js/view/summary.js": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/js/view/summary.js"
+  },
+  "Magento_Checkout/template/authentication.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/authentication.html"
+  },
+  "Magento_Checkout/template/billing-address/actions.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/billing-address/actions.html"
+  },
+  "Magento_Checkout/template/billing-address/details.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/billing-address/details.html"
+  },
+  "Magento_Checkout/template/billing-address/form.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/billing-address/form.html"
+  },
+  "Magento_Checkout/template/billing-address/list.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/billing-address/list.html"
+  },
+  "Magento_Checkout/template/billing-address.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/billing-address.html"
+  },
+  "Magento_Checkout/template/cart/shipping-estimation.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/cart/shipping-estimation.html"
+  },
+  "Magento_Checkout/template/cart/shipping-rates.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/cart/shipping-rates.html"
+  },
+  "Magento_Checkout/template/cart/totals/grand-total.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/cart/totals/grand-total.html"
+  },
+  "Magento_Checkout/template/cart/totals/shipping.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/cart/totals/shipping.html"
+  },
+  "Magento_Checkout/template/cart/totals/subtotal.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/cart/totals/subtotal.html"
+  },
+  "Magento_Checkout/template/cart/totals.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/cart/totals.html"
+  },
+  "Magento_Checkout/template/estimation.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/estimation.html"
+  },
+  "Magento_Checkout/template/form/element/email.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/form/element/email.html"
+  },
+  "Magento_Checkout/template/minicart/content.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/minicart/content.html"
+  },
+  "Magento_Checkout/template/minicart/item/default.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/minicart/item/default.html"
+  },
+  "Magento_Checkout/template/minicart/item/price.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/minicart/item/price.html"
+  },
+  "Magento_Checkout/template/minicart/subtotal/totals.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/minicart/subtotal/totals.html"
+  },
+  "Magento_Checkout/template/minicart/subtotal.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/minicart/subtotal.html"
+  },
+  "Magento_Checkout/template/onepage.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/onepage.html"
+  },
+  "Magento_Checkout/template/payment/before-place-order.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/payment/before-place-order.html"
+  },
+  "Magento_Checkout/template/payment/generic-title.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/payment/generic-title.html"
+  },
+  "Magento_Checkout/template/payment-methods/list.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/payment-methods/list.html"
+  },
+  "Magento_Checkout/template/payment.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/payment.html"
+  },
+  "Magento_Checkout/template/progress-bar.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/progress-bar.html"
+  },
+  "Magento_Checkout/template/registration.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/registration.html"
+  },
+  "Magento_Checkout/template/review/actions/default.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/review/actions/default.html"
+  },
+  "Magento_Checkout/template/review/actions.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/review/actions.html"
+  },
+  "Magento_Checkout/template/shipping-address/address-renderer/default.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/shipping-address/address-renderer/default.html"
+  },
+  "Magento_Checkout/template/shipping-address/form.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/shipping-address/form.html"
+  },
+  "Magento_Checkout/template/shipping-address/list.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/shipping-address/list.html"
+  },
+  "Magento_Checkout/template/shipping-address/shipping-method-item.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/shipping-address/shipping-method-item.html"
+  },
+  "Magento_Checkout/template/shipping-address/shipping-method-list.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/shipping-address/shipping-method-list.html"
+  },
+  "Magento_Checkout/template/shipping-information/address-renderer/default.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/shipping-information/address-renderer/default.html"
+  },
+  "Magento_Checkout/template/shipping-information/list.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/shipping-information/list.html"
+  },
+  "Magento_Checkout/template/shipping-information.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/shipping-information.html"
+  },
+  "Magento_Checkout/template/shipping.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/shipping.html"
+  },
+  "Magento_Checkout/template/sidebar.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/sidebar.html"
+  },
+  "Magento_Checkout/template/summary/cart-items.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/summary/cart-items.html"
+  },
+  "Magento_Checkout/template/summary/grand-total.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/summary/grand-total.html"
+  },
+  "Magento_Checkout/template/summary/item/details/message.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/summary/item/details/message.html"
+  },
+  "Magento_Checkout/template/summary/item/details/subtotal.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/summary/item/details/subtotal.html"
+  },
+  "Magento_Checkout/template/summary/item/details/thumbnail.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/summary/item/details/thumbnail.html"
+  },
+  "Magento_Checkout/template/summary/item/details.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/summary/item/details.html"
+  },
+  "Magento_Checkout/template/summary/shipping.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/summary/shipping.html"
+  },
+  "Magento_Checkout/template/summary/subtotal.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/summary/subtotal.html"
+  },
+  "Magento_Checkout/template/summary/totals.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/summary/totals.html"
+  },
+  "Magento_Checkout/template/summary.html": {
+    "type": "ModuleAsset",
+    "moduleContext": "Magento_Checkout",
+    "path": "/view/frontend/web/template/summary.html"
+  },
+  "LICENSE.txt": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "path": "LICENSE.txt"
+  },
+  "LICENSE_AFL.txt": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "LICENSE_AFL.txt",
+    "path": ""
+  },
+  "Magento_AdvancedCheckout/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_AdvancedCheckout",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_AdvancedCheckout/web/css/source/_widgets.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_AdvancedCheckout",
+    "path": "web/css/source/_widgets.less"
+  },
+  "Magento_Banner/web/css/source/_widgets.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "moduleContext": "Magento_Banner",
+    "path": "web/css/source/_widgets.less"
+  },
+  "Magento_Braintree/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "moduleContext": "Magento_Braintree",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_Bundle/web/css/source/_email.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "moduleContext": "Magento_Bundle",
+    "path": "web/css/source/_email.less"
+  },
+  "Magento_Bundle/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Bundle",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_Catalog/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Catalog",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_Catalog/web/css/source/_widgets.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "moduleContext": "Magento_Catalog",
+    "path": "web/css/source/_widgets.less"
+  },
+  "Magento_Catalog/web/css/source/module/_listings.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Catalog",
+    "path": "web/css/source/module/_listings.less"
+  },
+  "Magento_Catalog/web/css/source/module/_toolbar.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Catalog",
+    "path": "web/css/source/module/_toolbar.less"
+  },
+  "Magento_CatalogEvent/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "moduleContext": "Magento_CatalogEvent",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_CatalogEvent/web/css/source/_widgets.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "moduleContext": "Magento_CatalogEvent",
+    "path": "web/css/source/_widgets.less"
+  },
+  "Magento_CatalogSearch/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_CatalogSearch",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_Checkout/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Checkout",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_Checkout/web/css/source/module/_cart.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Checkout",
+    "path": "web/css/source/module/_cart.less"
+  },
+  "Magento_Checkout/web/css/source/module/_checkout.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "moduleContext": "Magento_Checkout",
+    "path": "web/css/source/module/_checkout.less"
+  },
+  "Magento_Checkout/web/css/source/module/_minicart.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Checkout",
+    "path": "web/css/source/module/_minicart.less"
+  },
+  "Magento_Checkout/web/css/source/module/checkout/_authentication.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "moduleContext": "Magento_Checkout",
+    "path": "web/css/source/module/checkout/_authentication.less"
+  },
+  "Magento_Checkout/web/css/source/module/checkout/_checkout-agreements.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "moduleContext": "Magento_Checkout",
+    "path": "web/css/source/module/checkout/_checkout-agreements.less"
+  },
+  "Magento_Checkout/web/css/source/module/checkout/_checkout.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Checkout",
+    "path": "web/css/source/module/checkout/_checkout.less"
+  },
+  "Magento_Checkout/web/css/source/module/checkout/_estimated-total.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Checkout",
+    "path": "web/css/source/module/checkout/_estimated-total.less"
+  },
+  "Magento_Checkout/web/css/source/module/checkout/_fields.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Checkout",
+    "path": "web/css/source/module/checkout/_fields.less"
+  },
+  "Magento_Checkout/web/css/source/module/checkout/_modals.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Checkout",
+    "path": "web/css/source/module/checkout/_modals.less"
+  },
+  "Magento_Checkout/web/css/source/module/checkout/_order-summary.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Checkout",
+    "path": "web/css/source/module/checkout/_order-summary.less"
+  },
+  "Magento_Checkout/web/css/source/module/checkout/_payment-options.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Checkout",
+    "path": "web/css/source/module/checkout/_payment-options.less"
+  },
+  "Magento_Checkout/web/css/source/module/checkout/_payments.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Checkout",
+    "path": "web/css/source/module/checkout/_payments.less"
+  },
+  "Magento_Checkout/web/css/source/module/checkout/_progress-bar.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Checkout",
+    "path": "web/css/source/module/checkout/_progress-bar.less"
+  },
+  "Magento_Checkout/web/css/source/module/checkout/_shipping-policy.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "moduleContext": "Magento_Checkout",
+    "path": "web/css/source/module/checkout/_shipping-policy.less"
+  },
+  "Magento_Checkout/web/css/source/module/checkout/_shipping.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Checkout",
+    "path": "web/css/source/module/checkout/_shipping.less"
+  },
+  "Magento_Checkout/web/css/source/module/checkout/_sidebar-shipping-information.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "moduleContext": "Magento_Checkout",
+    "path": "web/css/source/module/checkout/_sidebar-shipping-information.less"
+  },
+  "Magento_Checkout/web/css/source/module/checkout/_sidebar.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "moduleContext": "Magento_Checkout",
+    "path": "web/css/source/module/checkout/_sidebar.less"
+  },
+  "Magento_Checkout/web/css/source/module/checkout/_tooltip.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "moduleContext": "Magento_Checkout",
+    "path": "web/css/source/module/checkout/_tooltip.less"
+  },
+  "Magento_Cms/web/css/source/_widgets.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "moduleContext": "Magento_Cms",
+    "path": "web/css/source/_widgets.less"
+  },
+  "Magento_Customer/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Customer",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_Downloadable/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Downloadable",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_GiftCard/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_GiftCard",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_GiftCardAccount/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_GiftCardAccount",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_GiftMessage/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_GiftMessage",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_GiftRegistry/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_GiftRegistry",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_GiftRegistry/web/css/source/_widgets.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "moduleContext": "Magento_GiftRegistry",
+    "path": "web/css/source/_widgets.less"
+  },
+  "Magento_GiftWrapping/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_GiftWrapping",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_GroupedProduct/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_GroupedProduct",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_Invitation/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Invitation",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_LayeredNavigation/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_LayeredNavigation",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_Msrp/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Msrp",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_MultipleWishlist/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_MultipleWishlist",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_MultipleWishlist/web/css/source/_widgets.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "moduleContext": "Magento_MultipleWishlist",
+    "path": "web/css/source/_widgets.less"
+  },
+  "Magento_Multishipping/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Multishipping",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_Newsletter/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Newsletter",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_Paypal/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "moduleContext": "Magento_Paypal",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_Paypal/web/css/source/module/_billing.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Paypal",
+    "path": "web/css/source/module/_billing.less"
+  },
+  "Magento_Paypal/web/css/source/module/_paypal-button.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Paypal",
+    "path": "web/css/source/module/_paypal-button.less"
+  },
+  "Magento_Paypal/web/css/source/module/_review.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Paypal",
+    "path": "web/css/source/module/_review.less"
+  },
+  "Magento_ProductVideo/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "moduleContext": "Magento_ProductVideo",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_Reports/web/css/source/_widgets.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "moduleContext": "Magento_Reports",
+    "path": "web/css/source/_widgets.less"
+  },
+  "Magento_Review/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Review",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_Reward/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Reward",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_Rma/web/css/source/_email.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "moduleContext": "Magento_Rma",
+    "path": "web/css/source/_email.less"
+  },
+  "Magento_Rma/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Rma",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_Sales/web/css/source/_email.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Sales",
+    "path": "web/css/source/_email.less"
+  },
+  "Magento_Sales/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Sales",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_Sales/web/css/source/_widgets.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "moduleContext": "Magento_Sales",
+    "path": "web/css/source/_widgets.less"
+  },
+  "Magento_SalesRule/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "moduleContext": "Magento_SalesRule",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_SendFriend/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_SendFriend",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_Swatches/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "moduleContext": "Magento_Swatches",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_Theme/requirejs-config.js": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "moduleContext": "Magento_Theme",
+    "path": "requirejs-config.js"
+  },
+  "Magento_Theme/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Theme",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_Theme/web/js/responsive.js": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "moduleContext": "Magento_Theme",
+    "path": "web/js/responsive.js"
+  },
+  "Magento_Theme/web/js/theme.js": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "moduleContext": "Magento_Theme",
+    "path": "web/js/theme.js"
+  },
+  "Magento_Vault/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Vault",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_VersionsCms/web/css/source/_widgets.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "moduleContext": "Magento_VersionsCms",
+    "path": "web/css/source/_widgets.less"
+  },
+  "Magento_Weee/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "moduleContext": "Magento_Weee",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_Wishlist/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Wishlist",
+    "path": "web/css/source/_module.less"
+  },
+  "composer.json": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "path": "composer.json"
+  },
+  "i18n/en_US.csv": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "path": "i18n/en_US.csv"
+  },
+  "media/preview.jpg": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "path": "media/preview.jpg"
+  },
+  "registration.php": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "path": "registration.php"
+  },
+  "web/css/_styles.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "path": "web/css/_styles.less"
+  },
+  "web/css/email-fonts.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "path": "web/css/email-fonts.less"
+  },
+  "web/css/email-inline.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "path": "web/css/email-inline.less"
+  },
+  "web/css/email.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "path": "web/css/email.less"
+  },
+  "web/css/print.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "path": "web/css/print.less"
+  },
+  "web/css/source/_actions-toolbar.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "path": "web/css/source/_actions-toolbar.less"
+  },
+  "web/css/source/_breadcrumbs.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "path": "web/css/source/_breadcrumbs.less"
+  },
+  "web/css/source/_buttons.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "path": "web/css/source/_buttons.less"
+  },
+  "web/css/source/_components.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "path": "web/css/source/_components.less"
+  },
+  "web/css/source/_email-base.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "path": "web/css/source/_email-base.less"
+  },
+  "web/css/source/_email-extend.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "path": "web/css/source/_email-extend.less"
+  },
+  "web/css/source/_email-variables.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "path": "web/css/source/_email-variables.less"
+  },
+  "web/css/source/_extends.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "path": "web/css/source/_extends.less"
+  },
+  "web/css/source/_forms.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "path": "web/css/source/_forms.less"
+  },
+  "web/css/source/_icons.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "path": "web/css/source/_icons.less"
+  },
+  "web/css/source/_layout.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "path": "web/css/source/_layout.less"
+  },
+  "web/css/source/_loaders.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "path": "web/css/source/_loaders.less"
+  },
+  "web/css/source/_messages.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "path": "web/css/source/_messages.less"
+  },
+  "web/css/source/_navigation.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "path": "web/css/source/_navigation.less"
+  },
+  "web/css/source/_pages.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "path": "web/css/source/_pages.less"
+  },
+  "web/css/source/_popups.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "path": "web/css/source/_popups.less"
+  },
+  "web/css/source/_price.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "path": "web/css/source/_price.less"
+  },
+  "web/css/source/_reset.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "path": "web/css/source/_reset.less"
+  },
+  "web/css/source/_sections.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "path": "web/css/source/_sections.less"
+  },
+  "web/css/source/_sources.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "path": "web/css/source/_sources.less"
+  },
+  "web/css/source/_tables.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "path": "web/css/source/_tables.less"
+  },
+  "web/css/source/_theme.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "path": "web/css/source/_theme.less"
+  },
+  "web/css/source/_tooltips.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "path": "web/css/source/_tooltips.less"
+  },
+  "web/css/source/_typography.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "path": "web/css/source/_typography.less"
+  },
+  "web/css/source/_variables.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "path": "web/css/source/_variables.less"
+  },
+  "web/css/source/components/_modals_extend.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "path": "web/css/source/components/_modals_extend.less"
+  },
+  "web/css/styles-l.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "path": "web/css/styles-l.less"
+  },
+  "web/css/styles-m.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "path": "web/css/styles-m.less"
+  },
+  "web/images/logo.svg": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "path": "web/images/logo.svg"
+  },
+  "web/js/navigation-menu.js": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "blank"
+    },
+    "path": "web/js/navigation-menu.js"
+  },
+  "Magento_AdvancedSearch/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_AdvancedSearch",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_Checkout/web/css/source/module/checkout/fields/_file-uploader.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Checkout",
+    "path": "web/css/source/module/checkout/fields/_file-uploader.less"
+  },
+  "Magento_Customer/email/account_new.html": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Customer",
+    "path": "email/account_new.html"
+  },
+  "Magento_Customer/web/css/source/_email.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Customer",
+    "path": "web/css/source/_email.less"
+  },
+  "Magento_Customer/web/images/icn_address.png": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Customer",
+    "path": "web/images/icn_address.png"
+  },
+  "Magento_Customer/web/images/icn_checkout.png": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Customer",
+    "path": "web/images/icn_checkout.png"
+  },
+  "Magento_Customer/web/images/icn_history.png": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Customer",
+    "path": "web/images/icn_history.png"
+  },
+  "Magento_Customer/web/images/icn_status.png": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Customer",
+    "path": "web/images/icn_status.png"
+  },
+  "Magento_CustomerBalance/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_CustomerBalance",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_Email/email/footer.html": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Email",
+    "path": "email/footer.html"
+  },
+  "Magento_Email/web/logo_email.png": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Email",
+    "path": "web/logo_email.png"
+  },
+  "Magento_InstantPurchase/web/css/source/_module.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_InstantPurchase",
+    "path": "web/css/source/_module.less"
+  },
+  "Magento_LayeredNavigation/templates/layer/state.phtml": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_LayeredNavigation",
+    "path": "templates/layer/state.phtml"
+  },
+  "Magento_LayeredNavigation/templates/layer/view.phtml": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_LayeredNavigation",
+    "path": "templates/layer/view.phtml"
+  },
+  "Magento_Sales/email/creditmemo_new.html": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Sales",
+    "path": "email/creditmemo_new.html"
+  },
+  "Magento_Sales/email/creditmemo_new_guest.html": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Sales",
+    "path": "email/creditmemo_new_guest.html"
+  },
+  "Magento_Sales/email/creditmemo_update.html": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Sales",
+    "path": "email/creditmemo_update.html"
+  },
+  "Magento_Sales/email/creditmemo_update_guest.html": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Sales",
+    "path": "email/creditmemo_update_guest.html"
+  },
+  "Magento_Sales/email/invoice_new.html": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Sales",
+    "path": "email/invoice_new.html"
+  },
+  "Magento_Sales/email/invoice_new_guest.html": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Sales",
+    "path": "email/invoice_new_guest.html"
+  },
+  "Magento_Sales/email/invoice_update.html": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Sales",
+    "path": "email/invoice_update.html"
+  },
+  "Magento_Sales/email/invoice_update_guest.html": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Sales",
+    "path": "email/invoice_update_guest.html"
+  },
+  "Magento_Sales/email/order_new.html": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Sales",
+    "path": "email/order_new.html"
+  },
+  "Magento_Sales/email/order_new_guest.html": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Sales",
+    "path": "email/order_new_guest.html"
+  },
+  "Magento_Sales/email/order_update.html": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Sales",
+    "path": "email/order_update.html"
+  },
+  "Magento_Sales/email/order_update_guest.html": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Sales",
+    "path": "email/order_update_guest.html"
+  },
+  "Magento_Sales/email/shipment_new.html": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Sales",
+    "path": "email/shipment_new.html"
+  },
+  "Magento_Sales/email/shipment_new_guest.html": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Sales",
+    "path": "email/shipment_new_guest.html"
+  },
+  "Magento_Sales/email/shipment_update.html": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Sales",
+    "path": "email/shipment_update.html"
+  },
+  "Magento_Sales/email/shipment_update_guest.html": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Sales",
+    "path": "email/shipment_update_guest.html"
+  },
+  "Magento_Theme/web/css/source/module/_collapsible_navigation.less": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "moduleContext": "Magento_Theme",
+    "path": "web/css/source/module/_collapsible_navigation.less"
+  },
+  "web/fonts/Luma-Icons.eot": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "path": "web/fonts/Luma-Icons.eot"
+  },
+  "web/fonts/Luma-Icons.svg": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "path": "web/fonts/Luma-Icons.svg"
+  },
+  "web/fonts/Luma-Icons.ttf": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "path": "web/fonts/Luma-Icons.ttf"
+  },
+  "web/fonts/Luma-Icons.woff": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "path": "web/fonts/Luma-Icons.woff"
+  },
+  "web/fonts/Luma-Icons.woff2": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "path": "web/fonts/Luma-Icons.woff2"
+  },
+  "web/fonts/selection.json": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "path": "web/fonts/selection.json"
+  },
+  "web/images/select-bg.svg": {
+    "type": "ThemeAsset",
+    "theme": {
+      "area": "frontend",
+      "vendor": "Magento",
+      "name": "luma"
+    },
+    "path": "web/images/select-bg.svg"
+  }
+}

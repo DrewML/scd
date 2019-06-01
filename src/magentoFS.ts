@@ -3,11 +3,12 @@
  * See COPYING.txt for license details.
  */
 
-import { promises as fs, constants } from 'fs';
+import { promises as fs } from 'fs';
 import { isAbsolute, join, relative, sep } from 'path';
 import { wrapP } from './wrapP';
 import { Theme } from './types';
 import { flatten } from './flatten';
+import { parse } from 'fast-xml-parser';
 
 const THEME_ROOT = 'app/design';
 const CODE_ROOT = 'app/code';
@@ -41,11 +42,16 @@ export async function getEnabledModules(root: string) {
     return enabledModules;
 }
 
+type ModuleConfig = {
+    name: string;
+    sequence: string[];
+};
+
 /**
  * @summary Finds all modules in app/code and app/vendor, regardless
- * of whether or not they are enabled
+ * of whether or not they are enabled, and returns config info
  */
-export async function getModulesOnDisk(root: string) {
+export async function getModulesOnDisk(root: string): Promise<ModuleConfig[]> {
     assertAbsolute(root);
     const [firstPartyVendors, thirdPartyVendors] = await Promise.all([
         safeDirRead(join(root, CODE_ROOT)),
@@ -55,8 +61,20 @@ export async function getModulesOnDisk(root: string) {
     const modulesForVendors = (vendors: string[], dir: string) =>
         Promise.all(
             vendors.map(async vendor => {
-                const modules = await safeDirRead(join(root, dir, vendor));
-                return modules.map(mod => `${vendor}_${mod}`);
+                const vendorPath = join(root, dir, vendor);
+                const modules = await safeDirRead(vendorPath);
+                return Promise.all(
+                    modules.map(async mod => {
+                        const sequence = await getModuleSequence(
+                            vendorPath,
+                            mod,
+                        );
+                        return {
+                            name: `${vendor}_${mod}`,
+                            sequence,
+                        };
+                    }),
+                );
             }),
         );
 
@@ -66,6 +84,31 @@ export async function getModulesOnDisk(root: string) {
     ]);
 
     return flatten([...firstPartyModules, ...thirdPartyModules]);
+}
+
+export async function getModuleSequence(
+    vendorPath: string,
+    moduleName: string,
+) {
+    const configPath = join(vendorPath, moduleName, 'etc/module.xml');
+    const rawConfig = await fs.readFile(configPath, 'utf8');
+    const config = parse(rawConfig, {
+        ignoreAttributes: false,
+        attributeNamePrefix: '',
+        ignoreNameSpace: true,
+    });
+
+    const { sequence } = config.config.module;
+    // no dependencies
+    if (!sequence) return [] as string[];
+
+    // multiple dependencies
+    if (Array.isArray(sequence.module)) {
+        return sequence.module.map((m: any) => m.name) as string[];
+    }
+
+    // single dependency
+    return [sequence.module.name] as string[];
 }
 
 /**
@@ -235,7 +278,7 @@ async function getPathForModule(root: string, name: string) {
     return relative(root, absPath);
 }
 
-async function getModuleViewDir(
+export async function getModuleViewDir(
     root: string,
     name: string,
     area: 'frontend' | 'adminhtml',
