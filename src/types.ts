@@ -8,3 +8,8 @@ export type Theme = {
     vendor: string;
     area: 'frontend' | 'adminhtml';
 };
+
+export type ModuleConfig = {
+    name: string;
+    sequence: string[];
+};
