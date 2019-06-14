@@ -16,7 +16,7 @@ const globPromise = promisify(glob);
 
 (async () => {
     const filePaths = await globPromise('**/*.{js,ts}', {
-        ignore: ['node_modules/**', 'coverage/**', 'dist/**'],
+        ignore: ['node_modules/**', 'coverage/**', 'dist/**', 'src/@types/**'],
     });
 
     const missingHeaders = (await Promise.all(

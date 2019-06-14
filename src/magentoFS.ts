@@ -3,15 +3,24 @@
  * See COPYING.txt for license details.
  */
 
-import { promises as fs } from 'fs';
+import { promises as fs, constants } from 'fs';
 import { isAbsolute, join, relative, sep } from 'path';
 import { wrapP } from './wrapP';
-import { Theme } from './types';
+import {
+    Theme,
+    ModuleConfig,
+    ThemeAsset,
+    ModuleAsset,
+    StaticAsset,
+    Module,
+} from './types';
 import { flatten } from './flatten';
 import { parse } from 'fast-xml-parser';
 
+// Fix this, because themes can be in vendor
 const THEME_ROOT = 'app/design';
 const CODE_ROOT = 'app/code';
+// TODO: Fix this, because it's very wrong
 const VENDOR_ROOT = 'app/vendor';
 
 /**
@@ -42,11 +51,6 @@ export async function getEnabledModules(root: string) {
     return enabledModules;
 }
 
-type ModuleConfig = {
-    name: string;
-    sequence: string[];
-};
-
 /**
  * @summary Finds all modules in app/code and app/vendor, regardless
  * of whether or not they are enabled, and returns config info
@@ -63,6 +67,8 @@ export async function getModulesOnDisk(root: string): Promise<ModuleConfig[]> {
             vendors.map(async vendor => {
                 const vendorPath = join(root, dir, vendor);
                 const modules = await safeDirRead(vendorPath);
+                // TODO: Move module.xml parsing out of `getModulesOnDisk`, because
+                // we waste using the full XML parser for modules we won't use
                 return Promise.all(
                     modules.map(async mod => {
                         const sequence = await getModuleSequence(
@@ -90,6 +96,7 @@ export async function getModuleSequence(
     vendorPath: string,
     moduleName: string,
 ) {
+    assertAbsolute(vendorPath);
     const configPath = join(vendorPath, moduleName, 'etc/module.xml');
     const rawConfig = await fs.readFile(configPath, 'utf8');
     const config = parse(rawConfig, {
@@ -185,29 +192,15 @@ async function getThemeParent(root: string, theme: Theme) {
                 `"${theme.vendor}/${theme.name}" in "${themeXMLPath}"`,
         );
     }
-    // Note: Skipping a full blown XML parser (for now) to maintain
-    // speed and not take on an extra dep
+    // Note: Skipping a full blown XML parser (for now) to maintain speed.
+    // Sander will hate me :D
     const [, parent = ''] = source!.match(/<parent>(.+)<\/parent>/) || [];
 
     if (parent) {
-        const [vendor, name] = parent.split('/');
+        const [vendor, name] = parent.split(sep);
         return { name, vendor, area: theme.area };
     }
 }
-
-export type ThemeAsset = {
-    type: 'ThemeAsset';
-    theme: Theme;
-    moduleContext?: string;
-    path: string;
-};
-export type ModuleAsset = {
-    type: 'ModuleAsset';
-    moduleContext: string;
-    path: string;
-};
-
-export type StaticAsset = ThemeAsset | ModuleAsset;
 
 /**
  * @summary Provide contextful information about a file path within a theme
@@ -222,17 +215,18 @@ export function parseThemePath(path: string): ThemeAsset {
         name: pieces.shift() as string,
     };
 
-    const isModuleContext = /[a-z]+_[a-z]+/i.test(pieces[0]);
+    const isModuleContext = /[a-z0-9]+_[a-z0-9]+/i.test(pieces[0]);
     if (isModuleContext) {
+        const [vendor, name] = pieces[0].split('_');
         return {
             type: 'ThemeAsset',
             theme,
-            moduleContext: pieces[0],
-            path: pieces.slice(1).join(sep),
+            module: { vendor, name },
+            pathFromStoreRoot: path,
         };
     }
 
-    return { type: 'ThemeAsset', theme, path: pieces.join(sep) };
+    return { type: 'ThemeAsset', theme, pathFromStoreRoot: path };
 }
 
 export function parseModulePath(
@@ -240,29 +234,56 @@ export function parseModulePath(
     moduleContext: string,
 ): ModuleAsset {
     const [vendor, name] = moduleContext.split('_');
-    const [, relPath] = path.split(`${vendor}${sep}${name}`);
 
     return {
         type: 'ModuleAsset',
-        moduleContext,
-        path: relPath,
+        module: { name, vendor },
+        pathFromStoreRoot: path,
     };
 }
 
-export function moduleAssetToThemePath(moduleAsset: ModuleAsset) {
-    const hacky = moduleAsset.path.replace('/view/frontend/web/', '');
-    return join(moduleAsset.moduleContext, hacky);
-}
+export function finalPathFromStaticAsset(asset: StaticAsset) {
+    switch (asset.type) {
+        case 'RootAsset':
+            return relative(
+                join(sep, 'web'),
+                join(sep, asset.pathFromStoreRoot),
+            );
+        case 'ThemeAsset': {
+            if (asset.module) {
+                // ex: Magento_Foobar
+                const namespace = moduleToModuleNamespace(asset.module);
+                // ex: /web/css/source/module/checkout/_checkout-agreements.less
+                const afterModule = asset.pathFromStoreRoot.split(namespace)[1];
+                // ex: css/source/module/checkout/_checkout-agreements.less
+                const afterWebDir = relative(join(sep, 'web'), afterModule);
+                return join(namespace, afterWebDir);
+            }
 
-/**
- * @summary Given a ThemeFile, will return the path
- * (including module context, when applicable) excluding
- * any theme info from the path
- */
-export function themeFileToThemeless(themeFile: ThemeAsset) {
-    return typeof themeFile.moduleContext === 'string'
-        ? join(themeFile.moduleContext, themeFile.path)
-        : themeFile.path;
+            const pathChunks = asset.pathFromStoreRoot.split(sep);
+            const firstWebDirIdx = pathChunks.findIndex(p => p === 'web');
+            const afterWebDir = pathChunks.slice(firstWebDirIdx + 1).join(sep);
+            return afterWebDir;
+        }
+        case 'ModuleAsset': {
+            // ex: Magento/Foobar
+            const modulePathPiece = join(
+                asset.module.vendor,
+                asset.module.name,
+            );
+            // ex: /view/frontend/web/template/summary/grand-total.html
+            const afterModule = asset.pathFromStoreRoot.split(
+                modulePathPiece,
+            )[1];
+            const pathChunks = afterModule.split(sep);
+            const firstWebDirIdx = pathChunks.findIndex(p => p === 'web');
+            // ex: template/summary/grand-total.html
+            const afterWebDir = pathChunks.slice(firstWebDirIdx + 1).join(sep);
+            // ex: Magento_Foobar
+            const namespace = moduleToModuleNamespace(asset.module);
+            return join(namespace, afterWebDir);
+        }
+    }
 }
 
 async function getPathForModule(root: string, name: string) {
@@ -294,6 +315,10 @@ export async function getModuleWebDir(
     area: 'frontend' | 'adminhtml',
 ) {
     return join(await getModuleViewDir(root, name, area), 'web');
+}
+
+function moduleToModuleNamespace(mod: Module) {
+    return `${mod.vendor}_${mod.name}`;
 }
 
 /**

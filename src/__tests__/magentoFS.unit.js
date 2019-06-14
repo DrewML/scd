@@ -13,7 +13,6 @@ const {
     getThemes,
     getThemeHierarchy,
     parseThemePath,
-    themeFileToThemeless,
     getModuleViewDir,
     parseModulePath,
 } = require('../magentoFS');
@@ -118,36 +117,13 @@ test('parseThemePath', () => {
             vendor: 'Magento',
             area: 'frontend',
         },
-        moduleContext: 'Magento_GiftWrapping',
-        path: 'web/css/source/_module.less',
+        module: {
+            name: 'GiftWrapping',
+            vendor: 'Magento',
+        },
+        pathFromStoreRoot:
+            '/app/design/frontend/Magento/luma/Magento_GiftWrapping/web/css/source/_module.less',
     });
-});
-
-test('themeFileToThemeless with module context', () => {
-    expect(
-        themeFileToThemeless({
-            theme: {
-                name: 'luma',
-                vendor: 'Magento',
-                area: 'frontend',
-            },
-            moduleContext: 'Magento_GiftWrapping',
-            path: 'web/css/source/_module.less',
-        }),
-    ).toBe('Magento_GiftWrapping/web/css/source/_module.less');
-});
-
-test('themeFileToThemeless without module context', () => {
-    expect(
-        themeFileToThemeless({
-            theme: {
-                name: 'luma',
-                vendor: 'Magento',
-                area: 'frontend',
-            },
-            path: 'web/css/source/_module.less',
-        }),
-    ).toBe('web/css/source/_module.less');
 });
 
 test('getModuleViewDir finds module in code dir', async () => {
@@ -165,12 +141,13 @@ test('getModuleViewDir finds module in vendor dir', async () => {
 test('parseModulePath', () => {
     expect(
         parseModulePath(
-            'app/code/Magento/Theme/view/frontend/web/templates/breadcrumbs.html',
+            '/app/code/Magento/Theme/view/frontend/web/templates/breadcrumbs.html',
             'Magento_Theme',
         ),
     ).toEqual({
         type: 'ModuleAsset',
-        moduleContext: 'Magento_Theme',
-        path: '/view/frontend/web/templates/breadcrumbs.html',
+        module: { name: 'Theme', vendor: 'Magento' },
+        pathFromStoreRoot:
+            '/app/code/Magento/Theme/view/frontend/web/templates/breadcrumbs.html',
     });
 });
