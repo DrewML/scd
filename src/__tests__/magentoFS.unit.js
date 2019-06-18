@@ -9,15 +9,17 @@
 const { join } = require('path');
 const {
     getEnabledModules,
-    getModulesOnDisk,
-    getThemes,
-    getThemeHierarchy,
     parseThemePath,
-    getModuleViewDir,
     parseModulePath,
+    getComponents,
 } = require('../magentoFS');
 
 const getFixturePath = name => join(__dirname, '__fixtures__', name);
+
+test.only('getComponents', async () => {
+    const result = await getComponents('/Users/andrewlevine/sites/demo');
+    console.log(JSON.stringify(result, null, 2));
+});
 
 test('getEnabledModules only returns enabled modules', async () => {
     const result = await getEnabledModules(getFixturePath('modulesConfig'));
@@ -29,80 +31,6 @@ test('getEnabledModules only returns enabled modules', async () => {
     expect(result).toContain('Magento_Backend');
     expect(result).toContain('Magento_Authorization');
     expect(result).not.toContain('Magento_Theme');
-});
-
-test('getModulesOnDisk finds all modules, both enabled and disabled', async () => {
-    const result = await getModulesOnDisk(
-        getFixturePath('firstAndThirdPartyModules'),
-    );
-    expect(result).toContainEqual({
-        name: 'Foobar_Module1',
-        sequence: [
-            'Magento_Catalog',
-            'Magento_Checkout',
-            'Magento_Customer',
-            'Magento_Directory',
-            'Magento_User',
-        ],
-    });
-    expect(result).toContainEqual({
-        name: 'Foobar_Module2',
-        sequence: ['Magento_Catalog'],
-    });
-    expect(result).toContainEqual({
-        name: 'Magento_Module3',
-        sequence: [],
-    });
-    expect(result).toContainEqual({
-        name: 'Magento_Module4',
-        sequence: ['Magento_Directory', 'Magento_User'],
-    });
-});
-
-test.skip('getModulesOnDisk does not error when app/vendor is not on disk', async () => {
-    const result = await getModulesOnDisk(getFixturePath('noVendorsDir'));
-    expect(result).toContain('Foobar_Module1');
-    expect(result).toContain('Foobar_Module2');
-});
-
-test('getThemes finds all themes', async () => {
-    const result = await getThemes(getFixturePath('stockThemes'));
-    expect(result).toContainEqual({
-        name: 'blank',
-        vendor: 'Magento',
-        area: 'frontend',
-    });
-    expect(result).toContainEqual({
-        name: 'luma',
-        vendor: 'Magento',
-        area: 'frontend',
-    });
-    expect(result).toContainEqual({
-        name: 'backend',
-        vendor: 'Magento',
-        area: 'adminhtml',
-    });
-});
-
-test('getThemeHierarchy returns correct hierarchy for default themes', async () => {
-    const [parent, child] = await getThemeHierarchy(
-        getFixturePath('stockThemes'),
-        {
-            area: 'frontend',
-            vendor: 'Magento',
-            name: 'luma',
-        },
-    );
-    expect(parent).toEqual({
-        area: 'frontend',
-        vendor: 'Magento',
-        name: 'blank',
-    });
-    expect(child).toEqual({
-        area: 'frontend',
-        vendor: 'Magento',
-        name: 'luma',
-    });
 });
 
 test('parseThemePath', () => {
@@ -124,18 +52,6 @@ test('parseThemePath', () => {
         pathFromStoreRoot:
             '/app/design/frontend/Magento/luma/Magento_GiftWrapping/web/css/source/_module.less',
     });
-});
-
-test('getModuleViewDir finds module in code dir', async () => {
-    const root = getFixturePath('firstAndThirdPartyModules');
-    const path = await getModuleViewDir(root, 'Foobar_Module1', 'frontend');
-    expect(path).toBe('app/code/Foobar/Module1/view/frontend');
-});
-
-test('getModuleViewDir finds module in vendor dir', async () => {
-    const root = getFixturePath('firstAndThirdPartyModules');
-    const path = await getModuleViewDir(root, 'Magento_Module3', 'frontend');
-    expect(path).toBe('app/vendor/Magento/Module3/view/frontend');
 });
 
 test('parseModulePath', () => {

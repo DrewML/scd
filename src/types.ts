@@ -8,6 +8,11 @@ export type ModuleConfig = {
     sequence: string[];
 };
 
+export type Components = {
+    modules: Record<string, ModuleNew>;
+    themes: ThemeNew[];
+};
+
 export type Theme = {
     name: string;
     vendor: string;
@@ -38,14 +43,14 @@ export type Module = {
 
 export type ThemeAsset = {
     type: 'ThemeAsset';
-    theme: Theme;
-    module?: Module;
+    theme: ThemeNew;
+    moduleID?: string;
     pathFromStoreRoot: string;
 };
 
 export type ModuleAsset = {
     type: 'ModuleAsset';
-    module: Module;
+    moduleID: string;
     pathFromStoreRoot: string;
 };
 

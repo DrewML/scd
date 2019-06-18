@@ -7,20 +7,19 @@ import { promises as fs } from 'fs';
 import { isAbsolute, join, relative, sep } from 'path';
 import { wrapP } from './wrapP';
 import {
-    Theme,
     ThemeAsset,
     ModuleAsset,
     StaticAsset,
-    Module,
     ModuleNew,
     ThemeNew,
+    Components,
 } from './types';
 import { flatten } from './flatten';
 import { parse } from 'fast-xml-parser';
+import fromEntries from 'fromentries';
 
 // Fix this, because themes can be in vendor
 const THEME_ROOT = 'app/design';
-const CODE_ROOT = 'app/code';
 
 /**
  * @summary Parses config.php to find a list of enabled modules
@@ -54,15 +53,21 @@ export async function getEnabledModules(root: string) {
  * @summary Finds all Magento components (modules/themes) in
  * both app/code and vendor
  */
-export async function getComponents(root: string) {
+export async function getComponents(root: string): Promise<Components> {
     assertAbsolute(root);
     const [composer, nonComposer] = await Promise.all([
         getComposerComponents(root),
         getNonComposerComponents(root),
     ]);
 
+    const allModules = [...composer.modules, ...nonComposer.modules];
+    // modules are typically referenced by their ID (Magento_Foo),
+    // and we do these lookups in some hot, nested loops, so we're
+    // eating the cost here for O(1) lookups later
+    const modulesByName = fromEntries(allModules.map(m => [m.moduleID, m]));
+
     return {
-        modules: [...composer.modules, ...nonComposer.modules],
+        modules: modulesByName,
         themes: [...composer.themes, ...nonComposer.themes],
     };
 }
@@ -246,57 +251,6 @@ async function getModuleConfig(root: string, path: string): Promise<ModuleNew> {
     return config;
 }
 
-/**
- * @deprecated don't use it
- */
-export async function getModuleSequence(
-    vendorPath: string,
-    moduleName: string,
-) {
-    assertAbsolute(vendorPath);
-    const configPath = join(vendorPath, moduleName, 'etc/module.xml');
-    const rawConfig = await fs.readFile(configPath, 'utf8');
-    const config = parse(rawConfig, {
-        ignoreAttributes: false,
-        attributeNamePrefix: '',
-        ignoreNameSpace: true,
-    });
-
-    const { sequence } = config.config.module;
-    // no dependencies
-    if (!sequence) return [] as string[];
-
-    // multiple dependencies
-    if (Array.isArray(sequence.module)) {
-        return sequence.module.map((m: any) => m.name) as string[];
-    }
-
-    // single dependency
-    return [sequence.module.name] as string[];
-}
-
-export function themeToPath(root: string, theme: Theme) {
-    return join(root, THEME_ROOT, theme.area, theme.vendor, theme.name);
-}
-
-/**
- * @summary Recursively resolve the inheritance hierarchy for a theme
- */
-export async function getThemeHierarchy(
-    root: string,
-    theme: Theme,
-    deps?: Theme[],
-): Promise<Theme[]> {
-    const dependencies = deps || [theme];
-    const parent = await getThemeParent(root, theme);
-    if (!parent) {
-        return dependencies;
-    }
-
-    dependencies.unshift(parent);
-    return getThemeHierarchy(root, parent, dependencies);
-}
-
 function assertAbsolute(path: string) {
     if (isAbsolute(path)) return;
     throw new Error(
@@ -305,81 +259,52 @@ function assertAbsolute(path: string) {
 }
 
 /**
- * @summary Determine which (if any) theme a given theme inherits from
- */
-async function getThemeParent(root: string, theme: Theme) {
-    assertAbsolute(root);
-    const themeXMLPath = join(themeToPath(root, theme), 'theme.xml');
-    const [err, source] = await wrapP(fs.readFile(themeXMLPath, 'utf8'));
-    if (err) {
-        throw new Error(
-            'Could not find "theme.xml" for ' +
-                `"${theme.vendor}/${theme.name}" in "${themeXMLPath}"`,
-        );
-    }
-    // Note: Skipping a full blown XML parser (for now) to maintain speed.
-    // Sander will hate me :D
-    const [, parent = ''] = source!.match(/<parent>(.+)<\/parent>/) || [];
-
-    if (parent) {
-        const [vendor, name] = parent.split(sep);
-        return { name, vendor, area: theme.area };
-    }
-}
-
-/**
  * @summary Provide contextful information about a file path within a theme
+ * @todo Make compatible with composer packages
  */
-export function parseThemePath(path: string): ThemeAsset {
-    const [, relPath] = path.split(THEME_ROOT);
-    const [, ...pieces] = relPath.split(sep);
-
-    const theme = {
-        area: pieces.shift() as 'frontend' | 'adminhtml',
-        vendor: pieces.shift() as string,
-        name: pieces.shift() as string,
-    };
-
-    const isModuleContext = /[a-z0-9]+_[a-z0-9]+/i.test(pieces[0]);
+export function parseThemePath(path: string, theme: ThemeNew): ThemeAsset {
+    const relPath = relative(theme.pathFromStoreRoot, path);
+    const [firstDir] = relPath.split(sep);
+    const isModuleContext = /^[a-z0-9]+_[a-z0-9]+$/i.test(firstDir);
     if (isModuleContext) {
-        const [vendor, name] = pieces[0].split('_');
         return {
             type: 'ThemeAsset',
             theme,
-            module: { vendor, name },
-            pathFromStoreRoot: join('/', path),
+            moduleID: firstDir,
+            pathFromStoreRoot: path,
         };
     }
 
-    return { type: 'ThemeAsset', theme, pathFromStoreRoot: join('/', path) };
+    return { type: 'ThemeAsset', theme, pathFromStoreRoot: path };
 }
 
 export function parseModulePath(
     path: string,
     moduleContext: string,
 ): ModuleAsset {
-    const [vendor, name] = moduleContext.split('_');
-
     return {
         type: 'ModuleAsset',
-        module: { name, vendor },
+        moduleID: moduleContext,
         pathFromStoreRoot: join('/', path),
     };
 }
 
-export function finalPathFromStaticAsset(asset: StaticAsset) {
+export function finalPathFromStaticAsset(
+    asset: StaticAsset,
+    components: Components,
+) {
     switch (asset.type) {
         case 'RootAsset':
             return relative(join(sep, 'lib', 'web'), asset.pathFromStoreRoot);
         case 'ThemeAsset': {
-            if (asset.module) {
-                // ex: Magento_Foobar
-                const namespace = moduleToModuleNamespace(asset.module);
+            if (asset.moduleID) {
                 // ex: /web/css/source/module/checkout/_checkout-agreements.less
-                const afterModule = asset.pathFromStoreRoot.split(namespace)[1];
+                const afterModule = asset.pathFromStoreRoot.split(
+                    asset.moduleID,
+                )[1];
                 // ex: css/source/module/checkout/_checkout-agreements.less
                 const afterWebDir = relative(join(sep, 'web'), afterModule);
-                return join(namespace, afterWebDir);
+                return join(asset.moduleID, afterWebDir);
             }
 
             const pathChunks = asset.pathFromStoreRoot.split(sep);
@@ -388,52 +313,20 @@ export function finalPathFromStaticAsset(asset: StaticAsset) {
             return afterWebDir;
         }
         case 'ModuleAsset': {
-            // ex: Magento/Foobar
-            const modulePathPiece = join(
-                asset.module.vendor,
-                asset.module.name,
+            return join(
+                asset.moduleID,
+                relative(
+                    join(
+                        components.modules[asset.moduleID].pathFromStoreRoot,
+                        'view',
+                        'frontend', // TODO: Can't hardcode area
+                        'web',
+                    ),
+                    asset.pathFromStoreRoot,
+                ),
             );
-            // ex: /view/frontend/web/template/summary/grand-total.html
-            const afterModule = asset.pathFromStoreRoot.split(
-                modulePathPiece,
-            )[1];
-            const pathChunks = afterModule.split(sep);
-            const firstWebDirIdx = pathChunks.findIndex(p => p === 'web');
-            // ex: template/summary/grand-total.html
-            const afterWebDir = pathChunks.slice(firstWebDirIdx + 1).join(sep);
-            // ex: Magento_Foobar
-            const namespace = moduleToModuleNamespace(asset.module);
-            return join(namespace, afterWebDir);
         }
     }
-}
-
-async function getPathForModule(root: string, name: string) {
-    const [vendor, mod] = name.split('_');
-    const codeDirPath = join(root, CODE_ROOT, vendor, mod);
-    return relative(root, codeDirPath);
-}
-
-export async function getModuleViewDir(
-    root: string,
-    name: string,
-    area: 'frontend' | 'adminhtml',
-) {
-    assertAbsolute(root);
-    const modulePath = await getPathForModule(root, name);
-    return join(modulePath, 'view', area);
-}
-
-export async function getModuleWebDir(
-    root: string,
-    name: string,
-    area: 'frontend' | 'adminhtml',
-) {
-    return join(await getModuleViewDir(root, name, area), 'web');
-}
-
-function moduleToModuleNamespace(mod: Module) {
-    return `${mod.vendor}_${mod.name}`;
 }
 
 /**
