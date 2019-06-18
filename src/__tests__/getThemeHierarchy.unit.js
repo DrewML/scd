@@ -10,7 +10,7 @@ test('getThemeHierarchy resolves single parent', () => {
         {
             name: 'blank',
             vendor: 'magento',
-            normalizedName: 'Magento/blank',
+            themeID: 'Magento/blank',
             area: 'frontend',
             parentID: '',
             pathFromStoreRoot: '/vendor/magento/theme-frontend-blank',
@@ -18,15 +18,15 @@ test('getThemeHierarchy resolves single parent', () => {
         {
             name: 'luma',
             vendor: 'magento',
-            normalizedName: 'Magento/luma',
+            themeID: 'Magento/luma',
             area: 'frontend',
             parentID: 'Magento/blank',
             pathFromStoreRoot: '/vendor/magento/theme-frontend-luma',
         },
     ];
     const [parent, child] = getThemeHierarchy(themes[1], themes);
-    expect(parent.normalizedName).toBe('Magento/blank');
-    expect(child.normalizedName).toBe('Magento/luma');
+    expect(parent.themeID).toBe('Magento/blank');
+    expect(child.themeID).toBe('Magento/luma');
 });
 
 test('getThemeHierarchy resolves multiple parents', () => {
@@ -34,7 +34,7 @@ test('getThemeHierarchy resolves multiple parents', () => {
         {
             name: 'blank',
             vendor: 'magento',
-            normalizedName: 'Magento/blank',
+            themeID: 'Magento/blank',
             area: 'frontend',
             parentID: 'Stranger/empty',
             pathFromStoreRoot: '/vendor/magento/theme-frontend-blank',
@@ -42,7 +42,7 @@ test('getThemeHierarchy resolves multiple parents', () => {
         {
             name: 'luma',
             vendor: 'magento',
-            normalizedName: 'Magento/luma',
+            themeID: 'Magento/luma',
             area: 'frontend',
             parentID: 'Magento/blank',
             pathFromStoreRoot: '/vendor/magento/theme-frontend-luma',
@@ -50,16 +50,16 @@ test('getThemeHierarchy resolves multiple parents', () => {
         {
             name: 'empty',
             vendor: 'stranger',
-            normalizedName: 'Stranger/empty',
+            themeID: 'Stranger/empty',
             area: 'frontend',
             parentID: '',
             pathFromStoreRoot: '/vendor/magento/theme-frontend-luma',
         },
     ];
     const results = getThemeHierarchy(themes[1], themes);
-    expect(results[0].normalizedName).toBe('Stranger/empty');
-    expect(results[1].normalizedName).toBe('Magento/blank');
-    expect(results[2].normalizedName).toBe('Magento/luma');
+    expect(results[0].themeID).toBe('Stranger/empty');
+    expect(results[1].themeID).toBe('Magento/blank');
+    expect(results[2].themeID).toBe('Magento/luma');
 });
 
 test('Meaningful error when specified parent does not exist', () => {
@@ -67,7 +67,7 @@ test('Meaningful error when specified parent does not exist', () => {
         {
             name: 'luma',
             vendor: 'magento',
-            normalizedName: 'Magento/luma',
+            themeID: 'Magento/luma',
             area: 'frontend',
             parentID: 'Magento/blank',
             pathFromStoreRoot: '/vendor/magento/theme-frontend-luma',

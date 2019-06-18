@@ -17,10 +17,10 @@ export function getThemeHierarchy(
     const dependencies = deps || [theme];
     if (!theme.parentID) return dependencies;
 
-    const parent = themes.find(t => t.normalizedName === theme.parentID);
+    const parent = themes.find(t => t.themeID === theme.parentID);
     if (!parent) {
         throw new Error(
-            `Theme "${theme.normalizedName}" specified a parent of ` +
+            `Theme "${theme.themeID}" specified a parent of ` +
                 `"${theme.parentID}", but that theme could not be found.`,
         );
     }

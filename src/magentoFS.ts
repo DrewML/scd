@@ -18,9 +18,6 @@ import { flatten } from './flatten';
 import { parse } from 'fast-xml-parser';
 import fromEntries from 'fromentries';
 
-// Fix this, because themes can be in vendor
-const THEME_ROOT = 'app/design';
-
 /**
  * @summary Parses config.php to find a list of enabled modules
  * @see https://devdocs.magento.com/guides/v2.3/config-guide/config/config-php.html
@@ -146,7 +143,7 @@ async function getNonComposerThemesFromVendorInArea(
         themes.map(async name => ({
             name,
             vendor,
-            normalizedName: `${vendor}/${name}`,
+            themeID: `${vendor}/${name}`,
             area,
             parentID: await getThemeParentName(root, join(vendorPath, name)),
             pathFromStoreRoot: join(sep, 'app', 'design', area, vendor, name),
@@ -207,7 +204,7 @@ async function getThemeFromComposerName(
     return {
         name: themeName,
         vendor,
-        normalizedName: normalizeComposerThemeName(vendor, themeName),
+        themeID: normalizeComposerThemeName(vendor, themeName),
         area: area as ThemeNew['area'],
         parentID: await getThemeParentName(root, pathFromStoreRoot),
         pathFromStoreRoot: pathFromStoreRoot,
@@ -265,17 +262,23 @@ function assertAbsolute(path: string) {
 export function parseThemePath(path: string, theme: ThemeNew): ThemeAsset {
     const relPath = relative(theme.pathFromStoreRoot, path);
     const [firstDir] = relPath.split(sep);
+
     const isModuleContext = /^[a-z0-9]+_[a-z0-9]+$/i.test(firstDir);
     if (isModuleContext) {
+        // TODO: Find out why this branch isn't getting hit
         return {
             type: 'ThemeAsset',
-            theme,
+            themeID: theme.themeID,
             moduleID: firstDir,
             pathFromStoreRoot: path,
         };
     }
 
-    return { type: 'ThemeAsset', theme, pathFromStoreRoot: path };
+    return {
+        type: 'ThemeAsset',
+        themeID: theme.themeID,
+        pathFromStoreRoot: path,
+    };
 }
 
 export function parseModulePath(
@@ -289,6 +292,10 @@ export function parseModulePath(
     };
 }
 
+/**
+ * @todo Cleanup `ThemeAsset` logic now that we are passing
+ * in components.themes
+ */
 export function finalPathFromStaticAsset(
     asset: StaticAsset,
     components: Components,

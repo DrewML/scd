@@ -21,7 +21,7 @@ export type Theme = {
 
 export type ThemeNew = {
     name: string;
-    normalizedName: string;
+    themeID: string;
     vendor: string;
     area: 'frontend' | 'adminhtml';
     parentID?: string;
@@ -43,7 +43,7 @@ export type Module = {
 
 export type ThemeAsset = {
     type: 'ThemeAsset';
-    theme: ThemeNew;
+    themeID: string;
     moduleID?: string;
     pathFromStoreRoot: string;
 };

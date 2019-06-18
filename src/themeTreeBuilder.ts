@@ -61,7 +61,7 @@ async function reduceThemes(opts: Opts) {
             const webDir = join(curTheme.pathFromStoreRoot, 'web');
             // Only check for files in enabled modules
             const moduleWebDirs = enabledModules.map(m =>
-                join(components.modules[m].pathFromStoreRoot, 'web'),
+                join(theme.pathFromStoreRoot, m),
             );
 
             // Non-front-end stuff can exist in a theme directory,
@@ -73,6 +73,8 @@ async function reduceThemes(opts: Opts) {
             const pendingNestedFiles = Promise.all(
                 moduleWebDirs.map(async m => {
                     try {
+                        // TODO: Maybe just make `readTree` a safe operation
+                        // like safeDirRead in magentoFS.ts
                         return await readTree(root, m);
                     } catch {
                         // module was enabled, but does not have a /web/ folder
