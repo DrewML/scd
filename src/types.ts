@@ -14,6 +14,23 @@ export type Theme = {
     area: 'frontend' | 'adminhtml';
 };
 
+export type ThemeNew = {
+    name: string;
+    normalizedName: string;
+    vendor: string;
+    area: 'frontend' | 'adminhtml';
+    parentID?: string;
+    pathFromStoreRoot: string;
+};
+
+export type ModuleNew = {
+    // ex: Magento_Shipping
+    moduleID: string;
+    // ex: Magento_Checkout, Magento_Discounts
+    sequence: string[];
+    pathFromStoreRoot: string;
+};
+
 export type Module = {
     name: string;
     vendor: string;
@@ -23,18 +40,18 @@ export type ThemeAsset = {
     type: 'ThemeAsset';
     theme: Theme;
     module?: Module;
-    path: string;
+    pathFromStoreRoot: string;
 };
 
 export type ModuleAsset = {
     type: 'ModuleAsset';
     module: Module;
-    path: string;
+    pathFromStoreRoot: string;
 };
 
 export type RootAsset = {
     type: 'RootAsset';
-    path: string;
+    pathFromStoreRoot: string;
 };
 
 export type StaticAsset = ThemeAsset | ModuleAsset | RootAsset;

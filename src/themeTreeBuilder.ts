@@ -26,7 +26,8 @@ import { flatten } from './flatten';
 
 /**
  * @summary Builds an in-memory/serializable representation of
- * the final file tree for a deployed theme.
+ * the flattened theme, including files needing
+ * processing (requirejs-config, .less, etc)
  * @see https://devdocs.magento.com/guides/v2.3/frontend-dev-guide/themes/theme-inherit.html
  */
 export async function themeTreeBuilder(
@@ -50,7 +51,6 @@ export async function themeTreeBuilder(
 /**
  * @summary Implements the core business logic of *theme*
  * file fallback (not including accounting for locales).
- * @todo Support for i18n dir
  */
 async function flattenThemeFiles(
     root: string,
@@ -133,11 +133,11 @@ async function flattenModuleFiles(
 async function flattenLibWeb(root: string) {
     const flatTree: Record<string, StaticAsset> = {};
     // TODO: No working with direct file paths outside of magentoFS.ts
-    const files = await readTree(join(root, 'lib'), 'web');
+    const files = await readTree(root, join('lib', 'web'));
     for (const file of files) {
         const asset: RootAsset = {
             type: 'RootAsset',
-            pathFromStoreRoot: file,
+            pathFromStoreRoot: join('/', file),
         };
         const finalPath = finalPathFromStaticAsset(asset);
         flatTree[finalPath] = asset;
