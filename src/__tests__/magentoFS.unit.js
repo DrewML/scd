@@ -11,6 +11,7 @@ const {
     getEnabledModules,
     parseThemePath,
     parseModulePath,
+    finalPathFromStaticAsset,
 } = require('../magentoFS');
 
 const getFixturePath = name => join(__dirname, '__fixtures__', name);
@@ -95,6 +96,120 @@ test('parseModulePath', () => {
     });
 });
 
+test('finalPathFromStaticAsset handles root asset', () => {
+    const asset = {
+        type: 'RootAsset',
+        pathFromStoreRoot: '/lib/web/foo.js',
+    };
+    const components = {
+        themes: [],
+        modules: {},
+    };
+    const result = finalPathFromStaticAsset(asset, components);
+    expect(result).toEqual('foo.js');
+});
+
+test('finalPathFromStaticAsset handles theme asset without module context from composer', () => {
+    const asset = {
+        type: 'ThemeAsset',
+        themeID: 'Magento/blank',
+        pathFromStoreRoot:
+            '/vendor/magento/theme-frontend-blank/web/images/foo.svg',
+    };
+    const components = {
+        themes: [composerBlank],
+        modules: {},
+    };
+    const result = finalPathFromStaticAsset(asset, components);
+    expect(result).toEqual('images/foo.svg');
+});
+
+test('finalPathFromStaticAsset handles theme asset with module context from composer', () => {
+    const asset = {
+        type: 'ThemeAsset',
+        themeID: 'Magento/blank',
+        moduleID: 'Magento_Email',
+        pathFromStoreRoot:
+            '/vendor/magento/theme-frontend-blank/Magento_Email/web/foo.png',
+    };
+    const components = {
+        themes: [composerBlank],
+        modules: {},
+    };
+    const result = finalPathFromStaticAsset(asset, components);
+    expect(result).toEqual('Magento_Email/foo.png');
+});
+
+test('finalPathFromStaticAsset handles theme asset without module context from app/design', () => {
+    const asset = {
+        type: 'ThemeAsset',
+        themeID: 'Magento/blank',
+        pathFromStoreRoot:
+            '/app/design/frontend/Magento/blank/web/images/foo.png',
+    };
+    const components = {
+        themes: [appDesignBlank],
+        modules: {},
+    };
+    const result = finalPathFromStaticAsset(asset, components);
+    expect(result).toEqual('images/foo.png');
+});
+
+test('finalPathFromStaticAsset handles theme asset with module context from app/design', () => {
+    const asset = {
+        type: 'ThemeAsset',
+        themeID: 'Magento/blank',
+        moduleID: 'Magento_Foo',
+        pathFromStoreRoot:
+            '/app/design/frontend/Magento/blank/Magento_Foo/web/images/foo.png',
+    };
+    const components = {
+        themes: [appDesignBlank],
+        modules: {},
+    };
+    const result = finalPathFromStaticAsset(asset, components);
+    expect(result).toEqual('Magento_Foo/images/foo.png');
+});
+
+test('finalPathFromStaticAsset handles module asset from app/code', () => {
+    const asset = {
+        type: 'ModuleAsset',
+        moduleID: 'Magento_Foo',
+        pathFromStoreRoot: '/app/code/Magento/Foo/view/frontend/web/js/foo.js',
+    };
+    const components = {
+        themes: [],
+        modules: {
+            Magento_Foo: {
+                moduleID: 'Magento_Foo',
+                sequence: [],
+                pathFromStoreRoot: '/app/code/Magento/Foo',
+            },
+        },
+    };
+    const result = finalPathFromStaticAsset(asset, components);
+    expect(result).toEqual('Magento_Foo/js/foo.js');
+});
+
+test('finalPathFromStaticAsset handles module asset from composer', () => {
+    const asset = {
+        type: 'ModuleAsset',
+        moduleID: 'Magento_Foo',
+        pathFromStoreRoot:
+            '/vendor/magento/module-foo/view/frontend/web/js/foo.js',
+    };
+    const components = {
+        themes: [],
+        modules: {
+            Magento_Foo: {
+                moduleID: 'Magento_Foo',
+                sequence: [],
+                pathFromStoreRoot: '/vendor/magento/module-foo',
+            },
+        },
+    };
+    const result = finalPathFromStaticAsset(asset, components);
+    expect(result).toEqual('Magento_Foo/js/foo.js');
+});
+
 test.todo('getComponents');
-test.todo('parseThemePath');
-test.todo('finalPathFromStaticAsset');
