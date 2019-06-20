@@ -115,7 +115,7 @@ async function getNonComposerComponents(root: string) {
 
 async function getNonComposerThemes(root: string) {
     const [frontendVendors, adminVendors] = await Promise.all([
-        fs.readdir(join(root, 'app', 'design', 'adminhtml')),
+        fs.readdir(join(root, 'app', 'design', 'frontend')),
         fs.readdir(join(root, 'app', 'design', 'adminhtml')),
     ]);
 
@@ -212,6 +212,8 @@ async function getThemeFromComposerName(
 }
 
 function normalizeComposerThemeName(vendor: string, name: string) {
+    // I have no clue if this is the logic used in Magento core,
+    // but it's certainly a half-decent guess, yeah?
     const normalizedVendor = vendor
         .split('-')
         .map(v => `${v[0].toUpperCase()}${v.slice(1)}`)

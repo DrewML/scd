@@ -54,22 +54,22 @@ export async function themeTreeBuilder(opts: Opts): Promise<StaticAssetTree> {
  * file fallback (not including accounting for locales).
  */
 async function reduceThemes(opts: Opts) {
-    const { root, theme, enabledModules, components } = opts;
-    const hierarchy = getThemeHierarchy(theme, components.themes);
+    const { root, enabledModules, components } = opts;
+    const hierarchy = getThemeHierarchy(opts.theme, components.themes);
     const themeTrees = await Promise.all(
         hierarchy.map(async curTheme => {
             const webDir = join(curTheme.pathFromStoreRoot, 'web');
             // Only check for files in enabled modules
             const moduleWebDirs = enabledModules.map(m =>
-                join(theme.pathFromStoreRoot, m),
+                join(curTheme.pathFromStoreRoot, m, 'web'),
             );
 
             // Non-front-end stuff can exist in a theme directory,
             // and a module dir within a theme. To prevent dealing
             // with non-FE files, and to prevent copying code
             // for disabled modules, we don't read the entire theme
-            // dir, but instead do a read of each module and the /web/ dir
-
+            // dir, but instead do a read of each module dir
+            // and the /web/ dir
             const pendingNestedFiles = Promise.all(
                 moduleWebDirs.map(async m => {
                     try {
