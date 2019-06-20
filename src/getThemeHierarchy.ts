@@ -3,17 +3,17 @@
  * See COPYING.txt for license details.
  */
 
-import { ThemeNew } from './types';
+import { Theme } from './types';
 
 /**
  * @summary Recursively resolve the inheritance hierarchy for a given theme.
  * Results are ordered starting from the base theme
  */
 export function getThemeHierarchy(
-    theme: ThemeNew,
-    themes: ThemeNew[],
-    deps?: ThemeNew[],
-): ThemeNew[] {
+    theme: Theme,
+    themes: Theme[],
+    deps?: Theme[],
+): Theme[] {
     const dependencies = deps || [theme];
     if (!theme.parentID) return dependencies;
 

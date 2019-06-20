@@ -9,17 +9,11 @@ export type ModuleConfig = {
 };
 
 export type Components = {
-    modules: Record<string, ModuleNew>;
-    themes: ThemeNew[];
+    modules: Record<string, Module>;
+    themes: Theme[];
 };
 
 export type Theme = {
-    name: string;
-    vendor: string;
-    area: 'frontend' | 'adminhtml';
-};
-
-export type ThemeNew = {
     name: string;
     themeID: string;
     vendor: string;
@@ -28,17 +22,10 @@ export type ThemeNew = {
     pathFromStoreRoot: string;
 };
 
-export type ModuleNew = {
-    // ex: Magento_Shipping
+export type Module = {
     moduleID: string;
-    // ex: Magento_Checkout, Magento_Discounts
     sequence: string[];
     pathFromStoreRoot: string;
-};
-
-export type Module = {
-    name: string;
-    vendor: string;
 };
 
 export type ThemeAsset = {

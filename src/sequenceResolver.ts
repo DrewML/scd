@@ -3,14 +3,14 @@
  * See COPYING.txt for license details.
  */
 
-import { ModuleConfig } from './types';
+import { Module } from './types';
 import TopologicalSort from '@hapi/topo';
 
-export function sequenceResolver(configs: ModuleConfig[]) {
+export function sequenceResolver(configs: Module[]) {
     const sort = new TopologicalSort();
     for (const config of configs) {
         sort.add(config, {
-            group: config.name,
+            group: config.moduleID,
             after: config.sequence,
         });
     }

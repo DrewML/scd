@@ -10,8 +10,8 @@ import {
     ThemeAsset,
     ModuleAsset,
     StaticAsset,
-    ModuleNew,
-    ThemeNew,
+    Module,
+    Theme,
     Components,
 } from './types';
 import { flatten } from './flatten';
@@ -84,8 +84,8 @@ async function getComposerComponents(root: string) {
     const lockfile = await fs.readFile(join(root, 'composer.lock'), 'utf8');
     const composerLock = JSON.parse(lockfile) as ComposerLock;
 
-    const pendingModules: Promise<ModuleNew>[] = [];
-    const pendingThemes: Promise<ThemeNew>[] = [];
+    const pendingModules: Promise<Module>[] = [];
+    const pendingThemes: Promise<Theme>[] = [];
 
     for (const { name, type } of composerLock.packages) {
         if (type === 'magento2-module') {
@@ -135,8 +135,8 @@ async function getNonComposerThemes(root: string) {
 async function getNonComposerThemesFromVendorInArea(
     root: string,
     vendor: string,
-    area: ThemeNew['area'],
-): Promise<ThemeNew[]> {
+    area: Theme['area'],
+): Promise<Theme[]> {
     const vendorPath = join('app', 'design', area, vendor);
     const themes = await fs.readdir(join(root, vendorPath), 'utf8');
     return Promise.all(
@@ -188,7 +188,7 @@ async function getNonComposerModules(root: string) {
 async function getThemeFromComposerName(
     root: string,
     pkgName: string,
-): Promise<ThemeNew> {
+): Promise<Theme> {
     const [vendor, pieces] = pkgName.split('/');
     const [firstPart, area, themeName] = pieces.split('-');
     if (
@@ -205,7 +205,7 @@ async function getThemeFromComposerName(
         name: themeName,
         vendor,
         themeID: normalizeComposerThemeName(vendor, themeName),
-        area: area as ThemeNew['area'],
+        area: area as Theme['area'],
         parentID: await getThemeParentName(root, pathFromStoreRoot),
         pathFromStoreRoot: pathFromStoreRoot,
     };
@@ -221,7 +221,7 @@ function normalizeComposerThemeName(vendor: string, name: string) {
     return `${normalizedVendor}/${name}`;
 }
 
-async function getModuleConfig(root: string, path: string): Promise<ModuleNew> {
+async function getModuleConfig(root: string, path: string): Promise<Module> {
     const configPath = join(root, path, 'etc', 'module.xml');
     const rawConfig = await fs.readFile(configPath, 'utf8');
     const parsedConfig = parse(rawConfig, {
@@ -261,7 +261,7 @@ function assertAbsolute(path: string) {
  * @summary Provide contextful information about a file path within a theme
  * @todo Make compatible with composer packages
  */
-export function parseThemePath(path: string, theme: ThemeNew): ThemeAsset {
+export function parseThemePath(path: string, theme: Theme): ThemeAsset {
     const relPath = relative(theme.pathFromStoreRoot, path);
     const [firstDir] = relPath.split(sep);
 

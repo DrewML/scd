@@ -8,7 +8,7 @@ import {
     ModuleAsset,
     StaticAssetTree,
     RootAsset,
-    ThemeNew,
+    Theme,
     Components,
 } from './types';
 import { join } from 'path';
@@ -24,7 +24,7 @@ import { getThemeHierarchy } from './getThemeHierarchy';
 
 type Opts = {
     root: string;
-    theme: ThemeNew;
+    theme: Theme;
     components: Components;
     enabledModules: string[];
 };

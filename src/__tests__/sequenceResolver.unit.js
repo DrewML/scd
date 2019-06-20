@@ -7,16 +7,19 @@ const { sequenceResolver } = require('../sequenceResolver');
 
 test('Sorts dependencies by sequence', () => {
     const checkout = {
-        name: 'Magento_Checkout',
+        moduleID: 'Magento_Checkout',
         sequence: ['Magento_Product', 'Magento_Catalog'],
+        pathFromStoreRoot: '',
     };
     const product = {
-        name: 'Magento_Product',
+        moduleID: 'Magento_Product',
         sequence: [],
+        pathFromStoreRoot: '',
     };
     const catalog = {
-        name: 'Magento_Catalog',
+        moduleID: 'Magento_Catalog',
         sequence: [],
+        pathFromStoreRoot: '',
     };
     const result = sequenceResolver([checkout, product, catalog]);
 
