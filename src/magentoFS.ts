@@ -259,7 +259,6 @@ function assertAbsolute(path: string) {
 
 /**
  * @summary Provide contextful information about a file path within a theme
- * @todo Make compatible with composer packages
  */
 export function parseThemePath(path: string, theme: Theme): ThemeAsset {
     const relPath = relative(theme.pathFromStoreRoot, path);
@@ -267,7 +266,6 @@ export function parseThemePath(path: string, theme: Theme): ThemeAsset {
 
     const isModuleContext = /^[a-z0-9]+_[a-z0-9]+$/i.test(firstDir);
     if (isModuleContext) {
-        // TODO: Find out why this branch isn't getting hit
         return {
             type: 'ThemeAsset',
             themeID: theme.themeID,

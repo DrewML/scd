@@ -141,7 +141,6 @@ async function reduceModules(opts: Opts) {
 
 async function reduceLibWeb(opts: Opts) {
     const flatTree: Record<string, StaticAsset> = {};
-    // TODO: No working with direct file paths outside of magentoFS.ts
     const files = await readTree(opts.root, join('lib', 'web'));
     for (const file of files) {
         const asset: RootAsset = {

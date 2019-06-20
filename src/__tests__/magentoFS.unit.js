@@ -11,15 +11,23 @@ const {
     getEnabledModules,
     parseThemePath,
     parseModulePath,
-    getComponents,
 } = require('../magentoFS');
 
 const getFixturePath = name => join(__dirname, '__fixtures__', name);
-
-test.only('getComponents', async () => {
-    const result = await getComponents('/Users/andrewlevine/sites/demo');
-    console.log(JSON.stringify(result, null, 2));
-});
+const composerBlank = {
+    name: 'blank',
+    vendor: 'magento',
+    themeID: 'Magento/blank',
+    parentID: '',
+    pathFromStoreRoot: '/vendor/magento/theme-frontend-blank',
+};
+const appDesignBlank = {
+    name: 'blank',
+    vendor: 'magento',
+    themeID: 'Magento/blank',
+    parentID: '',
+    pathFromStoreRoot: '/app/design/frontend/Magento/blank',
+};
 
 test('getEnabledModules only returns enabled modules', async () => {
     const result = await getEnabledModules(getFixturePath('modulesConfig'));
@@ -33,37 +41,60 @@ test('getEnabledModules only returns enabled modules', async () => {
     expect(result).not.toContain('Magento_Theme');
 });
 
-test('parseThemePath', () => {
-    expect(
-        parseThemePath(
-            '/app/design/frontend/Magento/luma/Magento_GiftWrapping/web/css/source/_module.less',
-        ),
-    ).toEqual({
+test('parseThemePath handles path with module context in vendor', () => {
+    const path =
+        '/vendor/magento/theme-frontend-blank/Magento_Foo/web/css/source/_module.less';
+    const result = parseThemePath(path, composerBlank);
+    expect(result).toEqual({
+        moduleID: 'Magento_Foo',
+        pathFromStoreRoot: path,
+        themeID: 'Magento/blank',
         type: 'ThemeAsset',
-        theme: {
-            name: 'luma',
-            vendor: 'Magento',
-            area: 'frontend',
-        },
-        module: {
-            name: 'GiftWrapping',
-            vendor: 'Magento',
-        },
-        pathFromStoreRoot:
-            '/app/design/frontend/Magento/luma/Magento_GiftWrapping/web/css/source/_module.less',
+    });
+});
+
+test('parseThemePath handles path with module context in app/design', () => {
+    const path =
+        '/app/design/frontend/Magento/blank/Magento_Foo/web/css/source/_module.less';
+    const result = parseThemePath(path, appDesignBlank);
+    expect(result).toEqual({
+        moduleID: 'Magento_Foo',
+        pathFromStoreRoot: path,
+        themeID: 'Magento/blank',
+        type: 'ThemeAsset',
+    });
+});
+
+test('parseThemePath handles path without module context in vendor', () => {
+    const path = '/vendor/magento/theme-frontend-blank/web/foo.js';
+    const result = parseThemePath(path, composerBlank);
+    expect(result).toEqual({
+        pathFromStoreRoot: path,
+        themeID: 'Magento/blank',
+        type: 'ThemeAsset',
+    });
+});
+
+test('parseThemePath handles path without module context in app/design', () => {
+    const path = '/app/design/frontend/Magento/blank/web/foo.js';
+    const result = parseThemePath(path, appDesignBlank);
+    expect(result).toEqual({
+        pathFromStoreRoot: path,
+        themeID: 'Magento/blank',
+        type: 'ThemeAsset',
     });
 });
 
 test('parseModulePath', () => {
-    expect(
-        parseModulePath(
-            '/app/code/Magento/Theme/view/frontend/web/templates/breadcrumbs.html',
-            'Magento_Theme',
-        ),
-    ).toEqual({
+    const path = '/vendor/magento/module-checkout/view/frontend/web/js/foo.js';
+    const result = parseModulePath(path, 'Magento_Checkout');
+    expect(result).toEqual({
         type: 'ModuleAsset',
-        module: { name: 'Theme', vendor: 'Magento' },
-        pathFromStoreRoot:
-            '/app/code/Magento/Theme/view/frontend/web/templates/breadcrumbs.html',
+        moduleID: 'Magento_Checkout',
+        pathFromStoreRoot: path,
     });
 });
+
+test.todo('getComponents');
+test.todo('parseThemePath');
+test.todo('finalPathFromStaticAsset');
