@@ -74,9 +74,16 @@ type ComposerLock = {
 };
 
 async function getComposerComponents(root: string) {
-    const lockfile = await fs.readFile(join(root, 'composer.lock'), 'utf8');
-    const composerLock = JSON.parse(lockfile) as ComposerLock;
+    const [, lockfile] = await wrapP(
+        fs.readFile(join(root, 'composer.lock'), 'utf8'),
+    );
+    // Composer lock file isn't a requirement if you're
+    // not using composer
+    if (!lockfile) {
+        return { modules: [], themes: [] };
+    }
 
+    const composerLock = JSON.parse(lockfile) as ComposerLock;
     const pendingModules: Promise<Module>[] = [];
     const pendingThemes: Promise<Theme>[] = [];
 
@@ -107,8 +114,8 @@ async function getNonComposerComponents(root: string) {
 
 async function getNonComposerThemes(root: string) {
     const [frontendVendors, adminVendors] = await Promise.all([
-        fs.readdir(join(root, 'app', 'design', 'frontend')),
-        fs.readdir(join(root, 'app', 'design', 'adminhtml')),
+        safeDirRead(join(root, 'app', 'design', 'frontend')),
+        safeDirRead(join(root, 'app', 'design', 'adminhtml')),
     ]);
 
     const pendingFrontend = frontendVendors.map(vendor =>

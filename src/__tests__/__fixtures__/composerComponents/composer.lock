@@ -1,0 +1,12 @@
+{
+    "packages": [
+        {
+            "name": "magento/module-foo",
+            "type": "magento2-module"
+        },
+        {
+            "name": "magento/theme-frontend-blank",
+            "type": "magento2-theme"
+        }
+    ]
+}

@@ -1,0 +1,5 @@
+{
+    "name": "magento/module-foo",
+    "description": "N/A",
+    "type": "magento2-module"
+}

@@ -11,6 +11,7 @@ const {
     getEnabledModules,
     parseThemePath,
     parseModulePath,
+    getComponents,
 } = require('../magentoFS');
 
 const getFixturePath = name => join(__dirname, '__fixtures__', name);
@@ -120,4 +121,56 @@ test('parseModulePath handles file in app/code', () => {
     });
 });
 
-test.todo('getComponents');
+test('getComponents works with composer/vendor', async () => {
+    const root = getFixturePath('composerComponents');
+    const components = await getComponents(root);
+
+    expect(components).toMatchInlineSnapshot(`
+                Object {
+                  "modules": Object {
+                    "Magento_Foo": Object {
+                      "moduleID": "Magento_Foo",
+                      "pathFromStoreRoot": "/vendor/magento/module-foo",
+                      "sequence": Array [],
+                    },
+                  },
+                  "themes": Array [
+                    Object {
+                      "area": "frontend",
+                      "name": "blank",
+                      "parentID": "",
+                      "pathFromStoreRoot": "/vendor/magento/theme-frontend-blank",
+                      "themeID": "Magento/blank",
+                      "vendor": "magento",
+                    },
+                  ],
+                }
+        `);
+});
+
+test('getComponents works with app dir', async () => {
+    const root = getFixturePath('appComponents');
+    const components = await getComponents(root);
+
+    expect(components).toMatchInlineSnapshot(`
+        Object {
+          "modules": Object {
+            "Magento_Foo": Object {
+              "moduleID": "Magento_Foo",
+              "pathFromStoreRoot": "/app/code/Magento/Foo",
+              "sequence": Array [],
+            },
+          },
+          "themes": Array [
+            Object {
+              "area": "frontend",
+              "name": "blank",
+              "parentID": "",
+              "pathFromStoreRoot": "/app/design/frontend/Magento/blank",
+              "themeID": "Magento/blank",
+              "vendor": "Magento",
+            },
+          ],
+        }
+    `);
+});
