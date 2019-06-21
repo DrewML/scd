@@ -11,7 +11,6 @@ const {
     getEnabledModules,
     parseThemePath,
     parseModulePath,
-    finalPathFromStaticAsset,
 } = require('../magentoFS');
 
 const getFixturePath = name => join(__dirname, '__fixtures__', name);
@@ -51,6 +50,7 @@ test('parseThemePath handles path with module context in vendor', () => {
         pathFromStoreRoot: path,
         themeID: 'Magento/blank',
         type: 'ThemeAsset',
+        finalPath: 'Magento_Foo/css/source/_module.less',
     });
 });
 
@@ -63,6 +63,7 @@ test('parseThemePath handles path with module context in app/design', () => {
         pathFromStoreRoot: path,
         themeID: 'Magento/blank',
         type: 'ThemeAsset',
+        finalPath: 'Magento_Foo/css/source/_module.less',
     });
 });
 
@@ -73,6 +74,7 @@ test('parseThemePath handles path without module context in vendor', () => {
         pathFromStoreRoot: path,
         themeID: 'Magento/blank',
         type: 'ThemeAsset',
+        finalPath: 'foo.js',
     });
 });
 
@@ -83,133 +85,38 @@ test('parseThemePath handles path without module context in app/design', () => {
         pathFromStoreRoot: path,
         themeID: 'Magento/blank',
         type: 'ThemeAsset',
+        finalPath: 'foo.js',
     });
 });
 
-test('parseModulePath', () => {
+test('parseModulePath handles file in vendor', () => {
     const path = '/vendor/magento/module-checkout/view/frontend/web/js/foo.js';
-    const result = parseModulePath(path, 'Magento_Checkout');
+    const result = parseModulePath(path, {
+        moduleID: 'Magento_Checkout',
+        sequence: [],
+        pathFromStoreRoot: '/vendor/magento/module-checkout',
+    });
     expect(result).toEqual({
         type: 'ModuleAsset',
         moduleID: 'Magento_Checkout',
         pathFromStoreRoot: path,
+        finalPath: 'js/foo.js',
     });
 });
 
-test('finalPathFromStaticAsset handles root asset', () => {
-    const asset = {
-        type: 'RootAsset',
-        pathFromStoreRoot: '/lib/web/foo.js',
-    };
-    const components = {
-        themes: [],
-        modules: {},
-    };
-    const result = finalPathFromStaticAsset(asset, components);
-    expect(result).toEqual('foo.js');
-});
-
-test('finalPathFromStaticAsset handles theme asset without module context from composer', () => {
-    const asset = {
-        type: 'ThemeAsset',
-        themeID: 'Magento/blank',
-        pathFromStoreRoot:
-            '/vendor/magento/theme-frontend-blank/web/images/foo.svg',
-    };
-    const components = {
-        themes: [composerBlank],
-        modules: {},
-    };
-    const result = finalPathFromStaticAsset(asset, components);
-    expect(result).toEqual('images/foo.svg');
-});
-
-test('finalPathFromStaticAsset handles theme asset with module context from composer', () => {
-    const asset = {
-        type: 'ThemeAsset',
-        themeID: 'Magento/blank',
-        moduleID: 'Magento_Email',
-        pathFromStoreRoot:
-            '/vendor/magento/theme-frontend-blank/Magento_Email/web/foo.png',
-    };
-    const components = {
-        themes: [composerBlank],
-        modules: {},
-    };
-    const result = finalPathFromStaticAsset(asset, components);
-    expect(result).toEqual('Magento_Email/foo.png');
-});
-
-test('finalPathFromStaticAsset handles theme asset without module context from app/design', () => {
-    const asset = {
-        type: 'ThemeAsset',
-        themeID: 'Magento/blank',
-        pathFromStoreRoot:
-            '/app/design/frontend/Magento/blank/web/images/foo.png',
-    };
-    const components = {
-        themes: [appDesignBlank],
-        modules: {},
-    };
-    const result = finalPathFromStaticAsset(asset, components);
-    expect(result).toEqual('images/foo.png');
-});
-
-test('finalPathFromStaticAsset handles theme asset with module context from app/design', () => {
-    const asset = {
-        type: 'ThemeAsset',
-        themeID: 'Magento/blank',
-        moduleID: 'Magento_Foo',
-        pathFromStoreRoot:
-            '/app/design/frontend/Magento/blank/Magento_Foo/web/images/foo.png',
-    };
-    const components = {
-        themes: [appDesignBlank],
-        modules: {},
-    };
-    const result = finalPathFromStaticAsset(asset, components);
-    expect(result).toEqual('Magento_Foo/images/foo.png');
-});
-
-test('finalPathFromStaticAsset handles module asset from app/code', () => {
-    const asset = {
+test('parseModulePath handles file in app/code', () => {
+    const path = '/app/code/Magento/Checkout/view/frontend/web/js/foo.js';
+    const result = parseModulePath(path, {
+        moduleID: 'Magento_Checkout',
+        sequence: [],
+        pathFromStoreRoot: '/app/code/Magento/Checkout',
+    });
+    expect(result).toEqual({
         type: 'ModuleAsset',
-        moduleID: 'Magento_Foo',
-        pathFromStoreRoot: '/app/code/Magento/Foo/view/frontend/web/js/foo.js',
-    };
-    const components = {
-        themes: [],
-        modules: {
-            Magento_Foo: {
-                moduleID: 'Magento_Foo',
-                sequence: [],
-                pathFromStoreRoot: '/app/code/Magento/Foo',
-            },
-        },
-    };
-    const result = finalPathFromStaticAsset(asset, components);
-    expect(result).toEqual('Magento_Foo/js/foo.js');
-});
-
-test('finalPathFromStaticAsset handles module asset from composer', () => {
-    const asset = {
-        type: 'ModuleAsset',
-        moduleID: 'Magento_Foo',
-        pathFromStoreRoot:
-            '/vendor/magento/module-foo/view/frontend/web/js/foo.js',
-    };
-    const components = {
-        themes: [],
-        modules: {
-            Magento_Foo: {
-                moduleID: 'Magento_Foo',
-                sequence: [],
-                pathFromStoreRoot: '/vendor/magento/module-foo',
-            },
-        },
-    };
-    const result = finalPathFromStaticAsset(asset, components);
-    expect(result).toEqual('Magento_Foo/js/foo.js');
+        moduleID: 'Magento_Checkout',
+        pathFromStoreRoot: path,
+        finalPath: 'js/foo.js',
+    });
 });
 
 test.todo('getComponents');

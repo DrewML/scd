@@ -33,17 +33,20 @@ export type ThemeAsset = {
     themeID: string;
     moduleID?: string;
     pathFromStoreRoot: string;
+    finalPath: string;
 };
 
 export type ModuleAsset = {
     type: 'ModuleAsset';
     moduleID: string;
     pathFromStoreRoot: string;
+    finalPath: string;
 };
 
 export type RootAsset = {
     type: 'RootAsset';
     pathFromStoreRoot: string;
+    finalPath: string;
 };
 
 export type StaticAsset = ThemeAsset | ModuleAsset | RootAsset;

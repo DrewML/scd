@@ -6,14 +6,7 @@
 import { promises as fs } from 'fs';
 import { isAbsolute, join, relative, sep } from 'path';
 import { wrapP } from './wrapP';
-import {
-    ThemeAsset,
-    ModuleAsset,
-    StaticAsset,
-    Module,
-    Theme,
-    Components,
-} from './types';
+import { ThemeAsset, ModuleAsset, Module, Theme, Components } from './types';
 import { flatten } from './flatten';
 import { parse } from 'fast-xml-parser';
 import fromEntries from 'fromentries';
@@ -266,11 +259,14 @@ export function parseThemePath(path: string, theme: Theme): ThemeAsset {
 
     const isModuleContext = /^[a-z0-9]+_[a-z0-9]+$/i.test(firstDir);
     if (isModuleContext) {
+        const moduleWebDir = join(theme.pathFromStoreRoot, firstDir, 'web');
+        const relFromWeb = relative(moduleWebDir, path);
         return {
             type: 'ThemeAsset',
             themeID: theme.themeID,
             moduleID: firstDir,
             pathFromStoreRoot: path,
+            finalPath: join(firstDir, relFromWeb),
         };
     }
 
@@ -278,62 +274,19 @@ export function parseThemePath(path: string, theme: Theme): ThemeAsset {
         type: 'ThemeAsset',
         themeID: theme.themeID,
         pathFromStoreRoot: path,
+        finalPath: relative(join(theme.pathFromStoreRoot, 'web'), path),
     };
 }
 
-export function parseModulePath(
-    path: string,
-    moduleContext: string,
-): ModuleAsset {
+export function parseModulePath(path: string, mod: Module): ModuleAsset {
+    // TODO: Don't hardcode area
+    const webDir = join(mod.pathFromStoreRoot, 'view', 'frontend', 'web');
     return {
         type: 'ModuleAsset',
-        moduleID: moduleContext,
+        moduleID: mod.moduleID,
         pathFromStoreRoot: join('/', path),
+        finalPath: relative(webDir, path),
     };
-}
-
-/**
- * @todo Cleanup `ThemeAsset` logic now that we are passing
- * in components.themes
- */
-export function finalPathFromStaticAsset(
-    asset: StaticAsset,
-    components: Components,
-) {
-    switch (asset.type) {
-        case 'RootAsset':
-            return relative(join(sep, 'lib', 'web'), asset.pathFromStoreRoot);
-        case 'ThemeAsset': {
-            if (asset.moduleID) {
-                // ex: /web/css/source/module/checkout/_checkout-agreements.less
-                const afterModule = asset.pathFromStoreRoot.split(
-                    asset.moduleID,
-                )[1];
-                // ex: css/source/module/checkout/_checkout-agreements.less
-                const afterWebDir = relative(join(sep, 'web'), afterModule);
-                return join(asset.moduleID, afterWebDir);
-            }
-
-            const pathChunks = asset.pathFromStoreRoot.split(sep);
-            const firstWebDirIdx = pathChunks.findIndex(p => p === 'web');
-            const afterWebDir = pathChunks.slice(firstWebDirIdx + 1).join(sep);
-            return afterWebDir;
-        }
-        case 'ModuleAsset': {
-            return join(
-                asset.moduleID,
-                relative(
-                    join(
-                        components.modules[asset.moduleID].pathFromStoreRoot,
-                        'view',
-                        'frontend', // TODO: Can't hardcode area
-                        'web',
-                    ),
-                    asset.pathFromStoreRoot,
-                ),
-            );
-        }
-    }
 }
 
 /**

@@ -11,13 +11,9 @@ import {
     Theme,
     Components,
 } from './types';
-import { join } from 'path';
+import { join, sep, relative } from 'path';
 import { readTree } from './readTree';
-import {
-    parseThemePath,
-    parseModulePath,
-    finalPathFromStaticAsset,
-} from './magentoFS';
+import { parseThemePath, parseModulePath } from './magentoFS';
 import { wrapP } from './wrapP';
 import { flatten } from './flatten';
 import { getThemeHierarchy } from './getThemeHierarchy';
@@ -58,36 +54,24 @@ async function reduceThemes(opts: Opts) {
     const hierarchy = getThemeHierarchy(opts.theme, components.themes);
     const themeTrees = await Promise.all(
         hierarchy.map(async curTheme => {
-            const webDir = join(curTheme.pathFromStoreRoot, 'web');
-            // Only check for files in enabled modules
-            const moduleWebDirs = enabledModules.map(m =>
+            // Themes can have assets for modules
+            // that are disabled, so we read only from
+            // dirs of modules enabled in config.php
+            const enabledModulesDirs = enabledModules.map(m =>
                 join(curTheme.pathFromStoreRoot, m, 'web'),
             );
-
-            // Non-front-end stuff can exist in a theme directory,
-            // and a module dir within a theme. To prevent dealing
-            // with non-FE files, and to prevent copying code
-            // for disabled modules, we don't read the entire theme
-            // dir, but instead do a read of each module dir
-            // and the /web/ dir
-            const pendingNestedFiles = Promise.all(
-                moduleWebDirs.map(async m => {
-                    try {
-                        // TODO: Maybe just make `readTree` a safe operation
-                        // like safeDirRead in magentoFS.ts
-                        return await readTree(root, m);
-                    } catch {
-                        // module was enabled, but does not have a /web/ folder
-                        return [];
-                    }
-                }),
+            const pendingModuleCtxFiles = Promise.all(
+                enabledModulesDirs.map(m => readTree(root, m).catch(() => [])),
             );
+
+            // Theme files that override <root>/lib/web
+            const webDir = join(curTheme.pathFromStoreRoot, 'web');
             const pendingWebFiles = readTree(root, webDir);
 
             return {
                 theme: curTheme,
                 files: [
-                    ...flatten(await pendingNestedFiles),
+                    ...flatten(await pendingModuleCtxFiles),
                     ...(await pendingWebFiles),
                 ],
             };
@@ -98,8 +82,7 @@ async function reduceThemes(opts: Opts) {
     for (const tree of themeTrees) {
         for (const file of tree.files) {
             const themeFile = parseThemePath(file, tree.theme);
-            const finalPath = finalPathFromStaticAsset(themeFile, components);
-            flatTree[finalPath] = themeFile;
+            flatTree[themeFile.finalPath] = themeFile;
         }
     }
 
@@ -115,23 +98,15 @@ async function reduceModules(opts: Opts) {
     const entries: Record<string, ModuleAsset> = {};
 
     await Promise.all(
-        enabledModules.map(async mod => {
-            const path = join(
-                components.modules[mod].pathFromStoreRoot,
-                'view',
-                theme.area,
-                'web',
-            );
+        enabledModules.map(async moduleID => {
+            const mod = components.modules[moduleID];
+            const path = join(mod.moduleID, 'view', theme.area, 'web');
             const [, tree = new Set<string>()] = await wrapP(
                 readTree(root, path),
             );
             for (const file of tree) {
                 const moduleAsset = parseModulePath(file, mod);
-                const pathInTheme = finalPathFromStaticAsset(
-                    moduleAsset,
-                    components,
-                );
-                entries[pathInTheme] = moduleAsset;
+                entries[moduleAsset.finalPath] = moduleAsset;
             }
         }),
     );
@@ -141,14 +116,15 @@ async function reduceModules(opts: Opts) {
 
 async function reduceLibWeb(opts: Opts) {
     const flatTree: Record<string, StaticAsset> = {};
-    const files = await readTree(opts.root, join('lib', 'web'));
+    const path = join(sep, 'lib', 'web');
+    const files = await readTree(opts.root, path);
     for (const file of files) {
         const asset: RootAsset = {
             type: 'RootAsset',
             pathFromStoreRoot: join('/', file),
+            finalPath: relative(path, file),
         };
-        const finalPath = finalPathFromStaticAsset(asset, opts.components);
-        flatTree[finalPath] = asset;
+        flatTree[asset.finalPath] = asset;
     }
     return flatTree;
 }
