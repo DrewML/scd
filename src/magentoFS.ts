@@ -98,7 +98,6 @@ async function getComposerComponents(root: string) {
 }
 
 async function getNonComposerComponents(root: string) {
-    assertAbsolute(root);
     const [modules, themes] = await Promise.all([
         getNonComposerModules(root),
         getNonComposerThemes(root),
@@ -138,14 +137,14 @@ async function getNonComposerThemesFromVendorInArea(
             vendor,
             themeID: `${vendor}/${name}`,
             area,
-            parentID: await getThemeParentName(root, join(vendorPath, name)),
+            parentID: await getThemeParentName(join(root, vendorPath, name)),
             pathFromStoreRoot: join(sep, 'app', 'design', area, vendor, name),
         })),
     );
 }
 
-async function getThemeParentName(root: string, themePath: string) {
-    const themeXMLPath = join(root, themePath, 'theme.xml');
+async function getThemeParentName(themePath: string) {
+    const themeXMLPath = join(themePath, 'theme.xml');
     const [err, source] = await wrapP(fs.readFile(themeXMLPath, 'utf8'));
     if (err) {
         throw new Error(`Could not find "theme.xml in "${themeXMLPath}"`);
@@ -199,7 +198,7 @@ async function getThemeFromComposerName(
         vendor,
         themeID: normalizeComposerThemeName(vendor, themeName),
         area: area as Theme['area'],
-        parentID: await getThemeParentName(root, pathFromStoreRoot),
+        parentID: await getThemeParentName(join(root, pathFromStoreRoot)),
         pathFromStoreRoot: pathFromStoreRoot,
     };
 }
@@ -243,30 +242,22 @@ async function getModuleConfig(root: string, path: string): Promise<Module> {
     return config;
 }
 
-function assertAbsolute(path: string) {
-    if (isAbsolute(path)) return;
-    throw new Error(
-        `Expected an absolute path for the store root, but instead saw: "${path}"`,
-    );
-}
-
 /**
  * @summary Provide contextful information about a file path within a theme
  */
 export function parseThemePath(path: string, theme: Theme): ThemeAsset {
     const relPath = relative(theme.pathFromStoreRoot, path);
-    const [firstDir] = relPath.split(sep);
-
+    // prettier-ignore
+    const [firstDir, /* web */, ...rest] = relPath.split(sep);
     const isModuleContext = /^[a-z0-9]+_[a-z0-9]+$/i.test(firstDir);
+
     if (isModuleContext) {
-        const moduleWebDir = join(theme.pathFromStoreRoot, firstDir, 'web');
-        const relFromWeb = relative(moduleWebDir, path);
         return {
             type: 'ThemeAsset',
             themeID: theme.themeID,
             moduleID: firstDir,
             pathFromStoreRoot: path,
-            finalPath: join(firstDir, relFromWeb),
+            finalPath: join(firstDir, ...rest),
         };
     }
 
@@ -274,18 +265,19 @@ export function parseThemePath(path: string, theme: Theme): ThemeAsset {
         type: 'ThemeAsset',
         themeID: theme.themeID,
         pathFromStoreRoot: path,
-        finalPath: relative(join(theme.pathFromStoreRoot, 'web'), path),
+        finalPath: relative('web', relPath),
     };
 }
 
 export function parseModulePath(path: string, mod: Module): ModuleAsset {
-    // TODO: Don't hardcode area
-    const webDir = join(mod.pathFromStoreRoot, 'view', 'frontend', 'web');
+    const viewDir = join(mod.pathFromStoreRoot, 'view');
+    // prettier-ignore
+    const [area, /* web */, ...rest] = relative(viewDir, path).split(sep);
     return {
         type: 'ModuleAsset',
         moduleID: mod.moduleID,
-        pathFromStoreRoot: join('/', path),
-        finalPath: relative(webDir, path),
+        pathFromStoreRoot: path,
+        finalPath: join(mod.moduleID, ...rest),
     };
 }
 
@@ -294,4 +286,11 @@ export function parseModulePath(path: string, mod: Module): ModuleAsset {
  */
 async function safeDirRead(path: string) {
     return fs.readdir(path, 'utf8').catch(() => [] as string[]);
+}
+
+function assertAbsolute(path: string) {
+    if (isAbsolute(path)) return;
+    throw new Error(
+        `Expected an absolute path for the store root, but instead saw: "${path}"`,
+    );
 }

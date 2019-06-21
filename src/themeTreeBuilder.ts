@@ -11,10 +11,9 @@ import {
     Theme,
     Components,
 } from './types';
-import { join, sep, relative } from 'path';
+import { join, sep } from 'path';
 import { readTree } from './readTree';
 import { parseThemePath, parseModulePath } from './magentoFS';
-import { wrapP } from './wrapP';
 import { flatten } from './flatten';
 import { getThemeHierarchy } from './getThemeHierarchy';
 
@@ -57,16 +56,23 @@ async function reduceThemes(opts: Opts) {
             // Themes can have assets for modules
             // that are disabled, so we read only from
             // dirs of modules enabled in config.php
-            const enabledModulesDirs = enabledModules.map(m =>
-                join(curTheme.pathFromStoreRoot, m, 'web'),
-            );
             const pendingModuleCtxFiles = Promise.all(
-                enabledModulesDirs.map(m => readTree(root, m).catch(() => [])),
+                enabledModules.map(async m => {
+                    const webDir = join(curTheme.pathFromStoreRoot, m, 'web');
+                    try {
+                        const files = await readTree(join(root, webDir));
+                        return files.map(file => join(webDir, file));
+                    } catch (e) {
+                        return [];
+                    }
+                }),
             );
 
             // Theme files that override <root>/lib/web
             const webDir = join(curTheme.pathFromStoreRoot, 'web');
-            const pendingWebFiles = readTree(root, webDir);
+            const pendingWebFiles = (await readTree(join(root, webDir))).map(
+                f => join(webDir, f),
+            );
 
             return {
                 theme: curTheme,
@@ -78,53 +84,60 @@ async function reduceThemes(opts: Opts) {
         }),
     );
 
-    const flatTree: Record<string, StaticAsset> = {};
-    for (const tree of themeTrees) {
-        for (const file of tree.files) {
-            const themeFile = parseThemePath(file, tree.theme);
-            flatTree[themeFile.finalPath] = themeFile;
+    const tree: Record<string, StaticAsset> = {};
+    for (const themeTree of themeTrees) {
+        for (const file of themeTree.files) {
+            const themeFile = parseThemePath(file, themeTree.theme);
+            tree[themeFile.finalPath] = themeFile;
         }
     }
 
-    return flatTree;
+    return tree;
 }
 
 /**
- * @summary Implements the core business logic of *module* file fallback.
- *          Does not handle the special-case situations (less, requirejs-config.js)
+ * @summary Implements module file fallback for everything
+ *          except less files and requirejs-config.js
  */
 async function reduceModules(opts: Opts) {
     const { root, theme, enabledModules, components } = opts;
-    const entries: Record<string, ModuleAsset> = {};
+    const tree: Record<string, ModuleAsset> = {};
 
     await Promise.all(
         enabledModules.map(async moduleID => {
             const mod = components.modules[moduleID];
-            const path = join(mod.moduleID, 'view', theme.area, 'web');
-            const [, tree = new Set<string>()] = await wrapP(
-                readTree(root, path),
+            const webPath = join(
+                mod.pathFromStoreRoot,
+                'view',
+                theme.area,
+                'web',
             );
-            for (const file of tree) {
-                const moduleAsset = parseModulePath(file, mod);
-                entries[moduleAsset.finalPath] = moduleAsset;
+            const webTree = await readTree(join(root, webPath)).catch(() => []);
+            for (const file of webTree) {
+                const pathFromRoot = join(webPath, file);
+                const moduleAsset = parseModulePath(pathFromRoot, mod);
+                tree[moduleAsset.finalPath] = moduleAsset;
             }
         }),
     );
 
-    return entries;
+    return tree;
 }
 
-async function reduceLibWeb(opts: Opts) {
-    const flatTree: Record<string, StaticAsset> = {};
-    const path = join(sep, 'lib', 'web');
-    const files = await readTree(opts.root, path);
+/**
+ * @summary Recursively collects all files in <root>/lib/web
+ */
+async function reduceLibWeb({ root }: Opts) {
+    const webPath = join('lib', 'web');
+    const files = await readTree(join(root, webPath));
+    const tree: Record<string, StaticAsset> = {};
     for (const file of files) {
         const asset: RootAsset = {
             type: 'RootAsset',
-            pathFromStoreRoot: join('/', file),
-            finalPath: relative(path, file),
+            pathFromStoreRoot: join(sep, webPath, file),
+            finalPath: file,
         };
-        flatTree[asset.finalPath] = asset;
+        tree[asset.finalPath] = asset;
     }
-    return flatTree;
+    return tree;
 }

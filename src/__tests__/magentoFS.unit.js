@@ -47,7 +47,8 @@ test('parseThemePath handles path with module context in vendor', () => {
     const result = parseThemePath(path, composerBlank);
     expect(result).toEqual({
         moduleID: 'Magento_Foo',
-        pathFromStoreRoot: path,
+        pathFromStoreRoot:
+            '/vendor/magento/theme-frontend-blank/Magento_Foo/web/css/source/_module.less',
         themeID: 'Magento/blank',
         type: 'ThemeAsset',
         finalPath: 'Magento_Foo/css/source/_module.less',
@@ -100,7 +101,7 @@ test('parseModulePath handles file in vendor', () => {
         type: 'ModuleAsset',
         moduleID: 'Magento_Checkout',
         pathFromStoreRoot: path,
-        finalPath: 'js/foo.js',
+        finalPath: 'Magento_Checkout/js/foo.js',
     });
 });
 
@@ -115,7 +116,7 @@ test('parseModulePath handles file in app/code', () => {
         type: 'ModuleAsset',
         moduleID: 'Magento_Checkout',
         pathFromStoreRoot: path,
-        finalPath: 'js/foo.js',
+        finalPath: 'Magento_Checkout/js/foo.js',
     });
 });
 
