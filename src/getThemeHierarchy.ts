@@ -20,7 +20,7 @@ export function getThemeHierarchy(
     const parent = themes.find(t => t.themeID === theme.parentID);
     if (!parent) {
         throw new Error(
-            `Theme "${theme.themeID}" specified a parent of ` +
+            `Theme "${theme.themeID}" specified a parent (in theme.xml) of ` +
                 `"${theme.parentID}", but that theme could not be found.`,
         );
     }

@@ -75,6 +75,6 @@ test('Meaningful error when specified parent does not exist', () => {
     ];
     const fn = () => getThemeHierarchy(themes[0], themes);
     expect(fn).toThrow(
-        'Theme "Magento/luma" specified a parent of "Magento/blank", but that theme could not be found.',
+        'Theme "Magento/luma" specified a parent (in theme.xml) of "Magento/blank", but that theme could not be found.',
     );
 });

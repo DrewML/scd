@@ -14,6 +14,7 @@ import fromEntries from 'fromentries';
 /**
  * @summary Parses config.php to find a list of enabled modules
  * @see https://devdocs.magento.com/guides/v2.3/config-guide/config/config-php.html
+ * @todo This will break if app:config:dump has been run, Fix it
  */
 const CONFIG_PATH = 'app/etc/config.php';
 export async function getEnabledModules(root: string) {
@@ -37,6 +38,20 @@ export async function getEnabledModules(root: string) {
     }
 
     return enabledModules;
+}
+
+/**
+ * @summary Takes a guess at whether or not a dir is a
+ *          Magento store root
+ */
+export async function isMagentoRoot(root: string) {
+    assertAbsolute(root);
+    const files = await fs.readdir(root);
+    return (
+        files.includes('index.php') &&
+        files.includes('app') &&
+        files.includes('vendor')
+    );
 }
 
 /**

@@ -1,0 +1,11 @@
+{
+    "storeRoot": "/Users/andrewlevine/sites/demo",
+    "themes": [
+        {
+            "name": "luma",
+            "locales": [
+                "en_US"
+            ]
+        }
+    ]
+}

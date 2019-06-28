@@ -1,14 +1,29 @@
 #!/usr/bin/env node
 
+const chalk = require('chalk');
+
 const majorVersion = Number(process.version.split('v')[1].split('.')[0]);
 if (majorVersion < 10) {
     console.error(
-        `scd requires a version of node.js >= 10.0.0. You're currently using ${
-            process.version
-        }`,
+        chalk.red(
+            `scd requires a version of node.js >= 10.0.0. You're currently using ${
+                process.version
+            }`,
+        ),
     );
     process.exit(1);
 }
 
 require('source-map-support/register');
-require('../dist/cli');
+require('../dist/cli')
+    .run(process.cwd())
+    .catch(err => {
+        console.error(chalk.red(err.message));
+        console.error(
+            err.stack
+                .split('\n')
+                .slice(1)
+                .join('\n'),
+        );
+        process.exit(1);
+    });
