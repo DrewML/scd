@@ -98,6 +98,8 @@ async function getComposerComponents(root: string) {
         return { modules: [], themes: [] };
     }
 
+    // We're relying on the composer lock file because it's
+    // significantly faster than crawling each dependency dir
     const composerLock = JSON.parse(lockfile) as ComposerLock;
     const pendingModules: Promise<Module>[] = [];
     const pendingThemes: Promise<Theme>[] = [];
@@ -294,7 +296,7 @@ export function parseThemePath(path: string, theme: Theme): ThemeAsset {
 export function parseModulePath(path: string, mod: Module): ModuleAsset {
     const viewDir = join(mod.pathFromStoreRoot, 'view');
     // prettier-ignore
-    const [area, /* web */, ...rest] = relative(viewDir, path).split(sep);
+    const [/*area*/, /* web */, ...rest] = relative(viewDir, path).split(sep);
     return {
         type: 'ModuleAsset',
         moduleID: mod.moduleID,

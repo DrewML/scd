@@ -45,8 +45,7 @@ export async function themeTreeBuilder(opts: Opts): Promise<StaticAssetTree> {
 }
 
 /**
- * @summary Implements the core business logic of *theme*
- * file fallback (not including accounting for locales).
+ * @summary Theme file fallback
  */
 async function reduceThemes(opts: Opts) {
     const { root, enabledModules, components } = opts;
@@ -96,8 +95,7 @@ async function reduceThemes(opts: Opts) {
 }
 
 /**
- * @summary Implements module file fallback for everything
- *          except less files and requirejs-config.js
+ * @summary Module file fallback
  */
 async function reduceModules(opts: Opts) {
     const { root, theme, enabledModules, components } = opts;
@@ -112,7 +110,22 @@ async function reduceModules(opts: Opts) {
                 theme.area,
                 'web',
             );
-            const webTree = await readTree(join(root, webPath)).catch(() => []);
+            const baseWebPath = join(
+                mod.pathFromStoreRoot,
+                'view',
+                'base',
+                'web',
+            );
+            const [webTree, baseWebTree] = await Promise.all([
+                readTree(join(root, webPath)).catch(() => []),
+                readTree(join(root, baseWebPath)).catch(() => []),
+            ]);
+            // TODO: Clean up duplication below
+            for (const file of baseWebTree) {
+                const pathFromRoot = join(baseWebPath, file);
+                const moduleAsset = parseModulePath(pathFromRoot, mod);
+                tree[moduleAsset.finalPath] = moduleAsset;
+            }
             for (const file of webTree) {
                 const pathFromRoot = join(webPath, file);
                 const moduleAsset = parseModulePath(pathFromRoot, mod);

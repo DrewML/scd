@@ -33,6 +33,12 @@ test('themeTreeBuilder works with assets in app dir', async () => {
             "pathFromStoreRoot": "/app/code/Magento/Foo/view/frontend/web/js/foo-file2.js",
             "type": "ModuleAsset",
           },
+          "Magento_Foo/js/foo-file3.js": Object {
+            "finalPath": "Magento_Foo/js/foo-file3.js",
+            "moduleID": "Magento_Foo",
+            "pathFromStoreRoot": "/app/code/Magento/Foo/view/base/web/js/foo-file3.js",
+            "type": "ModuleAsset",
+          },
           "theme-ctx-file1.js": Object {
             "finalPath": "theme-ctx-file1.js",
             "pathFromStoreRoot": "/app/design/frontend/Magento/luma/web/theme-ctx-file1.js",
