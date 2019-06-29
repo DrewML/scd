@@ -56,22 +56,15 @@ async function reduceThemes(opts: Opts) {
             // that are disabled, so we read only from
             // dirs of modules enabled in config.php
             const pendingModuleCtxFiles = Promise.all(
-                enabledModules.map(async m => {
+                enabledModules.map(m => {
                     const webDir = join(curTheme.pathFromStoreRoot, m, 'web');
-                    try {
-                        const files = await readTree(join(root, webDir));
-                        return files.map(file => join(webDir, file));
-                    } catch (e) {
-                        return [];
-                    }
+                    return readTree(root, webDir).catch(() => []);
                 }),
             );
 
             // Theme files that override <root>/lib/web
             const webDir = join(curTheme.pathFromStoreRoot, 'web');
-            const pendingWebFiles = (await readTree(join(root, webDir))).map(
-                f => join(webDir, f),
-            );
+            const pendingWebFiles = await readTree(root, webDir);
 
             return {
                 theme: curTheme,
@@ -110,6 +103,8 @@ async function reduceModules(opts: Opts) {
                 theme.area,
                 'web',
             );
+            // modules have a special area "base" that has a
+            // lower priority than the current area (frontend/adminhtml)
             const baseWebPath = join(
                 mod.pathFromStoreRoot,
                 'view',
@@ -117,18 +112,11 @@ async function reduceModules(opts: Opts) {
                 'web',
             );
             const [webTree, baseWebTree] = await Promise.all([
-                readTree(join(root, webPath)).catch(() => []),
-                readTree(join(root, baseWebPath)).catch(() => []),
+                readTree(root, webPath).catch(() => []),
+                readTree(root, baseWebPath).catch(() => []),
             ]);
-            // TODO: Clean up duplication below
-            for (const file of baseWebTree) {
-                const pathFromRoot = join(baseWebPath, file);
-                const moduleAsset = parseModulePath(pathFromRoot, mod);
-                tree[moduleAsset.finalPath] = moduleAsset;
-            }
-            for (const file of webTree) {
-                const pathFromRoot = join(webPath, file);
-                const moduleAsset = parseModulePath(pathFromRoot, mod);
+            for (const file of [...baseWebTree, ...webTree]) {
+                const moduleAsset = parseModulePath(file, mod);
                 tree[moduleAsset.finalPath] = moduleAsset;
             }
         }),

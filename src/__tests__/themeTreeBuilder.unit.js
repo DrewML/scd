@@ -9,7 +9,7 @@ const { themeTreeBuilder } = require('../themeTreeBuilder');
 
 const getFixturePath = name => join(__dirname, '__fixtures__', name);
 
-test('themeTreeBuilder works with assets in app dir', async () => {
+test('themeTreeBuilder', async () => {
     const fixture = getFixturePath('themeTreeBuilder-app-dir');
     const components = await getComponents(fixture);
     const tree = await themeTreeBuilder({
