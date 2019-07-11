@@ -3,21 +3,14 @@
  * See COPYING.txt for license details.
  */
 
+import { UserConfig } from './types';
 import { promises as fs } from 'fs';
 import { isAbsolute, join, parse } from 'path';
 import { wrapP } from './wrapP';
 
-type Config = {
-    storeRoot: string;
-    themes: {
-        name: string;
-        locales: string[];
-    }[];
-};
-
 export async function getConfig(
     searchPath: string,
-): Promise<Config | undefined> {
+): Promise<UserConfig | undefined> {
     if (!isAbsolute(searchPath)) {
         throw new Error(
             `Expected absolute path in getConfig, but got ${searchPath}`,
@@ -49,10 +42,10 @@ async function findConfigPath(startPath: string): Promise<string | undefined> {
  *          expected type. Might use JSON schema for this
  *          in the future, but this is _much_ faster for now
  */
-function parseConfig(rawConfig: string): Config {
-    let config: Config;
+function parseConfig(rawConfig: string): UserConfig {
+    let config: UserConfig;
     try {
-        config = JSON.parse(rawConfig) as Config;
+        config = JSON.parse(rawConfig) as UserConfig;
     } catch (err) {
         err.message = 'Invalid Config: Malformed JSON';
         throw err;

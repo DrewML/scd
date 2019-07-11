@@ -3,6 +3,14 @@
  * See COPYING.txt for license details.
  */
 
+export type UserConfig = {
+    storeRoot: string;
+    themes: {
+        name: string;
+        locales: string[];
+    }[];
+};
+
 export type ModuleConfig = {
     name: string;
     sequence: string[];

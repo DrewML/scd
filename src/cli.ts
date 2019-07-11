@@ -3,6 +3,7 @@
  * See COPYING.txt for license details.
  */
 
+import { runBuild } from '.';
 import { getConfig } from './getConfig';
 import { getComponents, isMagentoRoot } from './magentoFS';
 import { promises as fs } from 'fs';
@@ -16,7 +17,7 @@ import c from 'chalk';
 export async function run(configPath: string = process.cwd()) {
     const config = await getConfig(configPath);
     if (config) {
-        console.log(config);
+        await runBuild(config);
         return;
     }
 

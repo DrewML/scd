@@ -58,6 +58,8 @@ async function reduceThemes(opts: Opts) {
             const pendingModuleCtxFiles = Promise.all(
                 enabledModules.map(m => {
                     const webDir = join(curTheme.pathFromStoreRoot, m, 'web');
+                    // Swallow read errors on purpose - modules are not
+                    // required to have a `web` dir
                     return readTree(root, webDir).catch(() => []);
                 }),
             );
