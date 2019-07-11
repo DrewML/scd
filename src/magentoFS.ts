@@ -171,7 +171,9 @@ async function getThemeParentName(themePath: string) {
     const themeXMLPath = join(themePath, 'theme.xml');
     const [err, source] = await wrapP(fs.readFile(themeXMLPath, 'utf8'));
     if (err) {
-        throw new Error(`Could not find "theme.xml in "${themeXMLPath}"`);
+        throw new Error(
+            `Could not find theme configuration (theme.xml) for theme at "${themeXMLPath}"`,
+        );
     }
     // Note: Skipping a full blown XML parser (for now) to maintain speed.
     // Sander will hate me :D
