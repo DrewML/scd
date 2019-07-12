@@ -11,13 +11,15 @@ import { Theme } from './types';
  */
 export function getThemeHierarchy(
     theme: Theme,
-    themes: Theme[],
+    themes: Record<string, Theme>,
     deps?: Theme[],
 ): Theme[] {
     const dependencies = deps || [theme];
     if (!theme.parentID) return dependencies;
 
-    const parent = themes.find(t => t.themeID === theme.parentID);
+    const parent = Object.values(themes).find(
+        t => t.themeID === theme.parentID,
+    );
     if (!parent) {
         throw new Error(
             `Theme "${theme.themeID}" specified a parent (in theme.xml) of ` +

@@ -45,7 +45,7 @@ async function setupWizard(root: string) {
             type: 'checkbox',
             name: 'themes',
             message: 'Select the themes you commonly deploy',
-            choices: themes.map(t => t.themeID),
+            choices: Object.values(themes).map(t => t.themeID),
             default: ['Magento/backend', 'Magento/luma'],
             validate: a => a.length > 0 || 'Must select at least one theme',
         },

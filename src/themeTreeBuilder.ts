@@ -27,7 +27,8 @@ type Opts = {
 /**
  * @summary Builds an in-memory/serializable representation of
  * the flattened theme, including files needing
- * processing (requirejs-config, .less, etc)
+ * processing (requirejs-config, .less, etc). Excludes
+ * any non-frontend assets (layout, phtml templates, etc)
  * @see https://devdocs.magento.com/guides/v2.3/frontend-dev-guide/themes/theme-inherit.html
  */
 export async function themeTreeBuilder(opts: Opts): Promise<StaticAssetTree> {

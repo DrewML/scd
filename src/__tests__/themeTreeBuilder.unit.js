@@ -14,7 +14,7 @@ test('themeTreeBuilder', async () => {
     const components = await getComponents(fixture);
     const tree = await themeTreeBuilder({
         root: fixture,
-        theme: components.themes.find(t => t.name === 'luma'),
+        theme: components.themes['Magento/luma'],
         components,
         enabledModules: ['Magento_Foo'],
     });

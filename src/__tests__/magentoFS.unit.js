@@ -126,26 +126,26 @@ test('getComponents works with composer/vendor', async () => {
     const components = await getComponents(root);
 
     expect(components).toMatchInlineSnapshot(`
-                Object {
-                  "modules": Object {
-                    "Magento_Foo": Object {
-                      "moduleID": "Magento_Foo",
-                      "pathFromStoreRoot": "/vendor/magento/module-foo",
-                      "sequence": Array [],
-                    },
-                  },
-                  "themes": Array [
-                    Object {
-                      "area": "frontend",
-                      "name": "blank",
-                      "parentID": "",
-                      "pathFromStoreRoot": "/vendor/magento/theme-frontend-blank",
-                      "themeID": "Magento/blank",
-                      "vendor": "magento",
-                    },
-                  ],
-                }
-        `);
+        Object {
+          "modules": Object {
+            "Magento_Foo": Object {
+              "moduleID": "Magento_Foo",
+              "pathFromStoreRoot": "/vendor/magento/module-foo",
+              "sequence": Array [],
+            },
+          },
+          "themes": Object {
+            "Magento/blank": Object {
+              "area": "frontend",
+              "name": "blank",
+              "parentID": "",
+              "pathFromStoreRoot": "/vendor/magento/theme-frontend-blank",
+              "themeID": "Magento/blank",
+              "vendor": "magento",
+            },
+          },
+        }
+    `);
 });
 
 test('getComponents works with app dir', async () => {
@@ -161,8 +161,8 @@ test('getComponents works with app dir', async () => {
               "sequence": Array [],
             },
           },
-          "themes": Array [
-            Object {
+          "themes": Object {
+            "Magento/blank": Object {
               "area": "frontend",
               "name": "blank",
               "parentID": "",
@@ -170,7 +170,7 @@ test('getComponents works with app dir', async () => {
               "themeID": "Magento/blank",
               "vendor": "Magento",
             },
-          ],
+          },
         }
     `);
 });

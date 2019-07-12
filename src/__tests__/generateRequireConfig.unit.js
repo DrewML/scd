@@ -15,7 +15,7 @@ test('Merges require configs in the correct order', async () => {
     const { themes, modules } = await getComponents(path);
     const enabledModuleNames = await getEnabledModules(path);
     const enabledModules = enabledModuleNames.map(m => modules[m]);
-    const luma = themes.find(t => t.themeID === 'Magento/luma');
+    const luma = themes['Magento/luma'];
     const orderedThemes = getThemeHierarchy(luma, themes);
 
     const result = await generateRequireConfig(

@@ -18,7 +18,7 @@ export type ModuleConfig = {
 
 export type Components = {
     modules: Record<string, Module>;
-    themes: Theme[];
+    themes: Record<string, Theme>;
 };
 
 export type Theme = {

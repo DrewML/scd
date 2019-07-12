@@ -66,14 +66,18 @@ export async function getComponents(root: string): Promise<Components> {
     ]);
 
     const allModules = [...composer.modules, ...nonComposer.modules];
-    // modules are typically referenced by their ID (Magento_Foo),
-    // and we do these lookups in some hot, nested loops, so we're
-    // eating the cost here for O(1) lookups later
+    const allThemes = [...composer.themes, ...nonComposer.themes];
+
     const modulesByName = fromEntries(allModules.map(m => [m.moduleID, m]));
+    const themesByID = fromEntries(
+        allThemes.map(theme => {
+            return [theme.themeID, theme];
+        }),
+    );
 
     return {
         modules: modulesByName,
-        themes: [...composer.themes, ...nonComposer.themes],
+        themes: themesByID,
     };
 }
 

@@ -18,15 +18,9 @@ export async function generateRequireConfig(
     themeHierarchy: Theme[],
     modules: Module[],
 ) {
-    const pendingModuleConfigs = getConfigsFromModules(
-        root,
-        themeHierarchy,
-        modules,
-    );
-    const pendingThemeConfigs = getConfigsFromThemes(root, themeHierarchy);
     const [moduleConfigs, themeConfigs] = await Promise.all([
-        pendingModuleConfigs,
-        pendingThemeConfigs,
+        getConfigsFromModules(root, themeHierarchy, modules),
+        getConfigsFromThemes(root, themeHierarchy),
     ]);
 
     return compileConfigs(moduleConfigs.concat(themeConfigs));
@@ -49,8 +43,8 @@ async function getConfigsFromModules(
         const basePath = configPath(mod.pathFromStoreRoot, 'base');
 
         const [areaConfig, baseConfig] = await Promise.all([
-            fs.readFile(join(root, areaPath), 'utf8').catch(() => ''),
-            fs.readFile(join(root, basePath), 'utf8').catch(() => ''),
+            safeReadFile(join(root, areaPath)),
+            safeReadFile(join(root, basePath)),
         ]);
 
         return [
@@ -65,22 +59,18 @@ async function getConfigsFromModules(
 /**
  * @summary Find all RequireJS configs for current theme
  *          and all ancestor themes. Note that, for "module context"
- *          configs, only the `Magento_Theme` dir is supported
+ *          configs (Vendor_Module), only the `Magento_Theme` dir is supported
  */
 async function getConfigsFromThemes(root: string, themeHierarchy: Theme[]) {
     const pendingMagentoThemeCtxConfigs = themeHierarchy.map(async t => {
         const path = join(t.pathFromStoreRoot, 'Magento_Theme', FILE_NAME);
-        const source = await fs
-            .readFile(join(root, path), 'utf8')
-            .catch(() => '');
+        const source = await safeReadFile(join(root, path));
         return { source, pathFromStoreRoot: path };
     });
 
     const pendingThemeRootConfigs = themeHierarchy.map(async t => {
         const path = join(t.pathFromStoreRoot, FILE_NAME);
-        const source = await fs
-            .readFile(join(root, path), 'utf8')
-            .catch(() => '');
+        const source = await safeReadFile(join(root, path));
         return { source, pathFromStoreRoot: path };
     });
 
@@ -110,3 +100,10 @@ function compileConfigs(configs: RequireConfig[]): string {
         return output + str;
     }, '');
 }
+
+/**
+ * @summary Reads a file, and returns the provided default value
+ *          when the file can't be accessed
+ */
+const safeReadFile = (path: string) =>
+    fs.readFile(path, 'utf8').catch(() => '');
