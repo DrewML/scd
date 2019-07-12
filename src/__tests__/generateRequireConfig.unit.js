@@ -48,6 +48,17 @@ test('Merges require configs in the correct order', async () => {
         });
 
         (function() {
+            /* Source: /app/code/Magento/Foo/view/base/requirejs-config.js */
+            var config = {
+            paths: {
+                foo: 'bar',
+            },
+        };
+
+            require.config(config);
+        });
+
+        (function() {
             /* Source: /app/design/frontend/Magento/blank/Magento_Theme/requirejs-config.js */
             var config = {
             paths: {
