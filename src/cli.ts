@@ -23,7 +23,8 @@ export async function run(configPath: string = process.cwd()) {
 
     await exitIfNotStoreRoot(configPath);
 
-    // Fail where we don't have an interactive shell
+    // Fail where we don't have an a config, and we
+    // don't have an interactive shell.
     // Example: Continuous integration servers
     if (!process.stdout.isTTY) {
         throw new Error('Could not locate config file "scd.json"');

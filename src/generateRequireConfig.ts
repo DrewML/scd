@@ -6,7 +6,8 @@
 import { join } from 'path';
 import { promises as fs } from 'fs';
 import { flatten } from './flatten';
-import { Theme, Module } from './types';
+import { Theme, Module, Components } from './types';
+import { getThemeHierarchy } from './getThemeHierarchy';
 
 const FILE_NAME = 'requirejs-config.js';
 /**
@@ -15,11 +16,18 @@ const FILE_NAME = 'requirejs-config.js';
  */
 export async function generateRequireConfig(
     root: string,
-    themeHierarchy: Theme[],
-    modules: Module[],
+    theme: Theme,
+    components: Components,
+    enabledModules: string[],
 ) {
+    const themeHierarchy = getThemeHierarchy(theme, components.themes);
     const [moduleConfigs, themeConfigs] = await Promise.all([
-        getConfigsFromModules(root, themeHierarchy, modules),
+        getConfigsFromModules(
+            root,
+            themeHierarchy,
+            components.modules,
+            enabledModules,
+        ),
         getConfigsFromThemes(root, themeHierarchy),
     ]);
 
@@ -32,13 +40,15 @@ export async function generateRequireConfig(
 async function getConfigsFromModules(
     root: string,
     themeHierarchy: Theme[],
-    modules: Module[],
+    modules: Record<string, Module>,
+    enabledModules: string[],
 ) {
     const configPath = (dir: string, area: string) => {
         return join(dir, 'view', area, FILE_NAME);
     };
     const [theme] = themeHierarchy.slice(-1);
-    const pendingConfigs = modules.map(async mod => {
+    const pendingConfigs = enabledModules.map(async (modName: string) => {
+        const mod = modules[modName];
         const areaPath = configPath(mod.pathFromStoreRoot, theme.area);
         const basePath = configPath(mod.pathFromStoreRoot, 'base');
 

@@ -7,7 +7,6 @@ import { UserConfig } from './types';
 import { getComponents, getEnabledModules } from './magentoFS';
 import { themeTreeBuilder } from './themeTreeBuilder';
 import { generateRequireConfig } from './generateRequireConfig';
-import { getThemeHierarchy } from './getThemeHierarchy';
 
 export async function runBuild(config: UserConfig) {
     const [components, enabledModules] = await Promise.all([
@@ -23,11 +22,11 @@ export async function runBuild(config: UserConfig) {
             theme: currentTheme,
             enabledModules,
         });
-        const sortedModules = enabledModules.map(m => components.modules[m]);
         const requireConfig = await generateRequireConfig(
             config.storeRoot,
-            getThemeHierarchy(currentTheme, components.themes),
-            sortedModules,
+            currentTheme,
+            components,
+            enabledModules,
         );
         console.log(requireConfig);
         // build requirejs-config.js

@@ -5,23 +5,19 @@
 
 const { join } = require('path');
 const { getComponents, getEnabledModules } = require('../magentoFS');
-const { getThemeHierarchy } = require('../getThemeHierarchy');
 const { generateRequireConfig } = require('../generateRequireConfig');
 
 const getFixturePath = name => join(__dirname, '__fixtures__', name);
 
 test('Merges require configs in the correct order', async () => {
     const path = getFixturePath('requireConfig');
-    const { themes, modules } = await getComponents(path);
-    const enabledModuleNames = await getEnabledModules(path);
-    const enabledModules = enabledModuleNames.map(m => modules[m]);
-    const luma = themes['Magento/luma'];
-    const orderedThemes = getThemeHierarchy(luma, themes);
+    const components = await getComponents(path);
 
     const result = await generateRequireConfig(
         path,
-        orderedThemes,
-        enabledModules,
+        components.themes['Magento/luma'],
+        components,
+        await getEnabledModules(path),
     );
 
     expect(result).toMatchInlineSnapshot(`
