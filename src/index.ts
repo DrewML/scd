@@ -7,6 +7,7 @@ import { UserConfig } from './types';
 import { getComponents, getEnabledModules } from './magentoFS';
 import { themeTreeBuilder } from './themeTreeBuilder';
 import { generateRequireConfig } from './generateRequireConfig';
+import { compileLess } from './transformLess';
 
 export async function runBuild(config: UserConfig) {
     const [components, enabledModules] = await Promise.all([
@@ -28,8 +29,9 @@ export async function runBuild(config: UserConfig) {
             components,
             enabledModules,
         );
-        console.log(requireConfig);
-        // build requirejs-config.js
+        // console.log(requireConfig);
+        const css = await compileLess(config.storeRoot, tree);
+        console.log(css);
         // build translation dicts
     }
 }

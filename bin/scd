@@ -18,12 +18,7 @@ require('source-map-support/register');
 require('../dist/cli')
     .run(process.cwd())
     .catch(err => {
-        console.error(chalk.red(err.message));
-        console.error(
-            err.stack
-                .split('\n')
-                .slice(1)
-                .join('\n'),
-        );
+        console.error(chalk.red('An error occurred attempting to run scd'));
+        console.error(err);
         process.exit(1);
     });
