@@ -3,6 +3,10 @@
  * See COPYING.txt for license details.
  */
 
+// TODO: Remove the fs reads from this file, switch to a tree transformer
+// (like the less implementation), and update themeTreeBuilder to collect
+// require configs
+
 import { join } from 'path';
 import { promises as fs } from 'fs';
 import { flatten } from './flatten';
@@ -13,6 +17,8 @@ const FILE_NAME = 'requirejs-config.js';
 /**
  * @summary Generate a combined RequireJS config file
  * @see https://devdocs.magento.com/guides/v2.3/javascript-dev-guide/javascript/js-resources.html#m2devgde-js-resources-mapping
+ * @todo Check if `enabledModules` from app/etc/config.php is actually in proper module sequence order
+ *       since we implicitly rely on it to get the order of requirejs-configs correct
  */
 export async function generateRequireConfig(
     root: string,

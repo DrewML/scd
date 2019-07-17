@@ -47,6 +47,7 @@
     "fast-xml-parser": "^3.12.16",
     "fromentries": "^1.1.0",
     "inquirer": "^6.4.1",
+    "jest-worker": "^24.6.0",
     "less": "^3.9.0",
     "source-map-support": "^0.5.12"
   }

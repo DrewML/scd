@@ -5,7 +5,7 @@
 
 const { preprocessMagicalMagentoImports } = require('../transformLess');
 
-test('preprocessMagicalMagentoImports', () => {
+test.skip('preprocessMagicalMagentoImports', () => {
     const less = `@import '_styles.less';
 @import (reference) 'source/_extends.less';
 

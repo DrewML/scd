@@ -8,7 +8,6 @@ import { getConfig } from './getConfig';
 import { getComponents, isMagentoRoot } from './magentoFS';
 import { promises as fs } from 'fs';
 import { join } from 'path';
-import inquirer from 'inquirer';
 import c from 'chalk';
 
 /**
@@ -41,7 +40,7 @@ export async function run(configPath: string = process.cwd()) {
  */
 async function setupWizard(root: string) {
     const { themes } = await getComponents(root);
-    const answer = await inquirer.prompt([
+    const answer = await getLazyLoadedInquirer().prompt([
         {
             type: 'checkbox',
             name: 'themes',
@@ -76,4 +75,14 @@ async function exitIfNotStoreRoot(root: string) {
         );
         process.exit(0);
     }
+}
+
+/**
+ * @summary The inquirer module has side-effects upon import that eat
+ *          up ~30ms of app start time. Lazy load it so we don't pay
+ *          that cost when we're not using it
+ */
+function getLazyLoadedInquirer() {
+    type Inquirer = typeof import('inquirer');
+    return require('inquirer') as Inquirer;
 }
