@@ -1,7 +1,12 @@
-<div style="text-align: center">
-<h1>scd</h1>
-<h2>Fast, drop-in replacement for <a href="https://devdocs.magento.com/guides/v2.3/config-guide/cli/config-cli-subcommands-static-view.html" target="_blank">Magento's Static Content Deploy</a></h2>
-</div>
+<p align="center">
+  <h1 align="center">scd</h1>
+  <h2 align="center">
+  Fast, drop-in replacement for <a href="https://devdocs.magento.com/guides/v2.3/config-guide/cli/config-cli-subcommands-static-view.html" target="_blank">Magento's Static Content Deploy</a>
+  </h2>
+  <p align="center">
+  <a href="https://circleci.com/gh/DrewML/scd"><img src="https://circleci.com/gh/DrewML/scd.svg?style=svg"></a>
+  </p>
+</p>
 
 ## Why?
 
