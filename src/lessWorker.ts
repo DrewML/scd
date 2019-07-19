@@ -31,6 +31,13 @@ export async function compileLess(
 
     try {
         // TODO: Configurable source-maps
+        // TODO: The less compiler returns a list of all imports
+        //       used. Can use this + last modified file dates to create
+        //       a cache key so we don't need to rebuild less on each run.
+        //       Less is literally _the_ bottleneck in this app, so it's
+        //       worth the additional work. Probably only work for local builds,
+        //       though, since last-modified isn't preserved when compressing
+        //       and uncompressing a tarball
         const result = await less.render(preprocessed, {
             plugins: [new LessFileManagerPlugin(root, tree)],
             filename: asset.finalPath,

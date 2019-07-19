@@ -60,3 +60,22 @@ export type RootAsset = {
 export type StaticAsset = ThemeAsset | ModuleAsset | RootAsset;
 
 export type StaticAssetTree = Record<string, StaticAsset>;
+
+export type InMemoryAsset = {
+    type: 'InMemoryAsset';
+    source: string;
+    finalPath: string;
+};
+
+export type TempFileAsset = {
+    type: 'TempFileAsset';
+    path: string;
+    finalPath: string;
+};
+
+export type GeneratedAsset = InMemoryAsset | TempFileAsset;
+
+export type TransformResult = {
+    filesToRemove: string[];
+    filesToAdd: GeneratedAsset[];
+};

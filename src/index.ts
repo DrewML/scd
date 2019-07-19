@@ -15,6 +15,7 @@ export async function runBuild(config: UserConfig) {
         getEnabledModules(config.storeRoot),
     ]);
 
+    // TODO: Start running (some) parts of theme processing in parallel
     for (const theme of config.themes) {
         const currentTheme = components.themes[theme.name];
         const tree = await themeTreeBuilder({
@@ -23,15 +24,20 @@ export async function runBuild(config: UserConfig) {
             theme: currentTheme,
             enabledModules,
         });
-        const requireConfig = await generateRequireConfig(
-            config.storeRoot,
-            currentTheme,
-            components,
-            enabledModules,
-        );
-        // console.log(requireConfig);
-        const css = await compileLess(config.storeRoot, tree);
-        console.log(css);
+
+        const [requireConfig, cssTransforms] = await Promise.all([
+            // generateRequireConfig should be a transform returning TransformResult[]
+            generateRequireConfig(
+                config.storeRoot,
+                currentTheme,
+                components,
+                enabledModules,
+            ),
+            compileLess(config.storeRoot, tree),
+        ]);
+
+        console.log(cssTransforms);
+
         // build translation dicts
     }
 }

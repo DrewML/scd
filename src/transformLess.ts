@@ -3,8 +3,8 @@
  * See COPYING.txt for license details.
  */
 
-import { extname } from 'path';
-import { StaticAssetTree } from './types';
+import { extname, join, parse } from 'path';
+import { StaticAssetTree, TransformResult, InMemoryAsset } from './types';
 import Worker from 'jest-worker';
 import { compileLess as compileLessWorker } from './lessWorker';
 
@@ -20,8 +20,8 @@ export async function compileLess(
     root: string,
     tree: StaticAssetTree,
     entries: string[] = ENTRIES,
-): Promise<StaticAssetTree> {
-    // Create a smaller version of the tree with just less files,
+): Promise<TransformResult> {
+    // Create a smaller version of the tree with just .less files,
     // to prevent sending excessive data over the message channel
     // with the worker processes
     const lessTree: StaticAssetTree = {};
@@ -32,10 +32,23 @@ export async function compileLess(
 
     const worker = new Worker(WORKER_PATH);
     const compile = (worker as any).compileLess as typeof compileLessWorker;
-    const results = await Promise.all(
-        entries.map(entry => compile(root, lessTree, entry)),
+    const filesToAdd = await Promise.all(
+        entries.map(async entry => {
+            const p = parse(entry);
+            const finalPath = join(p.dir, `${p.name}.css`);
+            return {
+                type: 'InMemoryAsset',
+                // TODO: Sourcemap stuff when work is done in lessWorker.ts
+                source: (await compile(root, lessTree, entry)).css,
+                finalPath,
+            } as InMemoryAsset;
+        }),
     );
 
     worker.end();
-    console.log(results);
+
+    return {
+        filesToRemove: Object.keys(lessTree),
+        filesToAdd,
+    };
 }
