@@ -3,6 +3,8 @@
  * See COPYING.txt for license details.
  */
 
+// TODO: Look into generating JSON schema
+// from this type def
 export type UserConfig = {
     storeRoot: string;
     themes: {

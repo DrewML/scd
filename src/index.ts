@@ -9,6 +9,9 @@ import { themeTreeBuilder } from './themeTreeBuilder';
 import { generateRequireConfig } from './generateRequireConfig';
 import { compileLess } from './transformLess';
 
+/**
+ * @summary Run a static content deployment for n themes/locales
+ */
 export async function runBuild(config: UserConfig) {
     const [components, enabledModules] = await Promise.all([
         getComponents(config.storeRoot),

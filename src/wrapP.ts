@@ -3,6 +3,9 @@
  * See COPYING.txt for license details.
  */
 
+/**
+ * @summary Resolve a promise with an [error, result] tuple
+ */
 export async function wrapP<T>(
     promise: Promise<T>,
 ): Promise<[null, T] | [Error]> {

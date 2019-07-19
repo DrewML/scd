@@ -7,7 +7,7 @@ import { Theme } from './types';
 
 /**
  * @summary Recursively resolve the inheritance hierarchy for a given theme.
- * Results are ordered starting from the base theme
+ *          Results are ordered starting from the base theme
  */
 export function getThemeHierarchy(
     theme: Theme,

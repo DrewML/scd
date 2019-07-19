@@ -1,7 +1,7 @@
 {
   "name": "@magento/scd",
   "version": "0.0.1",
-  "description": "Fast, drop-in replacement for Magento Static Content Deployment",
+  "description": "Fast, drop-in replacement for Magento's Static Content Deploy",
   "main": "dist/index.js",
   "bin": {
     "scd": "bin/scd"
@@ -22,8 +22,7 @@
   "keywords": [
     "magento",
     "m2",
-    "static",
-    "content"
+    "static"
   ],
   "author": "Adobe Inc",
   "license": "UNLICENSED",

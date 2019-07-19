@@ -13,6 +13,14 @@ type LessResult = {
     sourceMap?: string;
     error?: Less.RenderError;
 };
+
+/**
+ * @summary Compile a single .less file, including preprocessing
+ *          of @magento_import directives. Instruments the Less
+ *          compiler with a custom fs plugin that does in-memory
+ *          lookups for paths against the file-inheritance tree,
+ *          rather than scanning the disk
+ */
 export async function compileLess(
     root: string,
     tree: StaticAssetTree,
@@ -35,7 +43,7 @@ export async function compileLess(
         //       used. Can use this + last modified file dates to create
         //       a cache key so we don't need to rebuild less on each run.
         //       Less is literally _the_ bottleneck in this app, so it's
-        //       worth the additional work. Probably only work for local builds,
+        //       worth the additional work. Will probably only work for local builds,
         //       though, since last-modified isn't preserved when compressing
         //       and uncompressing a tarball
         const result = await less.render(preprocessed, {
@@ -53,9 +61,9 @@ export async function compileLess(
 }
 
 /**
- * @summary Explode Magento's @magento_import rule
- *          Note that Magento core does not respect
- *          sequence order here (afaict), so we won't either
+ * @summary Explode Magento's @magento_import rule into many @import rules.
+ *          Note that Magento core does not respect module sequence order here
+ *          (afaict), so we won't either until we need to
  * @see https://devdocs.magento.com/guides/v2.3/frontend-dev-guide/css-topics/css-preprocess.html#magento_import_example
  */
 function preprocessMagicalMagentoImports(
@@ -142,6 +150,10 @@ class LessFileManager extends (less.FileManager as any) {
         return { contents, filename: treePath };
     }
 }
+
+/**
+ * @summary Less requires using a plugin to install a new file manager
+ */
 class LessFileManagerPlugin {
     root: string;
     tree: StaticAssetTree;

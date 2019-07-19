@@ -6,6 +6,9 @@
 import { Module } from './types';
 import TopologicalSort from '@hapi/topo';
 
+/**
+ * @summary Perform a topological sort on Magento modules
+ */
 export function sequenceResolver(configs: Module[]) {
     const sort = new TopologicalSort();
     for (const config of configs) {

@@ -8,6 +8,11 @@ import { promises as fs } from 'fs';
 import { isAbsolute, join, parse } from 'path';
 import { wrapP } from './wrapP';
 
+/**
+ * @summary Locate/validate/parse the `scd.json` configuration file. Starts
+ *          at cwd and continues up until either a config is found, or "/" is hit.
+ *          This enables running the `scd` command in any store directory
+ */
 export async function getConfig(
     searchPath: string,
 ): Promise<UserConfig | undefined> {
