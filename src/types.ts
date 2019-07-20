@@ -63,6 +63,11 @@ export type StaticAsset = ThemeAsset | ModuleAsset | RootAsset;
 
 export type StaticAssetTree = Record<string, StaticAsset>;
 
+export type CSSCompilationResult = {
+    filesToRemove: string[];
+    filesToAdd: GeneratedAsset[];
+};
+
 export type InMemoryAsset = {
     type: 'InMemoryAsset';
     source: string;
@@ -71,13 +76,9 @@ export type InMemoryAsset = {
 
 export type TempFileAsset = {
     type: 'TempFileAsset';
+    // absolute or relative?
     path: string;
     finalPath: string;
 };
 
 export type GeneratedAsset = InMemoryAsset | TempFileAsset;
-
-export type TransformResult = {
-    filesToRemove: string[];
-    filesToAdd: GeneratedAsset[];
-};

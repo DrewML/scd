@@ -3,29 +3,28 @@
  * See COPYING.txt for license details.
  */
 
-// TODO: Remove the fs reads from this file, switch to a tree transformer
-// (like the less implementation), and update themeTreeBuilder to collect
-// require configs
-
 import { join } from 'path';
 import { promises as fs } from 'fs';
 import { flatten } from './flatten';
-import { Theme, Module, Components } from './types';
+import { Theme, Module, Components, GeneratedAsset } from './types';
 import { getThemeHierarchy } from './getThemeHierarchy';
 
 const FILE_NAME = 'requirejs-config.js';
 /**
- * @summary Generate a combined RequireJS config file
+ * @summary Generate a combined RequireJS config file. Note that requirejs-config.js
+ *          files do not follow the file-fallback strategy like other assets,
+ *          which is why they're not collected in themeTreeBuilder.ts
  * @see https://devdocs.magento.com/guides/v2.3/javascript-dev-guide/javascript/js-resources.html#m2devgde-js-resources-mapping
- * @todo Check if `enabledModules` from app/etc/config.php is actually in proper module sequence order
- *       since we implicitly rely on it to get the order of requirejs-configs correct
+ * @todo We implicitly rely on the order of `enabledModules` respecting module sequence.
+ *       Might consider using sequenceResolver.ts instead, since that behavior
+ *       isn't guaranteed by Magento core in the future
  */
 export async function generateRequireConfig(
     root: string,
     theme: Theme,
     components: Components,
     enabledModules: string[],
-) {
+): Promise<GeneratedAsset> {
     const themeHierarchy = getThemeHierarchy(theme, components.themes);
     const [moduleConfigs, themeConfigs] = await Promise.all([
         getConfigsFromModules(
@@ -37,7 +36,12 @@ export async function generateRequireConfig(
         getConfigsFromThemes(root, themeHierarchy),
     ]);
 
-    return compileConfigs(moduleConfigs.concat(themeConfigs));
+    const config = compileConfigs(moduleConfigs.concat(themeConfigs));
+    return {
+        type: 'InMemoryAsset',
+        source: config,
+        finalPath: 'requirejs-config.js',
+    };
 }
 
 /**
@@ -112,7 +116,7 @@ function compileConfigs(configs: RequireConfig[]): string {
     /* Source: ${conf.pathFromStoreRoot} */
     ${conf.source}
     require.config(config);
-});\n\n`;
+})();\n\n`;
         return output + str;
     }, '');
 }

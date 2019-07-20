@@ -14,7 +14,7 @@ For background on the motivations for the `scd` project, please see [the origina
 
 ## How to work on `scd`
 
-1. Ensure you have a version of `node.js` locally that is >= `v10.0.0`
+1. Ensure you have a version of `node.js` locally that is >= `v10.12.0`
 2. Clone the repository
 3. In the root, run `npm install`
 4. Run `npm test` to verify you've set everything up properly. All tests are expected to pass

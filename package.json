@@ -24,6 +24,9 @@
     "m2",
     "static"
   ],
+  "engines": {
+    "node": ">=10.12.0"
+  },
   "author": "Adobe Inc",
   "license": "UNLICENSED",
   "bugs": {
@@ -34,6 +37,7 @@
     "@types/inquirer": "^6.0.3",
     "@types/less": "^3.0.0",
     "@types/node": "^12.0.0",
+    "@types/rimraf": "^2.0.2",
     "glob": "^7.1.4",
     "jest": "^24.8.0",
     "prettier": "^1.17.0",
@@ -48,6 +52,7 @@
     "inquirer": "^6.4.1",
     "jest-worker": "^24.6.0",
     "less": "^3.9.0",
+    "rimraf": "^2.6.3",
     "source-map-support": "^0.5.12"
   }
 }

@@ -21,7 +21,9 @@ test('Merges require configs in the correct order', async () => {
     );
 
     expect(result).toMatchInlineSnapshot(`
-        "(function() {
+        Object {
+          "finalPath": "requirejs-config.js",
+          "source": "(function() {
             /* Source: /app/code/Magento/Theme/view/frontend/requirejs-config.js */
             var config = {
             paths: {
@@ -30,7 +32,7 @@ test('Merges require configs in the correct order', async () => {
         };
 
             require.config(config);
-        });
+        })();
 
         (function() {
             /* Source: /app/code/Magento/Foo/view/frontend/requirejs-config.js */
@@ -41,7 +43,7 @@ test('Merges require configs in the correct order', async () => {
         };
 
             require.config(config);
-        });
+        })();
 
         (function() {
             /* Source: /app/code/Magento/Foo/view/base/requirejs-config.js */
@@ -52,7 +54,7 @@ test('Merges require configs in the correct order', async () => {
         };
 
             require.config(config);
-        });
+        })();
 
         (function() {
             /* Source: /app/design/frontend/Magento/blank/Magento_Theme/requirejs-config.js */
@@ -63,7 +65,7 @@ test('Merges require configs in the correct order', async () => {
         };
 
             require.config(config);
-        });
+        })();
 
         (function() {
             /* Source: /app/design/frontend/Magento/luma/Magento_Theme/requirejs-config.js */
@@ -74,7 +76,7 @@ test('Merges require configs in the correct order', async () => {
         };
 
             require.config(config);
-        });
+        })();
 
         (function() {
             /* Source: /app/design/frontend/Magento/blank/requirejs-config.js */
@@ -85,7 +87,7 @@ test('Merges require configs in the correct order', async () => {
         };
 
             require.config(config);
-        });
+        })();
 
         (function() {
             /* Source: /app/design/frontend/Magento/luma/requirejs-config.js */
@@ -96,8 +98,10 @@ test('Merges require configs in the correct order', async () => {
         };
 
             require.config(config);
-        });
+        })();
 
-        "
+        ",
+          "type": "InMemoryAsset",
+        }
     `);
 });

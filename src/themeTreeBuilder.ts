@@ -26,8 +26,7 @@ type Opts = {
 
 /**
  * @summary Builds an in-memory/serializable representation of
- * the flattened theme, including files needing
- * processing (requirejs-config, .less, etc). Excludes
+ * all files that participle in file fallback. Excludes
  * any non-frontend assets (layout, phtml templates, etc)
  * @see https://devdocs.magento.com/guides/v2.3/frontend-dev-guide/themes/theme-inherit.html
  */

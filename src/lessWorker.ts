@@ -21,7 +21,7 @@ type LessResult = {
  *          lookups for paths against the file-inheritance tree,
  *          rather than scanning the disk
  */
-export async function compileLess(
+export async function lessWorker(
     root: string,
     tree: StaticAssetTree,
     entry: string,
