@@ -3,12 +3,11 @@
  * See COPYING.txt for license details.
  */
 
-import { extname, join, parse } from 'path';
+import { join, parse } from 'path';
 import { StaticAssetTree, InMemoryAsset, CSSCompilationResult } from './types';
 import Worker from 'jest-worker';
 import { lessWorker } from './lessWorker';
 
-const ENTRIES = ['css/styles-l.less', 'css/styles-m.less'];
 const WORKER_PATH = require.resolve('./lessWorker');
 
 /**
@@ -18,14 +17,22 @@ const WORKER_PATH = require.resolve('./lessWorker');
 export async function compileLess(
     root: string,
     tree: StaticAssetTree,
-    entries: string[] = ENTRIES,
 ): Promise<CSSCompilationResult> {
     // Create a smaller version of the tree with just .less files,
     // to prevent sending excessive data over the message channel
     // with the worker processes
     const lessTree: StaticAssetTree = {};
+    // Any file in the top-level of the `css` dir in the theme is an entry point
+    const entries: string[] = [];
+
     for (const [path, asset] of Object.entries(tree)) {
-        if (extname(path) !== '.less') continue;
+        const { ext, dir, name } = parse(path);
+        if (ext !== '.less') continue;
+
+        if (dir === 'css' && name[0] !== '_') {
+            entries.push(path);
+        }
+
         lessTree[path] = asset;
     }
 
