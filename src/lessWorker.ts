@@ -3,6 +3,13 @@
  * See COPYING.txt for license details.
  */
 
+// Enable source-map support to ensure stack traces provided in bug reports
+// reference the TypeScript src, not compiled JS
+
+// TODO: Only register support when running in a worker
+// (in the main thread, bin/scd has already registered it)
+require('source-map-support/register');
+
 import less from 'less';
 import { promises as fs } from 'fs';
 import { StaticAssetTree } from './types';
@@ -140,7 +147,8 @@ class LessFileManager extends (less.FileManager as any) {
      *          to re-map lookups to our in-memory tree
      */
     async loadFile(filename: string, currentDirectory: string) {
-        const treePath = join(currentDirectory, filename);
+        const fileWithExt = extname(filename) ? filename : `${filename}.less`;
+        const treePath = join(currentDirectory, fileWithExt);
         const asset = this.tree[treePath];
         const contents = await fs.readFile(
             join(this.root, asset.pathFromStoreRoot),
