@@ -45,7 +45,7 @@
     "typescript": "^3.4.5"
   },
   "dependencies": {
-    "@hapi/topo": "^3.1.0",
+    "@hapi/topo": "^3.1.6",
     "chalk": "^2.4.2",
     "fast-xml-parser": "^3.12.16",
     "fromentries": "^1.1.0",
